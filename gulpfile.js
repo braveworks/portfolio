@@ -6,6 +6,8 @@ var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var autoprefixer = require('autoprefixer');
 var mqpacker = require('css-mqpacker');
+var yaml = require('js-yaml');
+var fs   = require('fs');
 var reload = browserSync.reload;
 var build = false;
 
@@ -44,6 +46,7 @@ gulp.task('styles', function() {
 
 // ejs -> html
 gulp.task('ejs', ['clean:ejs'], function() {
+  var config = yaml.safeLoad(fs.readFileSync('./ejs-config.yml', 'utf8'));
   var options = {
     ext: '.html'
   };
@@ -53,7 +56,7 @@ gulp.task('ejs', ['clean:ejs'], function() {
     ])
     .pipe($.newer('.tmp'))
     .pipe($.plumber())
-    .pipe($.ejs(null, options))
+    .pipe($.ejs(config, options))
     .pipe($.if(!build, gulp.dest('.tmp/')))
     .pipe($.if(build, gulp.dest('dist/')));
 });
@@ -78,7 +81,7 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch(['app/styles/**/*'], ['styles', reload]);
-  gulp.watch(['app/**/*.ejs'], ['ejs', reload]);
+  gulp.watch(['app/**/*.ejs','ejs-config.yml'], ['ejs', reload]);
   gulp.watch(['app/fonts/**/*'], reload);
   gulp.watch(['app/images/**/*'], reload);
   gulp.watch(['app/scripts/**/*'], reload);
