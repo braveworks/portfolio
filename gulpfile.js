@@ -51,6 +51,7 @@ gulp.task('ejs', ['clean:ejs'], function() {
       'app/{,**/}*.ejs',
       '!app/{,**/}_*.ejs'
     ])
+    .pipe($.newer('.tmp'))
     .pipe($.plumber())
     .pipe($.ejs(null, options))
     .pipe($.if(!build, gulp.dest('.tmp/')))
