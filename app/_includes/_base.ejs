@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= (title)? title : page %></title>
     <link rel="stylesheet" href="/styles/main.css">
-    <% styles() %>
+    <% styles(); %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
   <body>
     <% include _header -%>
-    <% contents() %>
+    <% contents(); %>
     <% include _footer -%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="/scripts/main.js"></script>
-    <% scripts() %>
+    <% scripts(); %>
   </body>
 </html>
