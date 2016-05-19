@@ -39,32 +39,17 @@ gulp dist
 
 ```
 app
-├── _includes         // ejsのインクルードファイル用ディレクトリ
-│   ├── _base.ejs     //HTMLのベース
-│   ├── _cover.ejs
-│   ├── _footer.ejs   //ヘッダーのコンポーネント
-│   └── _header.ejs   //フッターのコンポーネント
-├── fonts             //フォント
-├── images            //画像
-├── index.ejs         //index.html になるejsファイル
-├── scripts           // js
+├── _includes/         // ejsのインクルードファイルを格納する
+│   ├── _base.ejs      // HTMLのベース
+│   ├── _footer.ejs    // ヘッダーのコンポーネント
+│   └── _header.ejs    // フッターのコンポーネント
+├── fonts/             // フォント
+├── images/            // 画像
+├── index.ejs          // index.html になる ejs ファイル
+├── scripts/           // js
 │   └── main.js
-└── styles            // SCSS
-    ├── common
-    │   ├── _global.scss
-    │   ├── _media-querys.scss
-    │   └── _variables.scss
-    ├── components
-    │   ├── _buttons.scss
-    │   ├── _comments.scss
-    │   ├── _forms.scss
-    │   └── _grid.scss
-    ├── layouts
-    │   ├── _footer.scss
-    │   ├── _header.scss
-    │   ├── _pages.scss
-    │   └── _sidebar.scss
-    └── main.scss       // エントリポイントになるscssファイル。それ以外の_で始まるscssはmain.scssにimportされるpartialファイルです。
+└── styles/            // SCSS
+    └── main.scss
 ```
 
 ## 備考
