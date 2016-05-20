@@ -1,27 +1,32 @@
 ####################################################
-# ejs 用設定ファイル (yaml形式)
+# EJS CONFIG （yaml形式）
 ####################################################
 
-### サーバーのルートパス
-rootPath         : '/'
+# サーバーのルートパス
+config:
+  rootPath     : '/'
+
+####################################################
+#
+####################################################
 
 ### サイト基本情報
-site         :
+site:
   title      : 'Gulpテンプレート'
   domain     : 'homepage-premium.com'
   copyright  : '2016 OS Co.,Ltd.'
 
 ### メタ情報
-meta         :
+meta:
   description: 'サイトの説明'
   keyword    : 'キーワード'
 
 ### OGP
-ogp          :
-  default    :
+ogp:
+  default:
     title    : ''
 
 ### Twitter Card
-twt          :
+twt:
   default    :
     title    : ''

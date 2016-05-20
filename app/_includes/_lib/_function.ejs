@@ -1,0 +1,21 @@
+<%
+/**
+ *  custom function
+ */
+
+// root path fix
+root = function(path){
+  return config.rootPath + path;
+};
+
+// add　dns-prefetch
+var dnsPrefetchUrl = [
+  'ajax.googleapis.com',
+  'cdnjs.cloudflare.com',
+  'googleads.g.doubleclick.net',
+  'pagead2.googlesyndication.com',
+  'www.gstatic.com',
+];
+var dnsLoop = function (value){ -%><link rel="dns-prefetch" href="//<%= value %>"><% };
+addDnsPrefetch = function (){ dnsPrefetchUrl.forEach(dnsLoop); };
+-%>

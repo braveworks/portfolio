@@ -7,7 +7,7 @@ var browserSync = require('browser-sync');
 var autoprefixer = require('autoprefixer');
 var mqpacker = require('css-mqpacker');
 var yaml = require('js-yaml');
-var fs   = require('fs');
+var fs = require('fs');
 var reload = browserSync.reload;
 var build = false;
 
@@ -48,15 +48,21 @@ gulp.task('styles', function() {
 gulp.task('ejs', ['clean:ejs'], function() {
   var config = yaml.safeLoad(fs.readFileSync('./ejs-config.yml', 'utf8'));
   var options = {
-    ext: '.html'
+    ejs: {
+      ext: '.html'
+    },
+    beautifier: {
+      indentSize: 2
+    }
   };
   return gulp.src([
-      'app/{,**/}*.ejs',
-      '!app/{,**/}_*.ejs'
+      'app/{,**/}*.+(ejs|html)',
+      '!app/{,**/}_*.+(ejs|html)'
     ])
     .pipe($.newer('.tmp'))
     .pipe($.plumber())
-    .pipe($.ejs(config, options))
+    .pipe($.ejs(config, options.ejs))
+    .pipe($.jsbeautifier(options.beautifier))
     .pipe($.if(!build, gulp.dest('.tmp/')))
     .pipe($.if(build, gulp.dest('dist/')));
 });
@@ -81,11 +87,11 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch(['app/styles/**/*'], ['styles', reload]);
-  gulp.watch(['app/**/*.ejs','ejs-config.yml'], ['ejs', reload]);
+  gulp.watch(['app/**/*.ejs', 'ejs-config.yml'], ['ejs', reload]);
   gulp.watch(['app/fonts/**/*'], reload);
   gulp.watch(['app/images/**/*'], reload);
   gulp.watch(['app/scripts/**/*'], reload);
-  gulp.watch(['app/**/*.html'], reload);
+  // gulp.watch(['app/**/*.html'], reload);
 });
 
 // clean directory
@@ -109,13 +115,13 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-// dist
+// buid distribution site
 gulp.task('dist', function() {
   build = true;
   runSequence('clean', ['styles', 'ejs', 'copy']);
 });
 
 // default
-gulp.task('default', ['styles','ejs'], function() {
+gulp.task('default', ['styles', 'ejs'], function() {
   gulp.start('watch');
 });

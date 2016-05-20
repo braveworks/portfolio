@@ -1,4 +1,4 @@
-<% include _function  -%>
+<% include _lib/_function -%>
 <% var page = filename.split('/')[filename.split('/').length - 1].replace('.ejs', ''); -%>
 <!DOCTYPE html>
 <html class="no-js" lang="ja">
@@ -8,21 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title><%= ((title)? title : '') + site.title; %></title>
-    <% var metaLoop = function (key){ %>
-      <meta name="<%= key %>" content="<%= meta[key] %>">
-    <% }; if(meta){ Object.keys(meta).forEach(metaLoop); } -%>
-    <% var ogpLoop = function (key){ %>
-      <meta property="og:<%= key %>" content="<%= ogpCheck(key) %>">
-    <% }; if(ogp){ Object.keys(ogp).forEach(ogpLoop); } -%>
+    <% var metaLoop = function (key){ %><meta name="<%= key %>" content="<%= meta[key] %>">
+    <% };if(meta){ Object.keys(meta).forEach(metaLoop); } -%>
+    <meta property="og:title" content="<%=  %>">
+    <meta property="og:type" content="<%=  %>">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="<%=  %>">
+    <meta property="og:description" content="<%=  %>">
+    <meta property="og:url" content="<%=  %>">
+    <meta property="og:image" content="<%=  %>">
+    <meta name="twitter:site" content="<%=  %>">
+    <meta name="twitter:card" content="<%=  %>">
+    <meta name="twitter:description" content="<%=  %>">
+    <meta name="twitter:image:src" content="<%=  %>">
     <link rel="dns-prefetch" href="//<%= site.domain %>">
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
-    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
-    <link rel="dns-prefetch" href="//www.gstatic.com">
+    <% addDnsPrefetch(); %>
     <link rel="shortcut icon" href="<%= root('favicon.ico'); %>">
     <link rel="apple-touch-icon" href="<%= root('images/apple-touch-icon.png'); %>">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="<%= root('styles/main.css'); %>">
     <% styles(); %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
@@ -30,9 +33,8 @@
     <% include _header -%>
     <% contents(); %>
     <% include _footer -%>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>
   </body>
 </html>

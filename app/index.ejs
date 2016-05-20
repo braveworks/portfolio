@@ -1,6 +1,8 @@
 <% title  = '' -%>
+<% styles  = function () { %><% } -%>
 <% contents = function () { %>
-  <%- include('_includes/_cover',{h1:'Hello World'}) -%>
+
+  <%- include('_includes/_cover',{ h1txt : 'Hello World', src: '' }); -%>
 
   <section>
     <div class="container">
@@ -54,7 +56,8 @@
     </div>
   </section>
 
+<img src="<%= root('images/main.png'); %>" alt="">
+
 <% } -%>
-<% styles  = function () { %><% } -%>
 <% scripts = function () { %><% } -%>
-<% include _includes/_base %>
+<% include _includes/_base -%>
