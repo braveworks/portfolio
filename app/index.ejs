@@ -2,7 +2,7 @@
 <% styles  = function () { %><% } -%>
 <% contents = function () { %>
 
-  <%- include('_includes/_cover',{ h1txt : 'Hello World', src: '' }); -%>
+  <%- include('_includes/_layout/_cover',{ h1txt : 'Hello World', src: '' }); -%>
 
   <section>
     <div class="container">
@@ -55,8 +55,6 @@
       </div>
     </div>
   </section>
-
-<img src="<%= root('images/main.png'); %>" alt="">
 
 <% } -%>
 <% scripts = function () { %><% } -%>
