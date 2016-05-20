@@ -1,5 +1,15 @@
-<% title  = '' -%>
-<% styles  = function () { %><% } -%>
+<%# -------------------------------------------- -%>
+
+<% title  = 'トップ'; -%>
+
+<%# -------------------------------------------- -%>
+
+<% styles = function () { %>
+  <link rel="stylesheet" href="<%= root('styles/index.css'); %>">
+<% }; -%>
+
+<%# -------------------------------------------- -%>
+
 <% contents = function () { %>
 
   <%- include(ejsRoot + '_includes/_layout/_cover',{ h1txt : 'Hello World', src: '' }); -%>
@@ -31,6 +41,7 @@
     <div class="container">
       <h2 class="page-header">Headding-2</h2>
       <div class="row">
+      <% for(i=0;i<6;i++){ %>
         <div class="col-sm-4">
           <h3 class="text-center">Headding-3</h3>
           <p><img class="img-responsive img-circle center-block" src="http://placehold.it/200x200" alt=""></p>
@@ -38,24 +49,23 @@
             irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <button class="btn btn-primary btn-block">button</button>
         </div>
-        <div class="col-sm-4">
-          <h3 class="text-center">Headding-3</h3>
-          <p><img class="img-responsive img-circle center-block" src="http://placehold.it/200x200" alt=""></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <button class="btn btn-primary btn-block">button</button>
-        </div>
-        <div class="col-sm-4">
-          <h3 class="text-center">Headding-3</h3>
-          <p><img class="img-responsive img-circle center-block" src="http://placehold.it/200x200" alt=""></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <button class="btn btn-primary btn-block">button</button>
-        </div>
+      <% }; -%>
       </div>
     </div>
   </section>
 
-<% } -%>
-<% scripts = function () { %><% } -%>
+<% }; -%>
+
+<%# -------------------------------------------- -%>
+
+<% scripts = function () { %>
+  <script>
+    (function($){
+      console.log('js');
+    })(jQuery);
+  </script>
+<% }; -%>
+
+<%# -------------------------------------------- -%>
+
 <% include _includes/_base -%>
