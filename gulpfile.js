@@ -75,6 +75,25 @@ gulp.task('clean:ejs', del.bind(null, [
   dot: true
 }));
 
+// scripts
+gulp.task('scripts', ['jshint'], function() {
+
+});
+
+gulp.task('jshint', function() {
+  return gulp.src([
+      'app/scripts/**/*.js',
+      '!app/scripts/vendor/**/*'
+    ])
+    .pipe(reload({
+      stream: true,
+      once: true
+    }))
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+});
+
 // imagemin
 gulp.task('images', function(){
   var option = {
@@ -101,7 +120,7 @@ gulp.task('watch', function() {
   gulp.watch(['app/**/*.ejs', 'app/**/*.html', 'ejs-config.yml'], ['ejs', reload]);
   gulp.watch(['app/fonts/**/*'], reload);
   gulp.watch(['app/images/**/*'], reload);
-  gulp.watch(['app/scripts/**/*'], reload);
+  gulp.watch(['app/scripts/**/*'], ['jshint', reload]);
 });
 
 // clean directory
