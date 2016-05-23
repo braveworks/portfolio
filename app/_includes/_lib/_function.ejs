@@ -18,6 +18,30 @@ var dnsPrefetchUrl = [
   'pagead2.googlesyndication.com',
   'www.gstatic.com',
 ];
-var dnsLoop = function (value){ -%><link rel="dns-prefetch" href="//<%= value %>"><% };
+var dnsLoop = function (value){ -%><link rel = "dns-prefetch"href = "//<%= value %>" ><% };
 addDnsPrefetch = function (){ dnsPrefetchUrl.forEach(dnsLoop); };
+
+bodyClass = function(){
+  var filePath = filename.split('/');
+  var file = filename.split('/')[filename.split('/').length - 1].replace('.ejs', '');
+  var className ='';
+  var flag = false;
+  filePath.forEach(function (value,key){
+    if(value === 'app'){
+      flag = true;
+    }else if(flag){
+      if(~value.indexOf('.ejs')){
+        if(file !== 'index'){
+          var name = value.replace('.ejs', '');
+          className = (className === '')? name : className + '-' + name;
+        }else{
+          className = className + '';
+        }
+      }else{
+        className = (className === '')? value : className + '-' + value;
+      }
+    }
+  });
+  return className;
+};
 -%>
