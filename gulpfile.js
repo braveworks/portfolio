@@ -75,6 +75,17 @@ gulp.task('clean:ejs', del.bind(null, [
   dot: true
 }));
 
+// imagemin
+gulp.task('images', function(){
+  var option = {
+    progressive: true,
+    interlaced: true
+  };
+  gulp.src('app/images/**/*')
+    .pipe($.cache($.imagemin(option)))
+    .pipe(gulp.dest('dist/images'));
+});
+
 // watch task
 gulp.task('watch', function() {
   browserSync.init({
@@ -105,6 +116,7 @@ gulp.task('copy', function() {
   gulp.src([
       'app/{,**/}*',
       '!app/styles/**/*',
+      '!app/images/**/*',
       '!app/{,**/}*.+(ejs|ect|scss|sass)',
       '!app/{,**/}_*',
       '!app/{,**/}.gitkeep'
@@ -117,7 +129,7 @@ gulp.task('copy', function() {
 // buid distribution site
 gulp.task('dist', function() {
   build = true;
-  runSequence('clean', ['styles', 'ejs', 'copy']);
+  runSequence('clean', ['styles', 'ejs', 'images',]);
 });
 
 // default
