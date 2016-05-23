@@ -5,10 +5,11 @@
 ## できること
 - SCSS -> CSS の自動コンパイル（Libsass）
   - AutoPrefixer
-  - Media Query をソート
+  - Media Query のソート
   - CSS圧縮
 - EJS -> HTMLにコンパイル
-- ブラウザ自動更新（Browser-Sync）
+- 画像圧縮 (imagemin)
+- ブラウザの自動更新（Browser-Sync）
 
 ## 初期化
 初回に一度、以下のコマンドで必要なモジュールを準備します。
