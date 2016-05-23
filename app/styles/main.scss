@@ -1,16 +1,11 @@
 //common
 @import "common/variables";
 @import "common/media-querys";
-
-//_bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"; //_bootstrap
 @import "common/global";
 
 //components
 @import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/grid";
 
 //layout
 @import "layouts/header";

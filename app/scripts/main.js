@@ -104,7 +104,6 @@
             mobileHA: true
           };
           $('html').velocity('stop').velocity('scroll', option);
-
           return false;
         },
         hashCheck: function(e) {

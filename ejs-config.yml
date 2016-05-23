@@ -3,7 +3,7 @@
 ####################################################
 
 # サーバーのルートパス
-config:
+config         :
   rootPath     : '/'
 
 ####################################################
@@ -11,22 +11,31 @@ config:
 ####################################################
 
 ### サイト基本情報
-site:
-  title      : 'Gulpテンプレート'
-  domain     : 'homepage-premium.com'
-  copyright  : '2016 OS Co.,Ltd.'
+site           :
+  title        : 'Gulpテンプレート'
+  domain       : 'homepage-premium.com'
+  copyright    : '2016 OS Co.,Ltd.'
 
 ### メタ情報
-meta:
-  description: 'サイトの説明'
-  keyword    : 'キーワード'
+meta           :
+  description  : 'サイトの説明'
+  # keyword      : 'キーワード'
 
 ### OGP
-ogp:
-  default:
-    title    : ''
+ogp            :
+  default      :
+    title      : ''
+    type       : ''
+    locale     : ''
+    site_name  : ''
+    description: ''
+    url        : ''
+    image      : ''
 
 ### Twitter Card
-twt:
-  default    :
-    title    : ''
+# twitter        :
+#   default      :
+#     site       : ''
+#     card       : ''
+#     description: ''
+#     image      : ''
