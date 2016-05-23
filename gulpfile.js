@@ -1,17 +1,17 @@
 /*global $: true*/
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var path = require('path');
-var fs = require('fs');
-var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
+var gulp         = require('gulp');
+var $            = require('gulp-load-plugins')();
+var del          = require('del');
+var path         = require('path');
+var fs           = require('fs');
+var runSequence  = require('run-sequence');
+var browserSync  = require('browser-sync');
 var autoprefixer = require('autoprefixer');
-var mqpacker = require('css-mqpacker');
-var yaml = require('js-yaml');
-var reload = browserSync.reload;
-var build = false;
+var mqpacker     = require('css-mqpacker');
+var yaml         = require('js-yaml');
+var reload       = browserSync.reload;
+var build        = false;
 
 // scss -> css (libsass)
 gulp.task('styles', function() {
@@ -142,9 +142,11 @@ gulp.task('clean', function() {
   });
 });
 
+// copy vendor files
 gulp.task('vendor', function() {
   var vendor = yaml.safeLoad(fs.readFileSync('./vendor.yml', 'utf8'));
   var target = (build) ? 'dist' : '.tmp';
+  // scripts
   if (vendor.scripts) {
     gulp.src(vendor.scripts, { dot: true })
       .pipe($.concat('lib.min.js'))
@@ -153,10 +155,12 @@ gulp.task('vendor', function() {
       }))
       .pipe(gulp.dest(path.join(target, 'scripts/vendor')));
   }
+  // styles
   if (vendor.styles) {
     gulp.src(vendor.styles, { dot: true })
       .pipe(gulp.dest(path.join(target, 'styles/vendor')));
   }
+  // fonts
   if (vendor.fonts) {
     gulp.src(vendor.fonts, { dot: true })
       .pipe(gulp.dest(path.join(target, 'fonts')));
@@ -166,19 +170,19 @@ gulp.task('vendor', function() {
 // copy
 gulp.task('copy', function() {
   gulp.src([
-      'app/{,**/}*',
+      'app/**/*',
       '!app/styles/**/*',
       '!app/images/**/*',
-      '!app/{,**/}*.+(ejs|ect|scss|sass)',
-      '!app/{,**/}_*',
-      '!app/{,**/}.gitkeep'
+      '!app/**/*.+(ejs|ect|scss|sass)',
+      '!app/**/_*',
+      '!app/**/.gitkeep'
     ], {
       dot: true
     })
     .pipe(gulp.dest('dist/'));
 });
 
-// buid distribution site
+// buid site
 gulp.task('dist', function() {
   build = true;
   runSequence(
