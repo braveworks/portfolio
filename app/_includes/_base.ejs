@@ -31,9 +31,10 @@
     <% styles(); %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
-  <body class="<%= bodyClass(); %>">
+  <body>
     <% include _layout/_header -%>
     <% contents(); %>
+    <% include _components/_go-top -%>
     <% include _layout/_footer -%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="<%= root('scripts/vendor/lib.min.js'); %>"></script>

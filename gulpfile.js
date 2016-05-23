@@ -1,17 +1,18 @@
 /*global $: true*/
 
-var gulp         = require('gulp');
-var $            = require('gulp-load-plugins')();
-var del          = require('del');
-var path         = require('path');
-var fs           = require('fs');
-var runSequence  = require('run-sequence');
-var browserSync  = require('browser-sync');
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+var del = require('del');
+var path = require('path');
+var fs = require('fs');
+var merge = require('merge-stream');
+var runSequence = require('run-sequence');
+var browserSync = require('browser-sync');
 var autoprefixer = require('autoprefixer');
-var mqpacker     = require('css-mqpacker');
-var yaml         = require('js-yaml');
-var reload       = browserSync.reload;
-var build        = false;
+var mqpacker = require('css-mqpacker');
+var yaml = require('js-yaml');
+var reload = browserSync.reload;
+var build = false;
 
 // scss -> css (libsass)
 gulp.task('styles', function() {
@@ -112,9 +113,9 @@ gulp.task('images', function() {
     progressive: true,
     interlaced: true
   };
-  gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin(option)))
-    .pipe(gulp.dest('dist/images'));
+  return gulp.src('app/images/**/*')
+    .pipe($.if(build, $.cache($.imagemin(option))))
+    .pipe($.if(build, gulp.dest('dist/images')));
 });
 
 // watch task
@@ -146,58 +147,57 @@ gulp.task('clean', function() {
 gulp.task('vendor', function() {
   var vendor = yaml.safeLoad(fs.readFileSync('./vendor.yml', 'utf8'));
   var target = (build) ? 'dist' : '.tmp';
-  // scripts
-  if (vendor.scripts) {
-    gulp.src(vendor.scripts, { dot: true })
+  var stream = {
+    scripts: gulp.src(vendor.scripts, { dot: true })
       .pipe($.concat('lib.min.js'))
       .pipe($.uglify({
         preserveComments: 'some'
       }))
-      .pipe(gulp.dest(path.join(target, 'scripts/vendor')));
-  }
-  // styles
-  if (vendor.styles) {
-    gulp.src(vendor.styles, { dot: true })
-      .pipe(gulp.dest(path.join(target, 'styles/vendor')));
-  }
-  // fonts
-  if (vendor.fonts) {
-    gulp.src(vendor.fonts, { dot: true })
-      .pipe(gulp.dest(path.join(target, 'fonts')));
-  }
+      .pipe(gulp.dest(path.join(target, 'scripts/vendor'))),
+    styles: gulp.src(vendor.styles, { dot: true })
+      .pipe(gulp.dest(path.join(target, 'styles/vendor'))),
+    fonts: gulp.src(vendor.fonts, { dot: true })
+      .pipe(gulp.dest(path.join(target, 'fonts')))
+  };
+
+  return merge(stream.scripts, stream.styles, stream.fonts);
 });
 
 // copy
 gulp.task('copy', function() {
-  gulp.src([
+  return gulp.src([
       'app/**/*',
       '!app/styles/**/*',
       '!app/images/**/*',
-      '!app/**/*.+(ejs|ect|scss|sass)',
+      '!app/**/*.+(html|ejs|ect|scss|sass)',
       '!app/**/_*',
       '!app/**/.gitkeep'
     ], {
       dot: true
     })
-    .pipe(gulp.dest('dist/'));
+    .pipe($.if(build, gulp.dest('dist/')));
 });
+
+gulp.task('noop', function() {});
 
 // buid site
 gulp.task('dist', function() {
   build = true;
-  runSequence(
-    'clean', [
-      'vendor',
-      'styles',
-      'ejs',
-      'images',
-      'copy'
-    ],
-    'scripts'
-  );
+  gulp.start('default');
 });
 
 // default
-gulp.task('default', ['styles', 'ejs', 'vendor'], function() {
-  gulp.start('watch');
+gulp.task('default', function() {
+  // gulp.start('watch');
+  runSequence(
+    'clean',
+    'copy', [
+      'ejs',
+      'images',
+      'scripts',
+      'styles',
+      'vendor'
+    ],
+    build ? 'noop' : 'watch'
+  );
 });
