@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title><%= ((title)? title + ' | ' : '') + site.title; %></title>
-    <% var metaLoop = function (key){ %><meta name="<%= key %>" content="<%= meta[key] %>">
+    <% var metaLoop = function (key){ %>
+      <meta name="<%= key %>" content="<%= meta[key] %>">
     <% };if(meta){ Object.keys(meta).forEach(metaLoop); } -%>
     <meta property="og:title" content="<%=  %>">
     <meta property="og:type" content="<%=  %>">
@@ -21,6 +22,7 @@
     <meta name="twitter:card" content="<%=  %>">
     <meta name="twitter:description" content="<%=  %>">
     <meta name="twitter:image:src" content="<%=  %>">
+    <link rel="canonical" href="//<%= site.domain %>/">
     <link rel="dns-prefetch" href="//<%= site.domain %>">
     <% addDnsPrefetch(); %>
     <link rel="shortcut icon" href="<%= root('favicon.ico'); %>">
@@ -29,13 +31,12 @@
     <% styles(); %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
-  <body>
+  <body class="<%= bodyClass(); %>">
     <% include _layout/_header -%>
     <% contents(); %>
     <% include _layout/_footer -%>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="<%= root('scripts/vendor/lib.min.js'); %>"></script>
     <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>
   </body>

@@ -1,0 +1,9 @@
+scripts:
+  - 'node_modules/velocity-animate/velocity.js'
+  - 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js'
+fonts:
+  - 'node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.eot'
+  - 'node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.svg'
+  - 'node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf'
+  - 'node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff'
+  - 'node_modules/bootstrap-sass/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2'
