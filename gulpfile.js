@@ -95,7 +95,7 @@ gulp.task('jshint', function() {
 });
 
 // imagemin
-gulp.task('images', function(){
+gulp.task('images', function() {
   var option = {
     progressive: true,
     interlaced: true
@@ -148,7 +148,7 @@ gulp.task('copy', function() {
 // buid distribution site
 gulp.task('dist', function() {
   build = true;
-  runSequence('clean', ['styles', 'ejs', 'images',]);
+  runSequence('clean', ['styles', 'ejs', 'images', ]);
 });
 
 // default
