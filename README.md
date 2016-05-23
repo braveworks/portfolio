@@ -8,6 +8,7 @@
   - Media Query のソート
   - CSS圧縮
 - EJS -> HTMLにコンパイル
+- jsの構文エラーチェック(jshint)
 - 画像圧縮 (imagemin)
 - ブラウザの自動更新（Browser-Sync）
 
