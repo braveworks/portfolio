@@ -1,18 +1,18 @@
 /*global $: true*/
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var path = require('path');
-var fs = require('fs');
-var merge = require('merge-stream');
-var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
+var gulp         = require('gulp');
+var $            = require('gulp-load-plugins')();
+var del          = require('del');
+var path         = require('path');
+var fs           = require('fs');
+var merge        = require('merge-stream');
+var runSequence  = require('run-sequence');
+var browserSync  = require('browser-sync');
 var autoprefixer = require('autoprefixer');
-var mqpacker = require('css-mqpacker');
-var yaml = require('js-yaml');
-var reload = browserSync.reload;
-var build = false;
+var mqpacker     = require('css-mqpacker');
+var yaml         = require('js-yaml');
+var reload       = browserSync.reload;
+var build        = false;
 
 // scss -> css (libsass)
 gulp.task('styles', function() {
