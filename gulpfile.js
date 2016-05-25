@@ -134,6 +134,7 @@ gulp.task('watch', function() {
   gulp.watch(['app/fonts/**/*'], reload);
   gulp.watch(['app/images/**/*'], reload);
   gulp.watch(['app/scripts/**/*'], ['jshint', reload]);
+  gulp.watch(['vendor.yml'], ['vendor', reload]);
 });
 
 // clean directory
