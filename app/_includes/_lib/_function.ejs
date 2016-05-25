@@ -3,7 +3,32 @@
  *  custom function
  */
 
-ejsRoot = './';
+ejsRoot = function(path){
+  var pathArr = filename.split('/').reverse();
+  var count = 0;
+  var flag = true;
+  var relative = '';
+
+  pathArr.forEach(function(value,key){
+    if(value === 'app'){
+      flag = false;
+    }
+    if(flag){
+      count ++;
+    }
+  });
+
+  if (count === 1){
+    relative = './';
+  }else if(count >= 2){
+    var h = count - 1;
+    for(i=0;i<h;i++){
+      relative = relative + '../';
+    }
+  }
+
+  return relative + path;
+};
 
 // root path fix
 root = function(path){
