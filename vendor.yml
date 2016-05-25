@@ -1,17 +1,16 @@
 #######################
-# npmでnode_modulesにインストールしたvendorプラグインの管理設定ファイルです。
-# 注意：ファイルがない場合は -'' で空欄にしてください。
+# vendor file config
 #######################
 
-# Scripts : 以下に指定したjsファイルは`lib.min.js`に結合され、dist/scripts/vendorディレクトリに出力されます。
+# Scripts : .jsを`lib.min.js`に結合・圧縮し、`dist/scripts/vendor` ディレクトリに出力します。
 scripts:
   - 'node_modules/velocity-animate/velocity.js'
   - 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js'
 
-# Styles : 以下に指定したCSSファイルは/styles/vendorにコピーされます。
+# Styles : .css ファイルを `styles/vendor` にコピーします。
 styles:
   -''
 
-# Fonts : 以下に指定したフォントファイルは/fontsフォルダにコピーされます。
+# Fonts : フォントファイルを`fonts`にコピーします。
 fonts:
   - 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
