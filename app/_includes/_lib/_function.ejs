@@ -37,11 +37,12 @@ root = function(path){
 
 // add　dns-prefetch
 var dnsPrefetchUrl = [
+  site.domain,
   'ajax.googleapis.com',
-  'cdnjs.cloudflare.com',
   'googleads.g.doubleclick.net',
   'pagead2.googlesyndication.com',
   'www.gstatic.com',
+  'www.jsdelivr.com'
 ];
 var dnsLoop = function (value){ -%><link rel="dns-prefetch" href="//<%= value %>">
 <% };

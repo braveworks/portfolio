@@ -11,25 +11,12 @@
     <% var metaLoop = function (key){ %>
       <meta name="<%= key %>" content="<%= meta[key] %>">
     <% };if(meta){ Object.keys(meta).forEach(metaLoop); } -%>
-    <meta property="og:title" content="<%=  %>">
-    <meta property="og:type" content="<%=  %>">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:site_name" content="<%=  %>">
-    <meta property="og:description" content="<%=  %>">
-    <meta property="og:url" content="<%=  %>">
-    <meta property="og:image" content="<%=  %>">
-    <meta name="twitter:site" content="<%=  %>">
-    <meta name="twitter:card" content="<%=  %>">
-    <meta name="twitter:description" content="<%=  %>">
-    <meta name="twitter:image:src" content="<%=  %>">
     <link rel="canonical" href="//<%= site.domain %>/">
-    <link rel="dns-prefetch" href="//<%= site.domain %>">
     <% addDnsPrefetch(); %>
     <link rel="shortcut icon" href="<%= root('favicon.ico'); %>">
-    <link rel="apple-touch-icon" href="<%= root('images/apple-touch-icon.png'); %>">
+    <link rel="apple-touch-icon" href="<%= root('apple-touch-icon.png'); %>">
     <link rel="stylesheet" href="<%= root('styles/main.css'); %>">
     <% styles(); %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
   </head>
   <body>
     <% include _layout/_header -%>
@@ -37,6 +24,7 @@
     <% include _components/_go-top -%>
     <% include _layout/_footer -%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="<%= root('scripts/vendor/lib.min.js'); %>"></script>
     <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>

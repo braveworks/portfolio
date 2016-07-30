@@ -5,14 +5,21 @@ var $            = require('gulp-load-plugins')();
 var del          = require('del');
 var path         = require('path');
 var fs           = require('fs');
+var autoprefixer = require('autoprefixer');
+var browserSync  = require('browser-sync');
+var mqpacker     = require('css-mqpacker');
 var merge        = require('merge-stream');
 var runSequence  = require('run-sequence');
-var browserSync  = require('browser-sync');
-var autoprefixer = require('autoprefixer');
-var mqpacker     = require('css-mqpacker');
+var babelify     = require('babelify');
+var browserify   = require('browserify');
+var watchify     = require('watchify');
+var source       = require('vinyl-source-stream');
+var buffer       = require('vinyl-buffer');
 var yaml         = require('js-yaml');
-var reload       = browserSync.reload;
-var build        = false;
+var reload = browserSync.reload;
+
+// build mode flag
+var build = false;
 
 // scss -> css (libsass)
 gulp.task('styles', function() {
@@ -28,12 +35,8 @@ gulp.task('styles', function() {
     precision: 10
   };
   var processors = [
-    autoprefixer({
-      browsers: AUTOPREFIXER_BROWSERS
-    }),
-    mqpacker({
-      sort: true
-    })
+    autoprefixer({ browsers: AUTOPREFIXER_BROWSERS }),
+    mqpacker({ sort: true })
   ];
   return gulp.src('app/styles/**/*.scss')
     .pipe($.newer('.tmp/styles'))
@@ -78,33 +81,45 @@ gulp.task('clean:ejs', del.bind(null, [
   dot: true
 }));
 
-// scripts
-gulp.task('scripts', ['jshint'], function() {
-  return gulp.src([
-      'app/scripts/**/*.js',
-      '!app/scripts/vendor/**/*.js',
-      '!app/scripts/test.js'
-    ])
-    // .pipe($.if(build, $.uglify({
-    //   mangle: false,
-    //   preserveComments: 'some'
-    // })))
-    .pipe($.if(build, $.jsbeautifier()))
-    .pipe($.if(build, gulp.dest('dist/scripts/')));
-});
 
-gulp.task('jshint', function() {
-  return gulp.src([
-      'app/scripts/**/*.js',
-      '!app/scripts/vendor/**/*'
-    ])
-    .pipe(reload({
-      stream: true,
-      once: true
-    }))
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+/**
+ * scripts （Browserify）
+ * reference
+ * http://qiita.com/DJ_Middle/items/3e533922078914285268
+ */
+
+gulp.task('scripts', function() {
+  var src = ['main.js'];
+  src.forEach((entryPoint) => {
+    var browserifyOptions = {
+      entries: ['app/scripts/' + entryPoint],
+      debug: true,
+      cache: {},
+      packageCache: {},
+      transform: babelify.configure({ presets: ["es2015", "react", "stage-2"] }),
+    };
+    var watchifyStream = (build) ?
+      browserify(browserifyOptions) :
+      watchify(browserify(browserifyOptions));
+    var execBundle = () => {
+      $.util.log(`building ${entryPoint}...`);
+      return watchifyStream
+        .bundle()
+        .on('error', $.util.log.bind($.util, 'Browserify Error'))
+        .pipe($.plumber())
+        .pipe(source(entryPoint))
+        .pipe(buffer())
+        .pipe($.if(build, $.uglify({ preserveComments: 'some' })))
+        .pipe($.if(build, gulp.dest('dist/scripts/')))
+        .pipe($.if(!build, gulp.dest('.tmp/scripts/')))
+        .pipe($.if(!build, browserSync.stream({ once: true })));
+
+    };
+    watchifyStream.on('update', execBundle);
+    watchifyStream.on('log', $.util.log);
+
+    return execBundle();
+  });
 });
 
 // imagemin
@@ -131,9 +146,7 @@ gulp.task('watch', function() {
   });
   gulp.watch(['app/styles/**/*'], ['styles', reload]);
   gulp.watch(['app/**/*.ejs', 'app/**/*.html', 'ejs-config.yml'], ['ejs', reload]);
-  gulp.watch(['app/fonts/**/*'], reload);
   gulp.watch(['app/images/**/*'], reload);
-  gulp.watch(['app/scripts/**/*'], ['jshint', reload]);
   gulp.watch(['vendor.yml'], ['vendor', reload]);
 });
 
@@ -151,9 +164,7 @@ gulp.task('vendor', function() {
   var stream = {
     scripts: gulp.src(vendor.scripts, { dot: true })
       .pipe($.concat('lib.min.js'))
-      .pipe($.uglify({
-        preserveComments: 'some'
-      }))
+      .pipe($.uglify({ preserveComments: 'some' }))
       .pipe(gulp.dest(path.join(target, 'scripts/vendor'))),
     styles: gulp.src(vendor.styles, { dot: true })
       .pipe(gulp.dest(path.join(target, 'styles/vendor'))),
@@ -164,22 +175,18 @@ gulp.task('vendor', function() {
   return merge(stream.scripts, stream.styles, stream.fonts);
 });
 
+
 // copy
 gulp.task('copy', function() {
-  return gulp.src([
-      'app/**/*',
-      '!app/styles/**/*',
-      '!app/images/**/*',
-      '!app/**/*.+(html|ejs|ect|scss|sass)',
-      '!app/**/_*',
-      '!app/**/.gitkeep'
-    ], {
-      dot: true
-    })
-    .pipe($.if(build, gulp.dest('dist/')));
+  // return gulp.src([
+  //     '!app/**/.gitkeep'
+  //   ], {
+  //     dot: true
+  //   })
+  //   .pipe($.if(build, gulp.dest('dist/')));
+  return;
 });
 
-gulp.task('noop', function() {});
 
 // buid site
 gulp.task('dist', function() {
@@ -187,18 +194,16 @@ gulp.task('dist', function() {
   gulp.start('default');
 });
 
+
+//noop
+gulp.task('noop', function() {});
+
+
 // default
 gulp.task('default', function() {
-  // gulp.start('watch');
   runSequence(
     'clean',
-    'copy', [
-      'ejs',
-      'images',
-      'scripts',
-      'styles',
-      'vendor'
-    ],
+    'copy', ['ejs', 'images', 'scripts', 'styles', 'vendor'],
     build ? 'noop' : 'watch'
   );
 });

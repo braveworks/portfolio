@@ -13,8 +13,8 @@ config         :
 ### サイト基本情報
 site           :
   title        : 'Gulpテンプレート'
-  domain       : 'homepage-premium.com'
-  copyright    : '2016 OS Co.,Ltd.'
+  domain       : '****.com'
+  copyright    : '2016 *** Co.,Ltd.'
 
 ### メタ情報
 meta           :
