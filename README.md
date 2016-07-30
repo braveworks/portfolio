@@ -4,30 +4,21 @@
 
 ## できること
 
-- SCSS -> CSS の自動コンパイル（Libsass）
-
-  - AutoPrefixer
-  - Media Query のソート
-  - CSS圧縮
-
-- EJS -> HTMLにコンパイル
-- jsの構文エラーチェック(jshint)
-- 画像圧縮 (imagemin)
-- ブラウザの自動更新（Browser-Sync）
+- SCSS
+  - PostCSS
+    - AutoPrefixer
+    - MQPacker
+    - cssnano
+- EJS
+- imagemin
+- Browser-Sync
 
 ## 初期化
-
-初回に一度、以下のコマンドで必要なモジュールを準備します。
-
 ```
 npm install
 ```
 
 ## Gulp タスク
-
-CLIで gulpfile.js があるディレクトリに移動しタスクを実行します。
-
-### Gulpタスクの起動
 
 #### Watchタスク
 
@@ -121,6 +112,4 @@ npm 経由でインストールしたjQueryプラグインなどのjs,css,フォ
 
 ## その他
 
-- 頭に`_`がつくejsファイルやディレクトリはビルド時に出力されません(いわゆるpartial扱い)
-- SCSSやEJSは構文エラーがあるとコンパイルされません。必ず修正してください。
-- ファイルの追加・削除を行った場合はタスクが強制終了することがあります。動作おかしい時などは gulpのタスクを終了させ再起動してください。
+- 頭に`_`がつくejsファイル・ディレクトリはビルド時に出力されません(partial扱い)
