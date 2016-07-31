@@ -2,6 +2,11 @@
   <div class="container">
     <h1 class="cover-hd"><%= 'Portfolio'; %></h1>
     <hr class="hr-short">
-    <p>braveworks - mootake</p>
+    <p> m-otake</p>
+    <ul class="list-inline">
+      <% var skilLoop = function (val){ %>
+        <li><%= val %></li>
+      <% }; if(skillset){skillset.forEach(skilLoop); } -%>
+    </ul>
   </div>
 </div>

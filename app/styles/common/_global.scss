@@ -14,3 +14,28 @@ section > .container {
   background: linear-gradient(to left, $color-main-b , $color-main-v);
   color: $color-white;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  color: $color-main;
+}
+
+.drop-shadow {
+  box-shadow: 0 10px 20px rgba($color-black, 0.19), 0 6px 6px rgba($color-black, 0.23);
+  @include MQ(MD) {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 19px 38px rgba($color-black, 0.24), 0 15px 12px rgba($color-black, 0.12);
+  }
+
+  &:hover {
+    @include MQ(MD) {
+      box-shadow: 0 3px 6px rgba($color-black, 0.16), 0 3px 6px rgba($color-black, 0.23);
+    }
+  }
+}
+
+.drop-shadow-lg {
+  box-shadow: 0 10px 48px rgba($color-black, 0.19), 0 20px 100px rgba($color-black, 0.23);
+}

@@ -1,7 +1,11 @@
 .cover {
+  h1{
+    color:$color-white;
+    font-weight:100;
+  }
   padding: {
     top: 150px;
-    bottom: 100px;
+    bottom: 160px;
   }
 
   .cover-hd {

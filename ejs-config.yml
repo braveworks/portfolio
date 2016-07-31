@@ -39,3 +39,18 @@ ogp            :
 #     card       : ''
 #     description: ''
 #     image      : ''
+
+skillset:
+  - Photoshop
+  - Illustrator
+  - HTML3
+  - CSS3
+  - Bootstrap
+  - JavaScript
+  - jQuery
+  - Gulp
+  - Sass
+  - EJS
+  - PHP
+  - WordPress
+  - Git
