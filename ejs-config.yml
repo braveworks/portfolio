@@ -12,9 +12,9 @@ config         :
 
 ### サイト基本情報
 site           :
-  title        : 'Gulpテンプレート'
+  title        : 'Portfolio-braveworks'
   domain       : '****.com'
-  copyright    : '2016 *** Co.,Ltd.'
+  copyright    : '2016 braveworks.'
 
 ### メタ情報
 meta           :

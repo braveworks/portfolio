@@ -1,25 +1,18 @@
 body {
   font-family: $primary-font;
 }
-.cover {
-  color: white;
-  background-color: $color-main;
-  &.jumbotron {
-    background: transparent url('https://unsplash.it/1200/400?rundom') center center no-repeat;
-    background-size: cover;
-    padding: {
-      top: 150px;
-      bottom: 100px;
-    }
-  }
-  &.feature {
-    color: $color-text;
-    background-color: $color-sub;
-  }
-}
+
 section > .container {
   padding: {
     top: 30px;
     bottom: 60px;
   }
+}
+
+.bg-vioret{
+  background-color: $color-main;
+  background: $color-main-b;
+  background: -webkit-linear-gradient(to left, $color-main-b , $color-main-v);
+  background: linear-gradient(to left, $color-main-b , $color-main-v);
+  color:$color-white;
 }
