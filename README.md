@@ -1,6 +1,6 @@
 # Portfolio v2
 
-Make a Wish
+もうひとがんばり。
 
 ## 構成
 
@@ -38,7 +38,7 @@ gulp dist
 
 ### ejs-config.yml
 
-ejs で使用する変数を定義することができるymlファイル。 
+ejs で使用する変数を定義することができるymlファイル。
 
 ### vendor.yml
 

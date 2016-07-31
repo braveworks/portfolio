@@ -35,7 +35,7 @@
 
   // WebFont
   var fonts = [
-    'https://fonts.googleapis.com/css?family=Roboto:400,300,700',
+    'https://fonts.googleapis.com/css?family=Raleway:400,300,100,700',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.min.css'
   ];
 

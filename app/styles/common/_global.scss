@@ -9,10 +9,8 @@ section > .container {
   }
 }
 
-.bg-vioret{
-  background-color: $color-main;
+.bg-main-color {
   background: $color-main-b;
-  background: -webkit-linear-gradient(to left, $color-main-b , $color-main-v);
   background: linear-gradient(to left, $color-main-b , $color-main-v);
-  color:$color-white;
+  color: $color-white;
 }
