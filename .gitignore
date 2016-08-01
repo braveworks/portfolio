@@ -3,7 +3,7 @@
 .sass-cache/
 .tmp/
 bower_components/
-dist/
+-dist/
 node_modules/
 npm-debug.log
 Thumbs.db

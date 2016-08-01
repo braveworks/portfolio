@@ -16,6 +16,7 @@ var watchify     = require('watchify');
 var source       = require('vinyl-source-stream');
 var buffer       = require('vinyl-buffer');
 var yaml         = require('js-yaml');
+
 var reload = browserSync.reload;
 
 // build mode flag
@@ -206,4 +207,12 @@ gulp.task('default', function() {
     'copy', ['ejs', 'images', 'scripts', 'styles', 'vendor'],
     build ? 'noop' : 'watch'
   );
+});
+
+gulp.task('deploy',function () {
+  var options = {
+    origin:'github'
+  };
+  return gulp.src('./dist/**/**')
+    .pipe($.ghPages(options));
 });
