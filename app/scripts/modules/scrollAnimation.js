@@ -4,12 +4,9 @@
 
 var scrollAnimation = (function() {
 
-  require('jquery');
-  require('velocity');
-  require('velocity-ui');
   var ScrollMagic = require('scrollmagic');
-
   var controller = new ScrollMagic.Controller();
+
   var $slideElement = $('.slide-in');
   var $staggerBlock = $('.stagger-block');
   var $staggerElement = '.stagger';
