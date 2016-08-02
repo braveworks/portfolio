@@ -211,7 +211,7 @@ gulp.task('default', function() {
 
 gulp.task('deploy',function () {
   var options = {
-    origin:'github'
+    remoteUrl:'git@github.com:braveworks/portfolio.git'
   };
   return gulp.src('./dist/**/**')
     .pipe($.ghPages(options));
