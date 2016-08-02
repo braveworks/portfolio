@@ -114,7 +114,6 @@ gulp.task('scripts', function() {
         .pipe($.if(build, gulp.dest('dist/scripts/')))
         .pipe($.if(!build, gulp.dest('.tmp/scripts/')))
         .pipe($.if(!build, browserSync.stream({ once: true })));
-
     };
     watchifyStream.on('update', execBundle);
     watchifyStream.on('log', $.util.log);
@@ -162,22 +161,19 @@ gulp.task('clean', function() {
 gulp.task('vendor', function() {
   var vendor = yaml.safeLoad(fs.readFileSync('./vendor.yml', 'utf8'));
   var target = (build) ? 'dist' : '.tmp';
-  var stream = {
 
+  var stream = {
     scripts: (vendor.scripts) ?
       gulp.src(vendor.scripts, { dot: true })
       .pipe($.concat('lib.min.js'))
       .pipe($.uglify({ preserveComments: 'some' }))
       .pipe(gulp.dest(path.join(target, 'scripts/vendor'))) : null,
-
     styles: (vendor.styles) ?
       gulp.src(vendor.styles, { dot: true })
       .pipe(gulp.dest(path.join(target, 'styles/vendor'))) : null,
-
     fonts: (vendor.fonts) ?
       gulp.src(vendor.fonts, { dot: true })
       .pipe(gulp.dest(path.join(target, 'fonts'))) : null
-
   };
 
   return merge(stream.scripts, stream.styles, stream.fonts);
@@ -217,10 +213,9 @@ gulp.task('default', function() {
   );
 });
 
+// deploy gh-pages
 gulp.task('deploy', function() {
-  var options = {
-    remoteUrl: 'git@github.com:braveworks/portfolio.git'
-  };
+  var options = { remoteUrl: 'git@github.com:braveworks/portfolio.git' };
   return gulp.src('./dist/**/**')
     .pipe($.ghPages(options));
 });
