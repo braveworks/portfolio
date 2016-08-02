@@ -153,7 +153,7 @@ gulp.task('watch', function() {
 
 // clean directory
 gulp.task('clean', function() {
-  del(['.tmp', 'dist/**/**', '!dist/.git', '!dist/.gitkeep'], {
+  del(['.tmp', 'dist', '!dist/.git', '!dist/.gitkeep'], {
     dot: true
   });
 });
@@ -186,13 +186,13 @@ gulp.task('vendor', function() {
 
 // copy
 gulp.task('copy', function() {
-  // return gulp.src([
-  //     '!app/**/.gitkeep'
-  //   ], {
-  //     dot: true
-  //   })
-  //   .pipe($.if(build, gulp.dest('dist/')));
-  return;
+  return gulp.src([
+      'app/robots.txt',
+      '!app/**/.gitkeep'
+    ], {
+      dot: true
+    })
+    .pipe($.if(build, gulp.dest('dist/')));
 });
 
 
@@ -216,7 +216,7 @@ gulp.task('default', function() {
   );
 });
 
-gulp.task('deploy', ['dist'], function() {
+gulp.task('deploy', function() {
   var options = {
     remoteUrl: 'git@github.com:braveworks/portfolio.git'
   };
