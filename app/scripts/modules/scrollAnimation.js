@@ -1,56 +1,69 @@
-module.exports = function() {
+/**
+ * scrollmagic controller
+ */
 
-  var sleep = require('./modules').sleep;
-  var ua = require('./ua');
+var scrollAnimation = (function() {
 
-  var $slideElement = $('.slide-in');
-  var $staggerBlock = $('.stagger-block');
-  var $staggerElement = $('.stagger');
+  require('jquery');
+  require('velocity');
+  require('velocity-ui');
+  var ScrollMagic     = require('scrollmagic');
 
-  var controller = new ScrollMagic.Controller();
-  var slide = [];
-  var stagger = [];
+  var controller      = new ScrollMagic.Controller();
+  var $slideElement   = $('.slide-in');
+  var $staggerBlock   = $('.stagger-block');
+  var $staggerElement = '.stagger';
+  var slide = [],
+    stagger = [];
 
   var option = {
-    tween: {
-      y: 80,
-      opacity: 0,
-      ease: Quad.easeOut,
-      force3D: (Modernizr.csstransforms3d) ? true : false
-    },
     scene: {
       triggerHook: 0.88,
       reverse: false
     }
   };
 
-  function initSlideTween() {
-    if (!ua('sp') && Modernizr.csstransforms3d) {
-      //slide in
+  var animation = {
+
+    slideIn: function() {
+      $slideElement.velocity({ opacity: 0, translateY: '100px' }, { duration: 0 }); // reset style
       $slideElement.each(function(i, elem) {
         option.scene.triggerElement = elem;
-        slide[i] = new ScrollMagic
-          .Scene(option.scene)
-          .setTween(TweenMax.from(elem, 1, option.tween))
+        slide[i] = new ScrollMagic.Scene(option.scene)
+          .setVelocity(elem, { opacity: 1, translateY: '0' }, { duration: 1000, easing: 'easeOutQuad' })
           .addTo(controller);
       });
+    },
 
-      //stagger slide in
+    stagger: function() {
       $staggerBlock.each(function(i, elem) {
         var child = $(elem).find($staggerElement);
         option.scene.triggerElement = elem;
-        option.tween.y = 50;
-        stagger[i] = new ScrollMagic
-          .Scene(option.scene)
-          .setTween(TweenMax.staggerFrom(child, 0.8, option.tween, 0.2))
+        child.velocity({ opacity: 0, translateY: '100px' }, { duration: 0 });
+        stagger[i] = new ScrollMagic.Scene(option.scene)
+          .on('add', function() { child.delay(450).velocity('transition.slideUpIn', { stagger: 150 }); })
           .addTo(controller);
       });
+    },
 
-      $(window).on('resize', function() {
-        TweenMax.killAll();
-        $slideElement.removeAttr('style');
-      });
+    kill: function() {
+      $slideElement.velocity('stop').removeAttr('style');
+    },
+
+    load: function() {
+      if (Modernizr.csstransforms) {
+        // animation.slideIn();
+        animation.stagger();
+      }
     }
-  }
-  initSlideTween();
-};
+
+  };
+
+  // set event
+  $(window).on({
+    'resize': animation.kill,
+    'load': animation.load
+  });
+
+})();
+module.exports = scrollAnimation;

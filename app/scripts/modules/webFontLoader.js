@@ -19,11 +19,8 @@ var webFontLoader = (function() {
     loader: function(fonts) {
 
       if (fonts) {
-        console.log('!start');
-
         fonts.forEach(function(element, index, array) {
           webfont.add(document, element);
-          console.log(element);
         });
       }
     }

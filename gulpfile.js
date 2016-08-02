@@ -1,21 +1,21 @@
 /*global $: true*/
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var path = require('path');
-var fs = require('fs');
+var gulp         = require('gulp');
+var $            = require('gulp-load-plugins')();
+var del          = require('del');
+var path         = require('path');
+var fs           = require('fs');
 var autoprefixer = require('autoprefixer');
-var browserSync = require('browser-sync');
-var mqpacker = require('css-mqpacker');
-var merge = require('merge-stream');
-var runSequence = require('run-sequence');
-var babelify = require('babelify');
-var browserify = require('browserify');
-var watchify = require('watchify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var yaml = require('js-yaml');
+var browserSync  = require('browser-sync');
+var mqpacker     = require('css-mqpacker');
+var merge        = require('merge-stream');
+var runSequence  = require('run-sequence');
+var babelify     = require('babelify');
+var browserify   = require('browserify');
+var watchify     = require('watchify');
+var source       = require('vinyl-source-stream');
+var buffer       = require('vinyl-buffer');
+var yaml         = require('js-yaml');
 
 var reload = browserSync.reload;
 
@@ -97,7 +97,7 @@ gulp.task('scripts', function() {
       debug: true,
       cache: {},
       packageCache: {},
-      transform: babelify.configure({ presets: ["es2015", "react", "stage-2"] }),
+      transform: ['browserify-shim', babelify.configure({ presets: ['es2015', 'react', 'stage-2'] })],
     };
     var watchifyStream = (build) ?
       browserify(browserifyOptions) :
@@ -153,7 +153,7 @@ gulp.task('watch', function() {
 
 // clean directory
 gulp.task('clean', function() {
-  del(['.tmp', 'dist', '!dist/.git'], {
+  del(['.tmp', 'dist/**/**', '!dist/.git', '!dist/.gitkeep'], {
     dot: true
   });
 });
@@ -163,14 +163,21 @@ gulp.task('vendor', function() {
   var vendor = yaml.safeLoad(fs.readFileSync('./vendor.yml', 'utf8'));
   var target = (build) ? 'dist' : '.tmp';
   var stream = {
-    scripts: gulp.src(vendor.scripts, { dot: true })
+
+    scripts: (vendor.scripts) ?
+      gulp.src(vendor.scripts, { dot: true })
       .pipe($.concat('lib.min.js'))
       .pipe($.uglify({ preserveComments: 'some' }))
-      .pipe(gulp.dest(path.join(target, 'scripts/vendor'))),
-    styles: gulp.src(vendor.styles, { dot: true })
-      .pipe(gulp.dest(path.join(target, 'styles/vendor'))),
-    fonts: gulp.src(vendor.fonts, { dot: true })
-      .pipe(gulp.dest(path.join(target, 'fonts')))
+      .pipe(gulp.dest(path.join(target, 'scripts/vendor'))) : null,
+
+    styles: (vendor.styles) ?
+      gulp.src(vendor.styles, { dot: true })
+      .pipe(gulp.dest(path.join(target, 'styles/vendor'))) : null,
+
+    fonts: (vendor.fonts) ?
+      gulp.src(vendor.fonts, { dot: true })
+      .pipe(gulp.dest(path.join(target, 'fonts'))) : null
+
   };
 
   return merge(stream.scripts, stream.styles, stream.fonts);
@@ -204,7 +211,7 @@ gulp.task('noop', function() {});
 gulp.task('default', function() {
   runSequence(
     'clean',
-    'copy', ['ejs', 'images', 'scripts', 'styles', 'vendor'],
+    ['copy', 'ejs', 'images', 'scripts', 'styles', 'vendor'],
     build ? 'noop' : 'watch'
   );
 });

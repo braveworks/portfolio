@@ -1,13 +1,17 @@
 // "Magnific Popup" controller
 // https://github.com/dimsemenov/Magnific-Popup/
 
-var magnificPopup = function($) {
+var magnificPopup = function() {
 
-  var $gallery = $('figure.gallery-item .gallery-icon');
+  require('jquery');
+  require('velocity');
+  require('velocity-ui');
+  require('magnific-popup');
+
   var option = {};
 
   $.Velocity.defaults.duration = 1000;
-  $.Velocity.defaults.easing = 'easeOutQuart';
+  $.Velocity.defaults.easing   = 'easeOutQuart';
   $.Velocity.defaults.mobileHA = true;
 
   var changeNextPrev = function(self, direction) {
@@ -64,12 +68,11 @@ var magnificPopup = function($) {
     }
   };
 
-  // price option
-  // option.rooms = {
-  //   type: 'inline',
-  //   midClick: true
-  // };
-  // $('[data-mfp^="rooms"]').magnificPopup($.extend(option.common, option.rooms));
+  // show description
+  option.inline = {
+    type: 'inline',
+    midClick: true
+  };
 
   // WP gallery
   option.gallery = {
@@ -86,10 +89,10 @@ var magnificPopup = function($) {
     }
   };
 
-  if ($gallery.length) {
-    $gallery.magnificPopup($.extend(option.common, option.gallery));
-  }
+  // add event
+  $('[data-mfp^="inline"]').magnificPopup($.extend(option.common, option.inline));
+  $('[data-mfp^="gallery"]').magnificPopup($.extend(option.common, option.gallery));
 
 };
 
-module.exports = (magnificPopup)(jQuery);
+module.exports = (magnificPopup)();

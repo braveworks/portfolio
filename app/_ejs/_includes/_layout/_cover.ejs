@@ -1,11 +1,9 @@
-<div class="cover bg-main-color">
+<div class="cover bg-main-color stagger-block">
   <div class="container">
-    <h1 class="cover-hd"><%= 'Portfolio'; %></h1>
-    <hr class="hr-short">
-    <p> m-otake</p>
-
-    <p><small>Skills</small></p>
-    <ul class="list-inline">
+    <h1 class="cover-hd stagger"><%= 'Portfolio'; %></h1>
+    <hr class="hr-short stagger">
+    <p class="stagger">M-Otake - Web Designer</p>
+    <ul class="list-inline stagger">
       <% var skilLoop = function (val){ %>
         <li><%= val %></li>
       <% }; if(skillset){skillset.forEach(skilLoop); } -%>

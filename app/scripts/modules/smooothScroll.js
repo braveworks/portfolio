@@ -2,11 +2,14 @@
  * Smooth scroll
  */
 
-var smooothScroll = (function($) {
+var smooothScroll = function() {
+
+  var $ = require('jquery');
+  require('velocity');
+  require('velocity-ui');
 
   var $scrollBody = $('body,html');
   var count = 0;
-
   var scroll = {
 
     animate: function($target) {
@@ -50,11 +53,11 @@ var smooothScroll = (function($) {
 
   };
 
-  // run
+  // add event
   $(document)
     .on('click', '.go-top a', scroll.pageTop)
     .on('click', 'a[href*="#"]:not(.nolink)', scroll.hashCheck)
     .on('mousewheel DOMMouseScroll', scroll.cancel);
 
-})(jQuery);
-module.exports = smooothScroll;
+};
+module.exports = (smooothScroll)();

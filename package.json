@@ -15,6 +15,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.8.2",
     "browserify": "^13.1.0",
+    "browserify-shim": "^3.8.12",
     "css-mqpacker": "^5.0.1",
     "del": "^2.2.1",
     "gulp": "^3.9.1",
@@ -44,8 +45,30 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "gsap": "^1.19.0",
+    "magnific-popup": "^1.1.0",
     "mixitup": "git+https://github.com/patrickkunka/mixitup.git",
     "scrollmagic": "^2.0.5",
     "velocity-animate": "^1.2.3"
+  },
+  "browser": {
+    "velocity": "velocity-animate/velocity",
+    "velocity-ui": "velocity-animate/velocity.ui",
+    "scrollmagic-velocity": "scrollmagic/scrollmagic/uncompressed/plugins/animation.velocity",
+    "scrollmagic-gsap": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap",
+    "scrollmagic-jquery": "scrollmagic/scrollmagic/uncompressed/plugins/jquery.scrollmagic"
+  },
+  "browserify-shim": {
+    "jquery": "global:$",
+    "scrollmagic-jquery": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "scrollmagic-velocity": {
+      "depends": [
+        "scrollmagic",
+        "velocity:Velocity"
+      ]
+    }
   }
 }
