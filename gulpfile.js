@@ -209,9 +209,10 @@ gulp.task('noop', function() {});
 
 // default
 gulp.task('default', function() {
-  runSequence(
-    'clean',
-    ['copy', 'ejs', 'images', 'scripts', 'styles', 'vendor'],
+  return runSequence(
+    'clean', ['ejs', 'images', 'scripts', 'styles'],
+    'vendor',
+    'copy',
     build ? 'noop' : 'watch'
   );
 });
