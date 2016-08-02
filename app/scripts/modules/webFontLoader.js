@@ -1,4 +1,5 @@
-var webFontLoader = function() {
+var webFontLoader = (function() {
+
 
   // WebFont
   var fonts = [
@@ -16,7 +17,10 @@ var webFontLoader = function() {
       s.parentNode.insertBefore(l, s);
     },
     loader: function(fonts) {
+
       if (fonts) {
+        console.log('!start');
+
         fonts.forEach(function(element, index, array) {
           webfont.add(document, element);
           console.log(element);
@@ -25,7 +29,8 @@ var webFontLoader = function() {
     }
   };
 
-  webfont.loader();
-};
+  webfont.loader(fonts);
+
+})(jQuery);
 
 module.exports = webFontLoader;

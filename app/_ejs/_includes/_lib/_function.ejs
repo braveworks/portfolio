@@ -3,14 +3,16 @@
  *  custom function
  */
 
-ejsRoot = function(path){
+ejsRoot = function(path,parent){
+
+  parent =(parent) ? parent : '_ejs';
   var pathArr = filename.split('/').reverse();
   var count = 0;
   var flag = true;
   var relative = '';
 
   pathArr.forEach(function(value,key){
-    if(value === 'app'){
+    if(value === parent){
       flag = false;
     }
     if(flag){

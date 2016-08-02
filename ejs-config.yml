@@ -32,14 +32,7 @@ ogp            :
     url        : ''
     image      : ''
 
-### Twitter Card
-# twitter        :
-#   default      :
-#     site       : ''
-#     card       : ''
-#     description: ''
-#     image      : ''
-
+### cover skill set text
 skillset:
   - Photoshop
   - Illustrator

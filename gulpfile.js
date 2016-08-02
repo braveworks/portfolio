@@ -63,7 +63,7 @@ gulp.task('ejs', ['clean:ejs'], function() {
     }
   };
   return gulp.src([
-      'app/**/*.+(ejs|html)',
+      'app/_ejs/**/*.+(ejs|html)',
       '!app/**/_*.+(ejs|html)'
     ])
     .pipe($.newer('.tmp'))
