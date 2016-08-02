@@ -1,21 +1,21 @@
 /*global $: true*/
 
-var gulp         = require('gulp');
-var $            = require('gulp-load-plugins')();
-var del          = require('del');
-var path         = require('path');
-var fs           = require('fs');
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+var del = require('del');
+var path = require('path');
+var fs = require('fs');
 var autoprefixer = require('autoprefixer');
-var browserSync  = require('browser-sync');
-var mqpacker     = require('css-mqpacker');
-var merge        = require('merge-stream');
-var runSequence  = require('run-sequence');
-var babelify     = require('babelify');
-var browserify   = require('browserify');
-var watchify     = require('watchify');
-var source       = require('vinyl-source-stream');
-var buffer       = require('vinyl-buffer');
-var yaml         = require('js-yaml');
+var browserSync = require('browser-sync');
+var mqpacker = require('css-mqpacker');
+var merge = require('merge-stream');
+var runSequence = require('run-sequence');
+var babelify = require('babelify');
+var browserify = require('browserify');
+var watchify = require('watchify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var yaml = require('js-yaml');
 
 var reload = browserSync.reload;
 
@@ -209,9 +209,9 @@ gulp.task('default', function() {
   );
 });
 
-gulp.task('deploy',function () {
+gulp.task('deploy', ['dist'], function() {
   var options = {
-    remoteUrl:'git@github.com:braveworks/portfolio.git'
+    remoteUrl: 'git@github.com:braveworks/portfolio.git'
   };
   return gulp.src('./dist/**/**')
     .pipe($.ghPages(options));
