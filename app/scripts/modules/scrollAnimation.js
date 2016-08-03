@@ -4,7 +4,6 @@
 
 var scrollAnimation = (function() {
 
-  var ScrollMagic = require('scrollmagic');
   var controller = new ScrollMagic.Controller();
 
   var $slideElement = $('.slide-in');
@@ -27,7 +26,7 @@ var scrollAnimation = (function() {
       $slideElement.each(function(i, elem) {
         option.scene.triggerElement = elem;
         slide[i] = new ScrollMagic.Scene(option.scene)
-          .setVelocity(elem, { opacity: 1, translateY: '0' }, { duration: 1000, easing: 'easeOutQuad' })
+          .on('add', function() { $(elem).velocity({ opacity: 1, translateY: '0' }, { duration: 1000, easing: 'easeOutQuad' }); })
           .addTo(controller);
       });
     },
@@ -35,8 +34,8 @@ var scrollAnimation = (function() {
     stagger: function() {
       $staggerBlock.each(function(i, elem) {
         var child = $(elem).find($staggerElement);
-        option.scene.triggerElement = elem;
         child.velocity({ opacity: 0, translateY: '100px' }, { duration: 0 });
+        option.scene.triggerElement = elem;
         stagger[i] = new ScrollMagic.Scene(option.scene)
           .on('add', function() { child.delay(450).velocity('transition.slideUpIn', { stagger: 150 }); })
           .addTo(controller);

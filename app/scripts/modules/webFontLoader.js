@@ -1,5 +1,4 @@
-var webFontLoader = (function() {
-
+var webFontLoader = function() {
 
   // WebFont
   var fonts = [
@@ -9,6 +8,7 @@ var webFontLoader = (function() {
 
   // WebFont loader
   var webfont = {
+
     add: function(d, f) {
       var l = d.createElement('link');
       l.rel = 'stylesheet';
@@ -16,6 +16,7 @@ var webFontLoader = (function() {
       var s = d.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(l, s);
     },
+
     loader: function(fonts) {
 
       if (fonts) {
@@ -24,10 +25,11 @@ var webFontLoader = (function() {
         });
       }
     }
+    
   };
 
   webfont.loader(fonts);
 
-})(jQuery);
+};
 
-module.exports = webFontLoader;
+module.exports = (webFontLoader)();

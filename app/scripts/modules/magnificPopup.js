@@ -3,11 +3,6 @@
 
 var magnificPopup = function() {
 
-  require('jquery');
-  require('velocity');
-  require('velocity-ui');
-  require('magnific-popup');
-
   var option = {};
 
   $.Velocity.defaults.duration = 1000;
