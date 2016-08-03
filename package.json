@@ -34,6 +34,7 @@
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
+    "gulp-useref": "^3.1.0",
     "gulp-util": "^3.0.7",
     "js-yaml": "^3.6.1",
     "merge-stream": "^1.0.0",
@@ -51,14 +52,16 @@
     "velocity-animate": "^1.2.3"
   },
   "browser": {
-    "velocity": "velocity-animate/velocity",
+    "velocity": "velocity-animate",
     "velocity-ui": "velocity-animate/velocity.ui",
     "scrollmagic-velocity": "scrollmagic/scrollmagic/uncompressed/plugins/animation.velocity",
     "scrollmagic-gsap": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap",
-    "scrollmagic-jquery": "scrollmagic/scrollmagic/uncompressed/plugins/jquery.scrollmagic"
+    "scrollmagic-jquery": "scrollmagic/scrollmagic/uncompressed/plugins/jquery.scrollmagic",
+    "magnific-popup": "magnific-popup/dist/jquery.magnific-popup.js"
   },
   "browserify-shim": {
     "jquery": "global:$",
+    "velocity": "velocity-animate",
     "scrollmagic-jquery": {
       "depends": [
         "jquery:$"

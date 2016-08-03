@@ -1,8 +1,58 @@
+@import "node_modules/magnific-popup/src/css/main.scss"; // magnific-popup scss
+
+.mfp-bg{
+  background: $color-main;
+  background: linear-gradient(to left top, darken($color-main-v,40%) , darken($color-main-b,40%));
+}
+
+.mfp-fade {
+  &.mfp-bg {
+    transition: all 0.15s ease-out;
+    opacity: 0;
+
+    &.mfp-ready {
+      // overlay animate in
+      opacity: 0.8;
+    }
+
+    &.mfp-removing {
+      // overlay animate out
+      opacity: 0;
+    }
+  }
+
+  &.mfp-wrap {
+    .mfp-content {
+      transition: all 0.15s ease-out;
+      // content at start
+      opacity: 0;
+    }
+
+    &.mfp-ready .mfp-content {
+      opacity: 1;
+    }
+
+    &.mfp-removing .mfp-content {
+      opacity: 0;
+    }
+  }
+}
+
+.mfp-arrow-left:before,
+.mfp-arrow-right:before {
+  border-color: transparent;
+}
+
+.mfp-close {
+  font-size: 1.3rem;
+}
+
 .white-popup {
   position: relative;
-  background: #FFF;
+  background: $color-white;
   padding: 20px;
   width: auto;
-  max-width: 500px;
+  max-width: 640px;
   margin: 20px auto;
+  box-shadow: 0 10px 48px rgba($color-black, 0.19), 0 6px 100px rgba($color-black, 0.23);
 }

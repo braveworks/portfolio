@@ -167,10 +167,10 @@ gulp.task('vendor', function() {
       gulp.src(vendor.scripts, { dot: true })
       .pipe($.concat('lib.min.js'))
       .pipe($.uglify({ preserveComments: 'some' }))
-      .pipe(gulp.dest(path.join(target, 'scripts/vendor'))) : null,
+      .pipe(gulp.dest(path.join(target, 'scripts/'))) : null,
     styles: (vendor.styles) ?
       gulp.src(vendor.styles, { dot: true })
-      .pipe(gulp.dest(path.join(target, 'styles/vendor'))) : null,
+      .pipe(gulp.dest(path.join(target, 'styles/'))) : null,
     fonts: (vendor.fonts) ?
       gulp.src(vendor.fonts, { dot: true })
       .pipe(gulp.dest(path.join(target, 'fonts'))) : null

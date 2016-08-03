@@ -10,8 +10,8 @@ section > .container {
 }
 
 .bg-main-color {
-  background: $color-main-b;
-  background: linear-gradient(to left, $color-main-b , $color-main-v);
+  background: $color-main;
+  background: linear-gradient(to left top, $color-main-v , $color-main-b);
   color: $color-white;
 }
 
@@ -20,6 +20,10 @@ h2,
 h3,
 h4 {
   color: $color-main;
+}
+
+a {
+  transition: all 0.3s;
 }
 
 .drop-shadow {
@@ -38,9 +42,4 @@ h4 {
 
 .drop-shadow-lg {
   box-shadow: 0 10px 48px rgba($color-black, 0.19), 0 20px 100px rgba($color-black, 0.23);
-}
-
-.slide-in,
-.stagger {
-  opacity: 0;
 }
