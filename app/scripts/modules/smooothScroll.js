@@ -56,7 +56,7 @@ var smooothScroll = function() {
   // add event
   $(document)
     .on('click', '.go-top a', scroll.pageTop)
-    .on('click', 'a[href*="#"]:not(.nolink)', scroll.hashCheck)
+    .on('click', 'a[href*="#"]:not(.nolink,[data-mfp])', scroll.hashCheck)
     .on('mousewheel DOMMouseScroll', scroll.cancel);
 
 };

@@ -81,4 +81,16 @@ module.exports = {
     }
   },
 
+  snake2camel: function(str, upper) {
+    str = str
+      .replace(/^[\-_ ]/g, "")
+      .replace(/[\-_ ]./g, function(match) {
+        return match.charAt(1).toUpperCase();
+      });
+    return upper === true ?
+      str.replace(/^[a-z]/g, function(match) {
+        return match.toUpperCase();
+      }) : str;
+  }
+
 };

@@ -1,16 +1,19 @@
-<% title  = 'Portfolio - mootake'; -%>
-<% styles = function () { %><% }; -%>
-<% scripts = function () { %><% }; -%>
-<% contents = function  () { %>
+<% title    = 'Portfolio - mootake'; -%>
+<% styles   = function () { %><% }; -%>
+<% scripts  = function () { %><% }; -%>
+<% contents = function () { %>
 
   <%- include(ejsRoot('_includes/_layout/_cover'),{ h1txt : 'Hello World', src: '' }); -%>
 
   <div class="container">
     <div class="slide-in">
       <div class="content">
+        <h2>Products</h2>
+        <hr/>
         <%- include(ejsRoot('_includes/_components/_mix-controller')); -%>
+        <hr/>
         <div id="container">
-          <%- include(ejsRoot('_includes/_components/_thumbnail')); -%>
+          <%- include(ejsRoot('_includes/_components/_thumbnail-loop')); -%>
         </div>
       </div>
     </div>
