@@ -1,0 +1,18 @@
+<% if(content){ -%>
+<div class="row">
+
+  <% var contentLoop = function (element,index,array){ var data = array[index]; -%>
+    <div class="col-sm-4 mix">
+      <div class="panel-card">
+        <figure>
+          <img class="img-responsive center-block" src="<%= data.thumbnail %>" alt="">
+        </figure>
+        <p><%= data.title %></p>
+        <a href="<%= '#content-popup' + index %>" class="btn btn-primary btn-block" data-mfp="inline">Detail</a>
+      </div>
+      <%- include(ejsRoot('_popup-contents'), {data:data,index:index}); -%>
+    </div>
+  <% }; content.forEach(contentLoop); -%>
+
+</div>
+<% } -%>

@@ -1,3 +1,22 @@
-<div id="test-popup" class="white-popup mfp-hide">
-  Popup content
+<div id="<%= 'content-popup' + index %>" class="white-popup mfp-hide">
+  <div class="row">
+    <div class="col-sm-6 col-sm-push-6">
+      <figure>
+        <img class="img-responsive center-block" src="<%= data.image %>" alt="<%= data.title %>">
+      </figure>
+    </div>
+    <div class="col-sm-6 col-sm-pull-6">
+      <h2 class="page-header h3"><%= data.title %></h2>
+      <%
+        if(data.description){
+          var descriptionLoop = function (element,index,array){
+        -%>
+          <p><%= array[index] %></p>
+        <%
+          };
+          data.description.forEach(descriptionLoop);
+        }
+    　-%>
+    </div>
+  </div>
 </div>

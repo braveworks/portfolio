@@ -49,4 +49,28 @@ skillset:
   - Git
 
 ### content
-content: ''
+content:
+  -
+    title       : 'テスト'
+    url         : ''
+    image       : 'http://placehold.it/400x400'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'WordPress'
+    description :
+      - 'テスト説明'
+      - 'テスト説明'
+      - 'テスト説明'
+
+  -
+    title       : 'テスト2'
+    url         : ''
+    image       : 'http://placehold.it/400x400'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Illustrator'
+    description :
+      - 'テスト説明'
+      - 'テスト説明'
+      - 'テスト説明'

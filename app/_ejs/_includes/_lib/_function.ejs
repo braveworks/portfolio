@@ -46,7 +46,8 @@ var dnsPrefetchUrl = [
   'www.gstatic.com',
   'www.jsdelivr.com'
 ];
-var dnsLoop = function (value){ -%><link rel="dns-prefetch" href="//<%= value %>">
+var dnsLoop = function (value){ -%>
+  <link rel="dns-prefetch" href="//<%= value %>">
 <% };
 addDnsPrefetch = function (){ dnsPrefetchUrl.forEach(dnsLoop); };
 
@@ -56,4 +57,17 @@ addDnsPrefetch = function (){ dnsPrefetchUrl.forEach(dnsLoop); };
 //   var file = filename.split('/')[filename.split('/').length - 1].replace('.ejs', '');
 //   return file;
 // };
+
+snake2camel = function(str, upper) {
+    str = str
+      .replace(/^[\-_ ]/g, "")
+      .replace(/[\-_ ]./g, function(match) {
+        return match.charAt(1).toUpperCase();
+      });
+    return upper === true ?
+      str.replace(/^[a-z]/g, function(match) {
+        return match.toUpperCase();
+      }) : str;
+}
+
 -%>
