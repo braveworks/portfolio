@@ -6,24 +6,25 @@ var magnificPopup = function() {
   var option = {};
 
   $.Velocity.defaults.duration = 1000;
-  $.Velocity.defaults.easing   = 'easeOutQuart';
+  $.Velocity.defaults.easing = 'easeOutQuart';
   $.Velocity.defaults.mobileHA = true;
 
   var changeNextPrev = function(self, direction) {
     direction = (direction === 'prev') ? direction : 'next';
     self.content
-      .velocity({ opacity: 0, translateX: (direction === 'prev') ? '20px' : '-20px' }, {
-        duration: 400,
+      .velocity({ opacity: 0, translateX: (direction === 'prev') ? '50px' : '-50px' }, {
+        duration: 300,
         complete: function() {
           if (direction === 'next') {
             $.magnificPopup.proto.next.call(self);
           } else if (direction === 'prev') {
             $.magnificPopup.proto.prev.call(self);
           }
+          self.content
+            .velocity({ opacity: 0, translateX: (direction === 'prev') ? '-50px' : '50px' }, { duration: 0 })
+            .velocity({ opacity: 1, translateX: '0' }, { duration: 400 });
         }
-      })
-      .velocity({ opacity: 0, translateX: (direction === 'prev') ? '-20px' : '20px' }, { duration: 0 })
-      .velocity({ opacity: 1, translateX: '0' }, { duration: 600 });
+      });
   };
 
   // common option
@@ -66,7 +67,10 @@ var magnificPopup = function() {
   // show description
   option.inline = {
     type: 'inline',
-    midClick: true
+    midClick: true,
+    gallery: {
+      enabled: true
+    }
   };
 
   // WP gallery
