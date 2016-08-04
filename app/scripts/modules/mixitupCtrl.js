@@ -2,10 +2,17 @@
 
 var mixitupCtrl = function($) {
 
-  var modules = require('./modules');
+  var sleep = require('./modules').sleep;
+  var option = {
+    animation: {
+      duration: 660,
+      effects: 'fade stagger(34ms) scale(0.01)',
+      easing: 'ease'
+    }
+  };
 
-  modules.sleep(1000).then(function() {
-    $('#container').mixItUp();
+  sleep(1000).then(function() {
+    $('#container').mixItUp(option);
   });
 
 };
