@@ -1,7 +1,9 @@
 // "Magnific Popup" controller
 // https://github.com/dimsemenov/Magnific-Popup/
 
-var magnificPopup = function() {
+var magnificPopup = function($) {
+
+  require('magnific-popup');
 
   var option = {};
 
@@ -94,4 +96,4 @@ var magnificPopup = function() {
 
 };
 
-module.exports = (magnificPopup)();
+module.exports = (magnificPopup)(jQuery);

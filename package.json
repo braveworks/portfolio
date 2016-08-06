@@ -51,5 +51,14 @@
     "mixitup": "git+https://github.com/patrickkunka/mixitup.git",
     "scrollmagic": "^2.0.5",
     "velocity-animate": "^1.2.3"
+  },
+  "browser": {
+    "velocity": "velocity-animate/velocity",
+    "velocity-ui": "velocity-animate/velocity.ui",
+    "scrollmagic-velocity": "scrollmagic/scrollmagic/uncompressed/plugins/animation.velocity",
+    "scrollmagic-gsap": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap",
+    "scrollmagic-jquery": "scrollmagic/scrollmagic/uncompressed/plugins/jquery.scrollmagic",
+    "mixitup": "mixitup/build/jquery.mixitup.min.js",
+    "magnific-popup": "magnific-popup/dist/jquery.magnific-popup.js"
   }
 }

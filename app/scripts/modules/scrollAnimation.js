@@ -2,12 +2,13 @@
  * scrollmagic controller
  */
 
-var scrollAnimation = (function() {
+var scrollAnimation = function($) {
 
-  var controller = new ScrollMagic.Controller();
+  var ScrollMagic     = require('scrollmagic');
+  var controller      = new ScrollMagic.Controller();
 
-  var $slideElement = $('.slide-in');
-  var $staggerBlock = $('.stagger-block');
+  var $slideElement   = $('.slide-in');
+  var $staggerBlock   = $('.stagger-block');
   var $staggerElement = '.stagger';
   var slide = [],
     stagger = [];
@@ -61,5 +62,5 @@ var scrollAnimation = (function() {
     'load': animation.load
   });
 
-})();
-module.exports = scrollAnimation;
+};
+module.exports = (scrollAnimation)(jQuery);

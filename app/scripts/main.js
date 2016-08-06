@@ -1,3 +1,8 @@
+// node_modules
+window.jQuery = window.$ = require('jquery');
+require('velocity');
+require('velocity-ui');
+
 // main
 require('./modules/loadingScreen');
 require('./modules/magnificPopup');

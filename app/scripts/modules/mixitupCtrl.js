@@ -2,6 +2,8 @@
 
 var mixitupCtrl = function($) {
 
+  require('mixitup');
+
   var sleep = require('./modules').sleep;
   var option = {
     animation: {
