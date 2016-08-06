@@ -4,13 +4,14 @@
 
 # Scripts : concat and export to `scripts/vendor/lib.min.js`
 scripts:
-  - 'node_modules/velocity-animate/velocity.js'
-  - 'node_modules/velocity-animate/velocity.ui.js'
-  - 'node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
-  - 'node_modules/js-yaml/dist/js-yaml.js'
-  - 'node_modules/jsrender/jsrender.js'
-  - 'node_modules/magnific-popup/dist/jquery.magnific-popup.js'
-  - 'node_modules/mixitup/build/jquery.mixitup.min.js'
+  - ''
+  # - 'node_modules/velocity-animate/velocity.js'
+  # - 'node_modules/velocity-animate/velocity.ui.js'
+  # - 'node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
+  # - 'node_modules/js-yaml/dist/js-yaml.js'
+  # - 'node_modules/jsrender/jsrender.js'
+  # - 'node_modules/magnific-popup/dist/jquery.magnific-popup.js'
+  # - 'node_modules/mixitup/build/jquery.mixitup.min.js'
   # - 'node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js'
   # - 'node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js'
   # - 'node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js'
