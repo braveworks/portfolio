@@ -13,7 +13,7 @@ config         :
 ### サイト基本情報
 site           :
   title        : 'Portfolio-braveworks'
-  domain       : '****.com'
+  domain       : 'braveworks.github.io/portfolio/'
   copyright    : '2016 braveworks.'
 
 ### メタ情報

@@ -4,10 +4,6 @@
 
 var smooothScroll = function() {
 
-  var $ = require('jquery');
-  require('velocity');
-  require('velocity-ui');
-
   var $scrollBody = $('body,html');
   var count = 0;
   var scroll = {

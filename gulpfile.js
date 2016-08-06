@@ -97,7 +97,7 @@ gulp.task('scripts', function() {
       debug: true,
       cache: {},
       packageCache: {},
-      transform: ['browserify-shim', babelify.configure({ presets: ['es2015', 'react', 'stage-2'] })],
+      transform: [/*'browserify-shim',*/ babelify.configure({ presets: ['es2015', 'react', 'stage-2'] })],
     };
     var watchifyStream = (build) ?
       browserify(browserifyOptions) :
