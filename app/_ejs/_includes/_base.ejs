@@ -8,12 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title><%= ((title)? title + ' | ' : '') + site.title; %></title>
-    <% var metaLoop = function (key){ %>
-      <meta name="<%= key %>" content="<%= meta[key] %>">
-    <% };if(meta){ Object.keys(meta).forEach(metaLoop); } -%>
-    <link rel="canonical" href="//<%= site.domain %>/">
+    <link rel="canonical" href="//<%= site.domain %>">
     <% addDnsPrefetch(); %>
-
     <link rel="shortcut icon" href="<%= root('favicon.ico'); %>">
     <link rel="apple-touch-icon" href="<%= root('apple-touch-icon.png'); %>">
     <link rel="stylesheet" href="<%= root('styles/main.css'); %>">
@@ -21,11 +17,9 @@
 
   </head>
   <body>
-    <% include _components/_loading-screen -%>
+    <% include _layout/_loading-screen -%>
     <% contents(); %>
-    <% include _components/_go-top -%>
     <% include _layout/_footer -%>
-    <script src="https://cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>
   </body>

@@ -184,6 +184,7 @@ gulp.task('vendor', function() {
 gulp.task('copy', function() {
   return gulp.src([
       'app/robots.txt',
+      'app/contents.yml',
       '!app/**/.gitkeep'
     ], {
       dot: true

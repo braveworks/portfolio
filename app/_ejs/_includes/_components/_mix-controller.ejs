@@ -1,4 +1,4 @@
-<div class="btn-mix-controller">
+<div class="btn-mix-controller slide-in">
   <button class="filter btn btn-primary" data-filter="all">
     <strong>
       <i class="fa fa-th" aria-hidden="true"></i>
@@ -8,11 +8,11 @@
     if(skillset){
       var skillsetMixButtonLoop = function (element,index,array){
         var className = snake2camel(array[index]).toLowerCase();
-  -%>
-  <button class="filter btn btn-primary" data-filter="<%= '.skill-' + className %>">
-    <%= array[index] %>
-  </button>
-  <%
+        -%>
+        <button class="filter btn btn-primary" data-filter="<%= '.skill-' + className %>">
+          <%= array[index] %>
+        </button>
+        <%
       };
       skillset.forEach(skillsetMixButtonLoop);
     }

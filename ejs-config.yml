@@ -7,13 +7,13 @@ config         :
   rootPath     : ''
 
 ####################################################
-#
+# head
 ####################################################
 
 ### サイト基本情報
 site           :
   title        : 'Portfolio-braveworks'
-  domain       : 'braveworks.github.io/portfolio/'
+  domain       : 'braveworks.github.io/portfolio'
   copyright    : '2016 braveworks.'
 
 ### メタ情報
@@ -32,6 +32,10 @@ ogp            :
     url        : ''
     image      : ''
 
+####################################################
+# contents
+####################################################
+
 ### cover skill set text
 skillset:
   - Photoshop
@@ -47,6 +51,8 @@ skillset:
   - PHP
   - WordPress
   - Git
+
+dammy: 'http://placehold.it/200x200'
 
 ### content
 products:
