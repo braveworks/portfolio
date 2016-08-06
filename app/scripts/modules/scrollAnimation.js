@@ -4,11 +4,12 @@
 
 var scrollAnimation = function($) {
 
-  var Modernizr   = require('browsernizr');
+  require('browsernizr/test/css/transforms.js');
+  var Modernizr = require('browsernizr');
   var ScrollMagic = require('scrollmagic');
   var controller = new ScrollMagic.Controller();
 
-console.log(Modernizr);
+  console.log(Modernizr);
 
   var $slideElement = $('.slide-in');
   var $staggerBlock = $('.stagger-block');
@@ -52,10 +53,10 @@ console.log(Modernizr);
     },
 
     load: function() {
-      // if (Modernizr.csstransforms) {
-        animation.slideIn();
-        animation.stagger();
-      // }
+      if (Modernizr.csstransforms) {
+      animation.slideIn();
+      animation.stagger();
+      }
     }
 
   };

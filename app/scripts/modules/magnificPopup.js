@@ -5,11 +5,14 @@ var magnificPopup = function($) {
 
   require('magnific-popup');
 
-  var option = {};
+  var imagesLoaded = require('imagesloaded');
+  imagesLoaded.makeJQueryPlugin($);
 
   $.Velocity.defaults.duration = 1000;
   $.Velocity.defaults.easing = 'easeOutQuart';
   $.Velocity.defaults.mobileHA = true;
+
+  var option = {};
 
   var changeNextPrev = function(self, direction) {
     direction = (direction === 'prev') ? direction : 'next';

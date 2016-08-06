@@ -1,18 +1,33 @@
 <div id="<%= 'content-popup' + index %>" class="popup mfp-hide">
   <h2 class="popup-header h4"><%= data.title %></h2>
   <div class="popup-body">
-    <p>
-      <% if(data.skill){ var skillLoop = function (element,index,array){ -%>
-        <span class="label label-primary"><%= array[index] %></span>
-      <% }; data.skill.forEach(skillLoop); } -%>
-    </p>
-    <hr>
-    <% if(data.description){ var descriptionLoop = function (element,index,array){ -%>
-      <p><%= array[index] %></p>
-    <% }; data.description.forEach(descriptionLoop); } -%>
-    <figure>
-      <img class="img-responsive center-block" src="<%= dammy %>" data-original="<%= data.image %>" alt="<%= data.title %>">
-    </figure>
-    
+    <div class="row">
+
+      <div class="col-md-4">
+        <% if(data.description){ var descriptionLoop = function (element,index,array){ -%>
+          <p><%= array[index] %></p>
+        <% }; data.description.forEach(descriptionLoop); } -%>
+        <hr>
+        <p>
+          <% if(data.skill){ var skillLoop = function (element,index,array){ -%>
+            <span class="label label-default"><%= array[index] %></span>
+          <% }; data.skill.forEach(skillLoop); } -%>
+        </p>
+        <hr>
+        <p>
+          <a href="<%= data.url %>" class="btn btn-primary btn-sm" target="_blank">
+            Launch Site
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+          </a>
+        </p>
+      </div>
+
+      <div class="col-md-8">
+        <figure>
+          <img class="img-responsive center-block" src="<%= data.image %>" alt="<%= data.title %>">
+        </figure>
+      </div>
+
+    </div>
   </div>
 </div>

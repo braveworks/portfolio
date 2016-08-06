@@ -40,9 +40,8 @@ ogp            :
 skillset:
   - Photoshop
   - Illustrator
-  - HTML3
-  - CSS3
   - Bootstrap
+  - Responsive
   - JavaScript
   - jQuery
   - Gulp
@@ -57,17 +56,16 @@ dammy: 'http://placehold.it/200x200'
 ### content
 products:
   -
-    title       : 'テスト'
-    url         : ''
-    image       : 'http://placehold.it/400x400'
+    title       : 'プレミアムアプリ ランディングページ'
+    url         : 'http://premium-appli.com/'
+    image       : 'http://placehold.it/1900x3000'
     thumbnail   : 'http://placehold.it/400x400'
     skill       :
       - 'Photoshop'
-      - 'WordPress'
+      - 'Gulp'
     description :
-      - 'テスト説明'
-      - 'テスト説明'
-      - 'テスト説明'
+      - 'スマートフォンアプリ制作サービスプロモーション用ランディングページ'
+      - 'デザイン・HTML・CSS・JSコーディングの制作全般を担当。ScrollMagicを使用したパララックスアニメーションなどを実装しています'
 
   -
     title       : 'テスト2'
