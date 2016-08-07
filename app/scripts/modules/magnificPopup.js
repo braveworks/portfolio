@@ -20,8 +20,8 @@ var magnificPopup = function($) {
       .velocity({ opacity: 0, translateX: (direction === 'prev') ? '50px' : '-50px' }, {
         duration: 300,
         complete: function() {
-                  self.content.removeAttr('style');
-                  console.log(self.content);
+          self.content.removeAttr('style');
+          console.log(self.content);
           if (direction === 'next') {
             $.magnificPopup.proto.next.call(self);
           } else if (direction === 'prev') {
@@ -48,7 +48,7 @@ var magnificPopup = function($) {
       },
       beforeClose: function() {
         $('body').removeClass('modal-open');
-        this.content.velocity({ opacity: 0, scale: 1.1 }, { delay: 200, display: 'none' });
+        $('.popup').removeAttr('style');
       },
       open: function() {
         var self = this;
