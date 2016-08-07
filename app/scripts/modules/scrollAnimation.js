@@ -9,8 +9,6 @@ var scrollAnimation = function($) {
   var ScrollMagic = require('scrollmagic');
   var controller = new ScrollMagic.Controller();
 
-  console.log(Modernizr);
-
   var $slideElement = $('.slide-in');
   var $staggerBlock = $('.stagger-block');
   var $staggerElement = '.stagger';

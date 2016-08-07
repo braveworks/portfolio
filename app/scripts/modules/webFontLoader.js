@@ -3,7 +3,7 @@ var webFontLoader = function() {
   // WebFont
   var fonts = [
     'https://fonts.googleapis.com/css?family=Raleway:400,300,100,700',
-    'https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css'
+    'https://cdn.jsdelivr.net/ionicons/2.0.1/css/ionicons.min.css'
   ];
 
   // WebFont loader
@@ -25,7 +25,7 @@ var webFontLoader = function() {
         });
       }
     }
-    
+
   };
 
   webfont.loader(fonts);

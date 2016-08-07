@@ -1,0 +1,27 @@
+<% if(products){ -%>
+<div class="row">
+
+  <% var contentLoop = function (element,index,array){ var data = array[index]; -%>
+
+  <div class="col-xs-6 col-sm-4 col-lg-3 mix">
+
+    <article>
+      <section class="pict-effect">
+        <figure class="pict-effect-figure">
+          <img class="pict-effect-img" src="<%= data.thumbnail %>" alt="">
+          <figcaption class="pict-effect-caption">
+            <h2 class="pict-effect-hd"><%= data.label %></h2>
+            <p class="pict-effect-text"><%= data.title %></p>
+            <a href="<%= '#content-popup' + index %>" data-mfp="inline">View more</a>
+          </figcaption>
+        </figure>
+      </section>
+      <%- include(ejsRoot('_popup-contents'), { data : data, index : index }); -%>
+    </article>
+
+  </div>
+
+<% }; products.forEach(contentLoop); -%>
+
+</div>
+<% } -%>

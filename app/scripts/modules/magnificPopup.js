@@ -20,6 +20,8 @@ var magnificPopup = function($) {
       .velocity({ opacity: 0, translateX: (direction === 'prev') ? '50px' : '-50px' }, {
         duration: 300,
         complete: function() {
+                  self.content.removeAttr('style');
+                  console.log(self.content);
           if (direction === 'next') {
             $.magnificPopup.proto.next.call(self);
           } else if (direction === 'prev') {
@@ -52,7 +54,7 @@ var magnificPopup = function($) {
         var self = this;
         this.content
           .velocity('stop')
-          .velocity({ opacity: 0, scale: 0.92 }, { duration: 0, display: 'block' })
+          .velocity({ opacity: 0, scale: 0.92, translateX: 0 }, { duration: 0, display: 'block' })
           .velocity({ opacity: 1, scale: 1 }, { delay: 200 });
         $.magnificPopup.instance.next = function() { changeNextPrev(self, 'next'); };
         $.magnificPopup.instance.prev = function() { changeNextPrev(self, 'prev'); };

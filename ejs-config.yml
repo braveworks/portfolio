@@ -3,41 +3,41 @@
 ####################################################
 
 # サーバーのルートパス
-config         :
-  rootPath     : ''
+config          :
+  rootPath      : ''
 
 ####################################################
 # head
 ####################################################
 
 ### サイト基本情報
-site           :
-  title        : 'Portfolio-braveworks'
-  domain       : 'braveworks.github.io/portfolio'
-  copyright    : '2016 braveworks.'
+site            :
+  title         : 'Portfolio-braveworks'
+  domain        : 'braveworks.github.io/portfolio'
+  copyright     : '2016 braveworks.'
 
 ### メタ情報
-meta           :
-  description  : 'サイトの説明'
-  # keyword      : 'キーワード'
+meta            :
+  description   : 'サイトの説明'
+  # keyword     : 'キーワード'
 
 ### OGP
-ogp            :
-  default      :
-    title      : ''
-    type       : ''
-    locale     : ''
-    site_name  : ''
-    description: ''
-    url        : ''
-    image      : ''
+ogp             :
+  default       :
+    title       : ''
+    type        : ''
+    locale      : ''
+    site_name   : ''
+    description : ''
+    url         : ''
+    image       : ''
 
 ####################################################
 # contents
 ####################################################
 
 ### cover skill set text
-skillset:
+skillset        :
   - Photoshop
   - Illustrator
   - Bootstrap
@@ -51,30 +51,241 @@ skillset:
   - WordPress
   - Git
 
-dammy: 'http://placehold.it/200x200'
+dammy           : 'http://placehold.it/200x200'
 
 ### content
-products:
+products        :
+
+  # -----------------------------------
   -
-    title       : 'プレミアムアプリ ランディングページ'
+    title       : 'プレミアムアプリ'
+    type        : 'ランディングページ'
+    label       : 'Landing Page'
     url         : 'http://premium-appli.com/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x1000'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - 'スマートフォンアプリ制作サービス プロモーション用ランディングページ'
+      - 'デザイン・コーディング他・制作全般担当'
+    publish     :
+      - '株式会社オーエス (2015)'
+
+  # -----------------------------------
+  -
+    title       : 'プレミアムリスティング'
+    type        : 'サービスサイト'
+    label       : 'Service Site'
+    url         : 'http://premium-listing.com/'
     image       : 'http://placehold.it/1900x3000'
     thumbnail   : 'http://placehold.it/400x400'
     skill       :
       - 'Photoshop'
       - 'Gulp'
     description :
-      - 'スマートフォンアプリ制作サービスプロモーション用ランディングページ'
-      - 'デザイン・HTML・CSS・JSコーディングの制作全般を担当。ScrollMagicを使用したパララックスアニメーションなどを実装しています'
+      - 'インターネット広告サービスプロモーション用サービスサイト'
+      - 'デザイン・コーディング他・制作全般担当'
+    publish     :
+      - '株式会社オーエス (2016)'
 
+  # -----------------------------------
   -
-    title       : 'テスト2'
-    url         : ''
-    image       : 'http://placehold.it/400x400'
+    title       : 'プレミアムリスティング'
+    type        : 'ランディングページ'
+    label       : 'Landing Page'
+    url         : 'http://homepage-premium.com/listing/'
+    image       : 'http://placehold.it/1900x3000'
     thumbnail   : 'http://placehold.it/400x400'
     skill       :
-      - 'Illustrator'
+      - 'Photoshop'
+      - 'Gulp'
     description :
-      - 'テスト説明'
-      - 'テスト説明'
-      - 'テスト説明'
+      - 'インターネット広告サービスプロモーション用ランディングページ'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - '株式会社オーエス (2015)'
+
+  # -----------------------------------
+  -
+    title       : 'ホームページプレミアム'
+    type        : 'サービスサイト'
+    label       : 'Service Site'
+    url         : 'http://homepage-premium.com/v2/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - '中小企業向けホームページ制作代行サービスプロモーションサイト(非公開)'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - '株式会社オーエス (2016)'
+
+  # -----------------------------------
+  -
+    title       : 'ホームページプレミアム'
+    type        : 'サービスサイト'
+    label       : 'Service Site'
+    url         : 'http://homepage-premium.com/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - '中小企業向けホームページ制作代行サービスプロモーションサイト'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - '株式会社オーエス (2014)'
+
+  # -----------------------------------
+  -
+    title       : 'ホームページプレミアム'
+    type        : 'ランディングページ'
+    label       : 'Landing Page'
+    url         : 'http://homepage-premium.com/lp/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - '中小企業向けホームページ制作代行サービスプロモーションサイト'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - '株式会社オーエス (2013)'
+
+  # -----------------------------------
+  -
+    title       : 'コスト削減.biz モバイル'
+    type        : 'サービスサイト'
+    label       : 'Service Site'
+    url         : 'http://www.costsakugen.biz/mobile/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - '法人向け携帯電話導入サービス用サービスサイト'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - '株式会社C-mind様 (2014)'
+
+  # -----------------------------------
+  -
+    title       : '株式会社オーエス コーポレートサイト'
+    type        : 'コーポレートサイト'
+    label       : 'Corporate Site'
+    url         : 'http://oscorporation.com/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - '自社コーポレートサイトのリニューアル'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - '株式会社オーエス (2013)'
+  # -----------------------------------
+  -
+    title       : '歯科パーク'
+    type        : '歯科検索サービス'
+    label       : 'Service Site'
+    url         : 'http://www.shika-park.jp/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+    description :
+      - '歯科検索サイト'
+      - '担当：ベースデザイン・キャラクターデザイン・フロントエンド部分のコーディング・アニメーション制作'
+    publish     :
+      - '株式会社オーエス (2013)'
+
+  # -----------------------------------
+  -
+    title       : 'ラムセスグループサイト'
+    type        : 'コーポレートサイト'
+    label       : 'Corporate Site'
+    url         : 'http://ramses-grp.com/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - 'コーポレートサイトリニューアル'
+      - 'デザイン・コーディング他、制作全般担当'
+    publish     :
+      - 'サンポウ企業株式会社 (2016)'
+
+  # -----------------------------------
+  -
+    title       : 'KJエンターテイメントサイト'
+    type        : 'コーポレートサイト'
+    label       : 'Corporate Site'
+    url         : 'http://kjenta.com/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - 'コーポレートサイト'
+      - 'ベースデザイン・WordPressテーマ開発・アニメーション制作・他制作全般担当'
+    publish     :
+      - 'KJエンターテイメントサイト (2016)'
+
+  # -----------------------------------
+  -
+    title       : '株式会社チャリングチャリンクスサイト'
+    type        : 'コーポレートサイト'
+    label       : 'Corporate Site'
+    url         : 'http://charingchalinks.co.jp/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - 'コーポレートサイト'
+      - 'ベースデザイン・WordPressテーマ開発・アニメーション制作・他制作全般担当'
+    publish     :
+      - '株式会社チャリングチャリンクス (2016)'
+
+  # -----------------------------------
+  -
+    title       : 'エルミタージュ'
+    type        : 'サービスサイト'
+    label       : 'Service Site'
+    url         : 'http://aromaesthe.jp/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+      - 'Gulp'
+    description :
+      - 'コーポレートサイト'
+      - 'WordPressテーマ・プラグインカスタマイズ・一部アニメーション制作（デザイン・構成は別担当）'
+    publish     :
+      - 'KJエンターテイメントサイト (2016)'
+
+  # -----------------------------------
+  -
+    title       : '炭火焼肉「龍炎」サイト'
+    type        : 'サービスサイト'
+    label       : 'Service Site'
+    url         : 'http://www.ryuen2004.com/'
+    image       : 'http://placehold.it/1900x3000'
+    thumbnail   : 'http://placehold.it/400x400'
+    skill       :
+      - 'Photoshop'
+    description :
+      - 'トップページのPSDデザインのみを担当'
+    publish     :
+      - '龍炎 (2013)'
