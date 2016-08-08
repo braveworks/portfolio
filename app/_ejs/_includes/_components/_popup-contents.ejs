@@ -1,10 +1,13 @@
 <section>
   <div id="<%= 'content-popup' + index %>" class="popup mfp-hide">
-    <h2 class="popup-header h4"><%= data.title %><small><%= ' (' + data.type + ')' %></small></h2>
+    <h2 class="popup-header h4">
+      <strong><%= data.title %></strong>
+      <small><%= ' (' + data.type + ')' %></small>
+    </h2>
     <div class="popup-body">
       <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <% if(data.publish){ var descriptionLoop = function (element,index,array){ -%>
             <p><%= array[index] %></p>
           <% }; data.description.forEach(descriptionLoop); } -%>
@@ -30,7 +33,7 @@
           </p>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-9">
           <% if(data.image){  -%>
             <figure>
               <img class="img-responsive center-block drop-shadow" src="<%= data.image %>" alt="<%= data.title %>">

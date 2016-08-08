@@ -77,16 +77,18 @@
     position: relative;
     position: absolute;
     display: block;
-    max-width: 100%;
+    max-width: 120%;
     min-height: 100%;
+    height:auto;
     transition: opacity 0.35s, transform 0.35s;
     transform: scale(1.15);
-    opacity: 0.8;
-    top:0;
+    opacity: 0.95;
+    top: 0;
     left: 0;
     right: 0;
     bottom: auto;
-    margin:auto;
+    margin: auto;
+    backface-visibility: hidden;
   }
 
   &:hover img {

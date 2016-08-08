@@ -8,6 +8,8 @@ var magnificPopup = function($) {
   var imagesLoaded = require('imagesloaded');
   imagesLoaded.makeJQueryPlugin($);
 
+  var animateFlag = false;
+
   $.Velocity.defaults.duration = 1000;
   $.Velocity.defaults.easing = 'easeOutQuart';
   $.Velocity.defaults.mobileHA = true;
@@ -16,12 +18,12 @@ var magnificPopup = function($) {
 
   var changeNextPrev = function(self, direction) {
     direction = (direction === 'prev') ? direction : 'next';
+    animateFlag = true;
     self.content
       .velocity({ opacity: 0, translateX: (direction === 'prev') ? '50px' : '-50px' }, {
         duration: 300,
         complete: function() {
           self.content.removeAttr('style');
-          console.log(self.content);
           if (direction === 'next') {
             $.magnificPopup.proto.next.call(self);
           } else if (direction === 'prev') {
@@ -29,7 +31,12 @@ var magnificPopup = function($) {
           }
           self.content
             .velocity({ opacity: 0, translateX: (direction === 'prev') ? '-50px' : '50px' }, { duration: 0 })
-            .velocity({ opacity: 1, translateX: '0' }, { duration: 400 });
+            .velocity({ opacity: 1, translateX: '0' }, {
+              duration: 400,
+              complete: function() {
+                animateFlag = false;
+              }
+            });
         }
       });
   };
@@ -56,8 +63,10 @@ var magnificPopup = function($) {
           .velocity('stop')
           .velocity({ opacity: 0, scale: 0.92, translateX: 0 }, { duration: 0, display: 'block' })
           .velocity({ opacity: 1, scale: 1 }, { delay: 200 });
-        $.magnificPopup.instance.next = function() { changeNextPrev(self, 'next'); };
-        $.magnificPopup.instance.prev = function() { changeNextPrev(self, 'prev'); };
+        $.magnificPopup.instance.next = function() {
+          if (!animateFlag) { changeNextPrev(self, 'next'); } };
+        $.magnificPopup.instance.prev = function() {
+          if (!animateFlag) { changeNextPrev(self, 'prev'); } };
       },
       close: function() {
         this.wrap.removeClass('mfp-image-loaded');
