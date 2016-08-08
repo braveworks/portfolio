@@ -1,6 +1,6 @@
 <section>
   <div id="<%= 'content-popup' + index %>" class="popup mfp-hide">
-    <h2 class="popup-header h4"><%= data.title %></h2>
+    <h2 class="popup-header h4"><%= data.title %><small><%= ' (' + data.type + ')' %></small></h2>
     <div class="popup-body">
       <div class="row">
 
@@ -21,21 +21,24 @@
           </p>
           <hr>
           <p>
-            <a href="<%= data.url %>" class="btn btn-primary" target="_blank">
-              <span>Launch Site </span>
-              <i class="icon ion-android-exit" aria-hidden="true"></i>
-            </a>
+            <% if(data.url){  -%>
+              <a href="<%= data.url %>" class="btn btn-primary" target="_blank">
+                <span>Launch Site </span>
+                <i class="icon ion-android-exit" aria-hidden="true"></i>
+              </a>
+            <% } -%>
           </p>
         </div>
 
         <div class="col-md-8">
-          <figure>
-            <img class="img-responsive center-block" src="<%= data.image %>" alt="<%= data.title %>">
-          </figure>
+          <% if(data.image){  -%>
+            <figure>
+              <img class="img-responsive center-block drop-shadow" src="<%= data.image %>" alt="<%= data.title %>">
+            </figure>
+          <% } -%>
         </div>
 
       </div>
-
     </div>
   </div>
 </section>
