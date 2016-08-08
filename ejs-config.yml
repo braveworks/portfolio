@@ -104,6 +104,7 @@ products        :
     description :
       - 'インターネット広告サービスプロモーション用サービスサイト'
       - 'デザイン・コーディング他・制作全般担当'
+      - '※会社都合により一般には非公開'
     publish     :
       - '株式会社オーエス (2015)'
 
@@ -129,7 +130,7 @@ products        :
       - Git
     description :
       - '中小企業向けホームページ制作代行サービスプロモーション用サービスサイト(リニューアル版）'
-      - '※会社都合により非公開'
+      - '※会社都合により一般には非公開'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
       - '株式会社オーエス (2016)'
@@ -205,7 +206,7 @@ products        :
     title       : '株式会社オーエス採用サイト2016〜2017'
     type        : '採用サイト'
     label       : 'Recruit Site'
-    url         : 'http://oscorporation.com/2007/'
+    url         : 'http://oscorporation.com/recruit/2017/'
     image       : 'images/ss-oscorporation-com-recruit-2017.jpg'
     thumbnail   : 'images/ss-oscorporation-com-recruit-2017.jpg'
     skill       :

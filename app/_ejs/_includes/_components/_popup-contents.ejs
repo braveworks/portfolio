@@ -1,8 +1,13 @@
+<%
+var type = (data.type) ? ' (' + data.type + ')' : null;
+-%>
 <section>
   <div id="<%= 'content-popup' + index %>" class="popup mfp-hide">
     <h2 class="popup-header h4">
       <strong><%= data.title %></strong>
-      <small><%= ' (' + data.type + ')' %></small>
+      <% if(type){ -%>
+      <small><%= type %></small>
+      <% } -%>
     </h2>
     <div class="popup-body">
       <div class="row">
