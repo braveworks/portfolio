@@ -1,9 +1,18 @@
+html {
+  overflow: auto;
+  height: 100%;
+  height: 100vh;
+}
+
 body {
   position: relative;
   font-family: $primary-font;
   height: 100%;
 }
-
+body.modal-open {
+  overflow: hidden;
+  height: 100%;
+}
 section > .container {
   padding: {
     top: 30px;
@@ -24,8 +33,8 @@ h4 {
   color: $color-main;
 }
 
-a,
-.btn {
+.btn,
+a {
   transition: all 0.3s;
 }
 

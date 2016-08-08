@@ -13,7 +13,7 @@ var mixitupCtrl = function($) {
     }
   };
 
-  sleep(1000).then(function() {
+  sleep(800).then(function() {
     $('#container').mixItUp(option);
   });
 

@@ -4,9 +4,7 @@
 var magnificPopup = function($) {
 
   require('magnific-popup');
-
-  var imagesLoaded = require('imagesloaded');
-  imagesLoaded.makeJQueryPlugin($);
+  var ua = require('./ua');
 
   var animateFlag = false;
 
@@ -52,21 +50,31 @@ var magnificPopup = function($) {
     callbacks: {
       beforeOpen: function() {
         $('body').addClass('modal-open');
+        // if (ua('ios')) {
+        //   $(window).on('touchmove.noScroll', function(e) {
+        //     e.preventDefault();
+        //   });
+        // }
       },
       beforeClose: function() {
         $('body').removeClass('modal-open');
         $('.popup').removeAttr('style');
+        // if (ua('ios')) {
+        //   $(window).off('.noScroll');
+        // }
       },
       open: function() {
         var self = this;
         this.content
           .velocity('stop')
           .velocity({ opacity: 0, scale: 0.92, translateX: 0 }, { duration: 0, display: 'block' })
-          .velocity({ opacity: 1, scale: 1 }, { duration: 500});
+          .velocity({ opacity: 1, scale: 1 }, { duration: 500 });
         $.magnificPopup.instance.next = function() {
-          if (!animateFlag) { changeNextPrev(self, 'next'); } };
+          if (!animateFlag) { changeNextPrev(self, 'next'); }
+        };
         $.magnificPopup.instance.prev = function() {
-          if (!animateFlag) { changeNextPrev(self, 'prev'); } };
+          if (!animateFlag) { changeNextPrev(self, 'prev'); }
+        };
       },
       close: function() {
         this.wrap.removeClass('mfp-image-loaded');

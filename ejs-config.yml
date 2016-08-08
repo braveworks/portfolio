@@ -87,7 +87,7 @@ products        :
     title       : 'プレミアムリスティング'
     type        : 'サービスサイト'
     label       : 'Service Site'
-    url         : 'http://premium-listing.com/'
+    url         : 'http://premium-listing.jp/'
     image       : 'images/ss-premium-listing-jp.jpg'
     thumbnail   : 'images/ss-premium-listing-jp.jpg'
     skill       :
