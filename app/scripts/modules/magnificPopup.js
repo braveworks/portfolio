@@ -11,7 +11,7 @@ var magnificPopup = function($) {
   var animateFlag = false;
 
   $.Velocity.defaults.duration = 1000;
-  $.Velocity.defaults.easing = 'easeOutQuart';
+  $.Velocity.defaults.easing = 'liner';
   $.Velocity.defaults.mobileHA = true;
 
   var option = {};
@@ -62,7 +62,7 @@ var magnificPopup = function($) {
         this.content
           .velocity('stop')
           .velocity({ opacity: 0, scale: 0.92, translateX: 0 }, { duration: 0, display: 'block' })
-          .velocity({ opacity: 1, scale: 1 }, { delay: 200 });
+          .velocity({ opacity: 1, scale: 1 }, { duration: 500});
         $.magnificPopup.instance.next = function() {
           if (!animateFlag) { changeNextPrev(self, 'next'); } };
         $.magnificPopup.instance.prev = function() {
