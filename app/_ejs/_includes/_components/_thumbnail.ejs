@@ -1,9 +1,19 @@
 <% if(products){ -%>
 <div class="row">
 
-  <% var contentLoop = function (element,index,array){ var data = array[index]; -%>
+  <% var contentLoop = function (element,index,array){ var data = array[index];
+    
+      if(data.skill){
+        var skillClass =[];
+        data.skill.forEach(function (element,index,array){
+          var skillName = 'skill-' + snake2camel(element).toLowerCase();
+          skillClass.push(skillName);
+        });
+        var category = skillClass.join(' ');
+      }
+  -%>
 
-  <div class="col-xs-6 col-sm-4 col-lg-3 mix">
+  <div class="col-xs-6 col-sm-4 col-lg-3 mix <%= category %>">
 
     <article>
       <section class="pict-effect">

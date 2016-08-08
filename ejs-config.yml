@@ -65,8 +65,17 @@ products        :
     image       : 'images/ss-premium-appli-com.jpg'
     thumbnail   : 'images/ss-premium-appli-com.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+        - Photoshop
+        - Illustrator
+        - Bootstrap
+        - Responsive
+        - JavaScript
+        - jQuery
+        - Gulp
+        - Sass
+        - EJS
+        - PHP
+        - Git
     description :
       - 'スマートフォンアプリ制作サービス プロモーション用ランディングページ'
       - 'デザイン・コーディング他・制作全般担当'
@@ -82,8 +91,16 @@ products        :
     image       : 'images/ss-premium-listing-jp.jpg'
     thumbnail   : 'images/ss-premium-listing-jp.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Gulp
+      - Sass
+      - EJS
+      - Git
     description :
       - 'インターネット広告サービスプロモーション用サービスサイト'
       - 'デザイン・コーディング他・制作全般担当'
@@ -99,8 +116,17 @@ products        :
     image       : 'images/ss-homepage-premium-com-v2.jpg'
     thumbnail   : 'images/ss-homepage-premium-com-v2.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Gulp
+      - Sass
+      - EJS
+      - PHP
+      - Git
     description :
       - '中小企業向けホームページ制作代行サービスプロモーション用サービスサイト(リニューアル版）'
       - '※会社都合により非公開'
@@ -117,8 +143,13 @@ products        :
     image       : 'images/ss-homepage-premium-com-v1.jpg'
     thumbnail   : 'images/ss-homepage-premium-com-v1.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Dreamweaver
     description :
       - '中小企業向けホームページ制作サービスプロモーション用サービスサイト'
       - 'デザイン・コーディング他、制作全般担当'
@@ -134,8 +165,13 @@ products        :
     image       : 'images/ss-homepage-premium-com-lp.jpg'
     thumbnail   : 'images/ss-homepage-premium-com-lp.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Dreamweaver
     description :
       - '中小企業向けホームページ制作代行サービスプロモーションサイト'
       - 'デザイン・コーディング他、制作全般担当'
@@ -151,8 +187,13 @@ products        :
     image       : 'images/ss-costsakugen-biz-mobile.jpg'
     thumbnail   : 'images/ss-costsakugen-biz-mobile.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Dreamweaver
     description :
       - '法人向け携帯電話導入サービス用サービスサイト'
       - 'デザイン・コーディング他、制作全般担当'
@@ -168,8 +209,16 @@ products        :
     image       : 'images/ss-oscorporation-com-recruit-2017.jpg'
     thumbnail   : 'images/ss-oscorporation-com-recruit-2017.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Gulp
+      - Sass
+      - EJS
+      - Git
     description :
       - '株式会社オーエス求人用サイト(公開終了)'
       - 'デザイン・コーディング・パララックスアニメーションなどのフロントエンド他、制作の全般を担当'
@@ -185,8 +234,14 @@ products        :
     image       : 'images/ss-oscorporation-com.jpg'
     thumbnail   : 'images/ss-oscorporation-com.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Dreamweaver
+      - PHP
     description :
       - '自社コーポレートサイトのリニューアル'
       - 'デザイン・コーディング他、制作全般担当'
@@ -202,7 +257,13 @@ products        :
     image       : 'images/ss-shika-park-jp.jpg'
     thumbnail   : 'images/ss-shika-park-jp.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - PHP
     description :
       - '歯科検索サイト'
       - '担当：ベースデザイン・キャラクターデザイン・フロントエンド部分のコーディング・アニメーション制作'
@@ -218,8 +279,17 @@ products        :
     image       : 'images/ss-ramses-grp-com.jpg'
     thumbnail   : 'images/ss-ramses-grp-com.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Gulp
+      - Sass
+      - PHP
+      - WordPress
+      - Git
     description :
       - 'コーポレートサイトリニューアル'
       - 'デザイン・コーディング他、制作全般担当'
@@ -235,8 +305,15 @@ products        :
     image       : 'images/ss-kjenta-com.jpg'
     thumbnail   : 'images/ss-kjenta-com.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - PHP
+      - WordPress
+      - Git
     description :
       - 'コーポレートサイト'
       - 'ベースデザイン・WordPressテーマ開発・アニメーション制作・他制作全般担当'
@@ -252,8 +329,17 @@ products        :
     image       : 'images/ss-charingchalinks-co-jp.jpg'
     thumbnail   : 'images/ss-charingchalinks-co-jp.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - Gulp
+      - Sass
+      - PHP
+      - WordPress
+      - Git
     description :
       - 'コーポレートサイト'
       - 'ロゴ・ベースデザイン・WordPress構築・テーマ開発・パララックス効果などのアニメーション、その他フロントエンド部分などを担当'
@@ -264,14 +350,19 @@ products        :
   # -----------------------------------
   -
     title       : 'エルミタージュ 様'
-    type        : 'サービスサイト'
+    type        : ''
     label       : 'Service Site'
     url         : 'http://aromaesthe.jp/'
     image       : 'images/ss-aromaesthe-jp.jpg'
     thumbnail   : 'images/ss-aromaesthe-jp.jpg'
     skill       :
-      - 'Photoshop'
-      - 'Gulp'
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - PHP
+      - WordPress
+      - Git
     description :
       - 'コーポレートサイト'
       - 'WordPress構築・テーマ開発・プラグインカスタマイズ・一部アニメーションなどのフロントエンド部分を担当（デザイン・ベースのマークアップ部分は別担当）'
@@ -281,13 +372,14 @@ products        :
   # -----------------------------------
   -
     title       : '手打そば車家 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : ''
     image       : 'images/ss-soba-kurumaya-co-jp.jpg'
     thumbnail   : 'images/ss-soba-kurumaya-co-jp.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'プロトタイプデザイン（PSD）の作成を担当'
       - ''
@@ -297,13 +389,14 @@ products        :
   # -----------------------------------
   -
     title       : 'POCO-salon 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : 'http://www.poco-salon.jp/'
     image       : 'images/ss-poco-salon-jp.jpg'
     thumbnail   : 'images/ss-poco-salon-jp.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
       - '※下層ページ等は別'
@@ -313,13 +406,14 @@ products        :
   # -----------------------------------
   -
     title       : 'Aloha Kitchen 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : ''
     image       : 'images/ss-aloha-kitchen.jpg'
     thumbnail   : 'images/ss-aloha-kitchen.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'トップページプロトタイプのPSDデザイン担当（未公開）'
       - '※下層ページ等は別'
@@ -329,13 +423,14 @@ products        :
   # -----------------------------------
   -
     title       : '天草エアライン 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : ''
     image       : 'images/ss-amx.jpg'
     thumbnail   : 'images/ss-amx.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'デザインコンペ用PSDデザイン（未使用）'
     publish     :
@@ -344,13 +439,14 @@ products        :
   # -----------------------------------
   -
     title       : '2次会エンタ 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : 'http://www.2jikaienta.com/'
     image       : 'images/ss-2jikaienta-com.jpg'
     thumbnail   : 'images/ss-2jikaienta-com.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
       - '※下層ページ等は別'
@@ -360,13 +456,14 @@ products        :
   # -----------------------------------
   -
     title       : 'ロックリサイクル 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : 'http://www.srs-777.com/'
     image       : 'images/ss-rock-recycle.jpg'
     thumbnail   : 'images/ss-rock-recycle.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'ロゴ・トップページ・プロトタイプのPSDデザインを担当'
       - '※下層ページ等は別'
@@ -376,13 +473,14 @@ products        :
   # -----------------------------------
   -
     title       : 'ヘアーマーケットサーカス 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : 'http://www.hair-market-circus.com/'
     image       : 'images/ss-hair-market-circus-com.jpg'
     thumbnail   : 'images/ss-hair-market-circus-com.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'ロゴ・トップページ・プロトタイプのPSDデザインを担当'
       - '※下層ページ等は別'
@@ -392,13 +490,14 @@ products        :
   # -----------------------------------
   -
     title       : 'BUYSTAR 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : ''
     image       : 'images/ss-buystar.jpg'
     thumbnail   : 'images/ss-buystar.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
       - '※下層ページ等は別'
@@ -408,13 +507,14 @@ products        :
 # -----------------------------------
   -
     title       : 'AQUALINK 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : ''
     image       : 'images/ss-aqualink.jpg'
     thumbnail   : 'images/ss-aqualink.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'スマートフォンページのプロトタイプPSDデザインを担当'
       - '※下層ページ等は別'
@@ -424,13 +524,14 @@ products        :
   # -----------------------------------
   -
     title       : 'リファイン 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : ''
     image       : 'images/ss-refine.jpg'
     thumbnail   : 'images/ss-refine.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
       - '※下層ページ等は別'
@@ -441,13 +542,14 @@ products        :
   # -----------------------------------
   -
     title       : '炭火焼肉「龍炎」 様'
-    type        : 'サービスサイト'
-    label       : 'Service Site'
+    type        : ''
+    label       : 'Design'
     url         : 'http://www.ryuen2004.com/'
     image       : 'images/ss-.ryuen2004-com.jpg'
     thumbnail   : 'images/ss-.ryuen2004-com.jpg'
     skill       :
-      - 'Photoshop'
+      - Photoshop
+      - Illustrator
     description :
       - 'トップページ・プロトタイプのデザイン（PSD）を担当'
       - '※下層ページ等は別'
