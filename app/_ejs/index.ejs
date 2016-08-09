@@ -1,26 +1,15 @@
 <% title    = 'Portfolio - mootake'; -%>
-
 <% contents = function () { %>
 
-  <%- include(ejsRoot('_includes/_layout/_cover')); -%>
-  <div class="container-fluid">
-    <div class="slide-in">
-      <div class="content">
-        <h2>Products</h2>
-        <hr/>
-        <%- include(ejsRoot('_includes/_components/_sort-button')); -%>
-        <hr/>
-        <div id="container">
-          <%- include(ejsRoot('_includes/_components/_thumbnail')); -%>
-        </div>
-      </div>
-    </div>
+  <h2>Products</h2>
+  <hr/>
+  <%- include(ejsRoot('_includes/_components/_sort-button')); -%>
+  <hr/>
+  <div id="container">
+    <%- include(ejsRoot('_includes/_components/_thumbnail')); -%>
   </div>
 
 <% }; -%>
-
 <% styles = function () { %><% }; -%>
-
 <% scripts = function () { %><% }; -%>
-
 <% include _includes/_base -%>

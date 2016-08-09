@@ -13,12 +13,16 @@
     <link rel="apple-touch-icon" href="<%= root('apple-touch-icon.png'); %>">
     <link rel="stylesheet" href="<%= root('styles/main.css'); %>">
     <% styles(); %>
-
   </head>
   <body>
-    <% include _layout/_loading-screen -%>
-    <% contents(); %>
-    <% include _layout/_footer -%>
+    <%- include(ejsRoot('_includes/_layout/_loading-screen')); -%>
+    <%- include(ejsRoot('_includes/_layout/_cover')); -%>
+    <div id="barba-wrapper">
+      <div class="barba-container">
+        <% contents(); %>
+      </div>
+    </div>
+    <%- include(ejsRoot('_includes/_layout/_footer')); -%>
     <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>
   </body>

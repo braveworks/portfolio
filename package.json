@@ -31,6 +31,7 @@
     "gulp-newer": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
@@ -44,6 +45,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "barba.js": "0.0.10",
     "bootstrap-sass": "^3.3.6",
     "browsernizr": "^2.1.0",
     "gsap": "^1.19.0",
@@ -54,7 +56,6 @@
     "velocity-animate": "^1.2.3"
   },
   "browser": {
-    "lazyload": "lazyload/jquery.lazyload.js",
     "magnific-popup": "magnific-popup/dist/jquery.magnific-popup.js",
     "mixitup": "mixitup/build/jquery.mixitup.min.js",
     "scrollmagic-gsap": "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap",

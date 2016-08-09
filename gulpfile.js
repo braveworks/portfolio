@@ -1,23 +1,27 @@
 /*global $: true*/
 
-var gulp         = require('gulp');
-var $            = require('gulp-load-plugins')();
-var del          = require('del');
-var path         = require('path');
-var fs           = require('fs');
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+var del = require('del');
+var path = require('path');
+var fs = require('fs');
 var autoprefixer = require('autoprefixer');
-var browserSync  = require('browser-sync');
-var mqpacker     = require('css-mqpacker');
-var merge        = require('merge-stream');
-var runSequence  = require('run-sequence');
-var babelify     = require('babelify');
-var browserify   = require('browserify');
-var watchify     = require('watchify');
-var source       = require('vinyl-source-stream');
-var buffer       = require('vinyl-buffer');
-var yaml         = require('js-yaml');
-
+var browserSync = require('browser-sync');
+var mqpacker = require('css-mqpacker');
+var merge = require('merge-stream');
+var runSequence = require('run-sequence');
+var babelify = require('babelify');
+var browserify = require('browserify');
+var watchify = require('watchify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var yaml = require('js-yaml');
 var reload = browserSync.reload;
+
+var zeroPadding = function(number, digit) {
+  var numberLength = String(number).length;
+  return (digit > numberLength) ? (new Array((digit - numberLength) + 1).join(0)) + number : number;
+};
 
 // build mode flag
 var build = false;
@@ -63,7 +67,7 @@ gulp.task('ejs', ['clean:ejs'], function() {
     }
   };
   return gulp.src([
-      'app/_ejs/**/*.+(ejs|html)',
+      'app/_ejs/*.+(ejs|html)',
       '!app/**/_*.+(ejs|html)'
     ])
     .pipe($.newer('.tmp'))
@@ -73,6 +77,25 @@ gulp.task('ejs', ['clean:ejs'], function() {
     .pipe($.if(!build, gulp.dest('.tmp/')))
     .pipe($.if(build, gulp.dest('dist/')));
 });
+
+gulp.task('ejs:subpages', function() {
+  var config = yaml.safeLoad(fs.readFileSync('./ejs-config.yml', 'utf8'));
+  var pages = config.products;
+
+  for (var i = 0; i < pages.length; i++) {
+    var id = 'page-' + zeroPadding(i, 3);
+    config.index = i;
+    gulp.src([
+        'app/_ejs/_subpage-template.ejs'
+      ])
+      .pipe($.plumber())
+      .pipe($.ejs(config))
+      .pipe($.rename(id + '.html'))
+      .pipe($.if(!build, gulp.dest('.tmp/')))
+      .pipe($.if(build, gulp.dest('dist/')));
+  }
+});
+
 
 // clean error ejs files
 gulp.task('clean:ejs', del.bind(null, [
@@ -97,7 +120,7 @@ gulp.task('scripts', function() {
       debug: true,
       cache: {},
       packageCache: {},
-      transform: [/*'browserify-shim',*/ babelify.configure({ presets: ['es2015', 'react', 'stage-2'] })],
+      transform: [ /*'browserify-shim',*/ babelify.configure({ presets: ['es2015', 'react', 'stage-2'] })],
     };
     var watchifyStream = (build) ?
       browserify(browserifyOptions) :
