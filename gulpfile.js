@@ -55,6 +55,7 @@ gulp.task('styles', function() {
     .pipe($.if(build, gulp.dest('dist/styles/')));
 });
 
+
 // ejs -> html
 gulp.task('ejs', ['clean:ejs'], function() {
   var config = yaml.safeLoad(fs.readFileSync('./ejs-config.yml', 'utf8'));
@@ -66,6 +67,27 @@ gulp.task('ejs', ['clean:ejs'], function() {
       indentSize: 2
     }
   };
+
+  // build subpage
+  config.products.forEach(function(data, index) {
+    var id = 'page-' + zeroPadding(index, 3);
+    var array = {
+      config: config.config,
+      site: config.site,
+      page: data
+    };
+    gulp.src([
+        'app/_ejs/_subpage-template.ejs'
+      ])
+      .pipe($.plumber())
+      .pipe($.ejs(array, options.ejs))
+      .pipe($.jsbeautifier(options.beautifier))
+      .pipe($.rename(id + '.html'))
+      .pipe($.if(!build, gulp.dest('.tmp/')))
+      .pipe($.if(build, gulp.dest('dist/')));
+  });
+
+  // buld other ejs
   return gulp.src([
       'app/_ejs/*.+(ejs|html)',
       '!app/**/_*.+(ejs|html)'
@@ -78,33 +100,9 @@ gulp.task('ejs', ['clean:ejs'], function() {
     .pipe($.if(build, gulp.dest('dist/')));
 });
 
-gulp.task('ejs:subpages', ['ejs'], function() {
-  var config = yaml.safeLoad(fs.readFileSync('./ejs-config.yml', 'utf8'));
-  var pages = config.products;
-
-  for (var i = 0; i < pages.length; i++) {
-    var id = 'page-' + zeroPadding(i, 3);
-    var data = {
-      config: config.config,
-      site: config.site,
-      pages: pages[i]
-    };
-
-    gulp.src([
-        'app/_ejs/_subpage-template.ejs'
-      ])
-      .pipe($.plumber())
-      .pipe($.ejs(data))
-      .pipe($.jsbeautifier())
-      .pipe($.rename(id + '.html'))
-      .pipe($.if(!build, gulp.dest('.tmp/')))
-      .pipe($.if(build, gulp.dest('dist/')));
-  }
-});
-
 // clean error ejs files
 gulp.task('clean:ejs', del.bind(null, [
-  '.tmp/{,**/}*.{ect,ejs}',
+  '.tmp/{,**/}*.{ect,ejs,html}',
   'dist/{,**/}*.{ect,ejs}',
 ], {
   dot: true
@@ -173,7 +171,7 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch(['app/styles/**/*'], ['styles', reload]);
-  gulp.watch(['app/**/*.ejs', 'app/**/*.html', 'ejs-config.yml'], ['ejs:subpages', reload]);
+  gulp.watch(['app/**/*.ejs', 'app/**/*.html', 'ejs-config.yml'], ['ejs', reload]);
   gulp.watch(['app/images/**/*'], reload);
   gulp.watch(['vendor.yml'], ['vendor', reload]);
 });
@@ -235,7 +233,7 @@ gulp.task('noop', function() {});
 // default
 gulp.task('default', function() {
   return runSequence(
-    'clean', ['ejs:subpages', 'images', 'scripts', 'styles'],
+    'clean', ['ejs', 'images', 'scripts', 'styles'],
     'vendor',
     'copy',
     build ? 'noop' : 'watch'
