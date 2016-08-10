@@ -1,21 +1,21 @@
 /*global $: true*/
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var path = require('path');
-var fs = require('fs');
+var gulp         = require('gulp');
+var $            = require('gulp-load-plugins')();
+var del          = require('del');
+var path         = require('path');
+var fs           = require('fs');
 var autoprefixer = require('autoprefixer');
-var browserSync = require('browser-sync');
-var mqpacker = require('css-mqpacker');
-var merge = require('merge-stream');
-var runSequence = require('run-sequence');
-var babelify = require('babelify');
-var browserify = require('browserify');
-var watchify = require('watchify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var yaml = require('js-yaml');
+var browserSync  = require('browser-sync');
+var mqpacker     = require('css-mqpacker');
+var merge        = require('merge-stream');
+var runSequence  = require('run-sequence');
+var babelify     = require('babelify');
+var browserify   = require('browserify');
+var watchify     = require('watchify');
+var source       = require('vinyl-source-stream');
+var buffer       = require('vinyl-buffer');
+var yaml         = require('js-yaml');
 var reload = browserSync.reload;
 
 var zeroPadding = function(number, digit) {
@@ -67,6 +67,13 @@ gulp.task('ejs', ['clean:ejs'], function() {
       indentSize: 2
     }
   };
+  var nav = function() {
+    var array = {};
+    config.products.forEach(function(data, index) {
+      array[index] = data.title;
+    });
+    return array;
+  };
 
   // build subpage
   config.products.forEach(function(data, index) {
@@ -74,7 +81,8 @@ gulp.task('ejs', ['clean:ejs'], function() {
     var array = {
       config: config.config,
       site: config.site,
-      page: data
+      page: data,
+      nav: nav()
     };
     gulp.src([
         'app/_ejs/_subpage-template.ejs'
