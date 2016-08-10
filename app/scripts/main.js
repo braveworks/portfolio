@@ -4,6 +4,7 @@ require('velocity');
 require('velocity-ui');
 
 // main
+require('./modules/barbaCtrl');
 // require('./modules/loadingScreen');
 // require('./modules/magnificPopup');
 // require('./modules/mixitupCtrl');

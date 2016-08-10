@@ -1,10 +1,11 @@
-<% title    = 'Portfolio - mootake'; -%>
+<% title    =  pages.title; -%>
 
 <% contents = function () { %>
-  <%- include(ejsRoot('_includes/_components/_popup-contents.ejs'),{data:products[index]}); -%>
+  <%= pages.title %>
+  <img class="img-responsive center-block" src="<%= pages.image %>" alt=""/>
+  <%#- include(ejsRoot('_includes/_components/_popup-contents.ejs'),{data:products[index]}); -%>
 <% }; -%>
 
 <% styles = function () { %><% }; -%>
 <% scripts = function () { %><% }; -%>
-
 <% include _includes/_base -%>

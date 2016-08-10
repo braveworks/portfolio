@@ -69,4 +69,10 @@ snake2camel = function(str, upper) {
       }) : str;
 }
 
+zeroPadding = function(number, digit) {
+  var numberLength = String(number).length;
+  return (digit > numberLength) ? (new Array((digit - numberLength) + 1).join(0)) + number : number;
+};
+
+
 -%>

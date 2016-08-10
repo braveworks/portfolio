@@ -8,20 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title><%= ((title)? title + ' | ' : '') + site.title; %></title>
-    <link rel="canonical" href="//<%= site.domain %>">
+    <link rel="canonical" href="<%= '//' + site.domain %>">
     <link rel="shortcut icon" href="<%= root('favicon.ico'); %>">
     <link rel="apple-touch-icon" href="<%= root('apple-touch-icon.png'); %>">
     <link rel="stylesheet" href="<%= root('styles/main.css'); %>">
     <% styles(); %>
   </head>
   <body>
-    <%- include(ejsRoot('_includes/_layout/_loading-screen')); -%>
+    <%#- include(ejsRoot('_includes/_layout/_loading-screen')); -%>
     <%- include(ejsRoot('_includes/_layout/_cover')); -%>
-    <div id="barba-wrapper">
-      <div class="barba-container">
-        <% contents(); %>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <%- include(ejsRoot('_includes/_layout/_nav')); -%>
+
+      </div>
+      <div class="col-sm-8">
+        <div id="barba-wrapper">
+          <div class="barba-container">
+            <% contents(); %>
+          </div>
+        </div>
       </div>
     </div>
+
     <%- include(ejsRoot('_includes/_layout/_footer')); -%>
     <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>
