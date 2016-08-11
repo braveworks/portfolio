@@ -1,7 +1,7 @@
 .cover {
-  h1{
-    color:$color-white;
-    font-weight:100;
+  h1 {
+    color: $color-white;
+    font-weight: 100;
   }
   padding: {
     top: 100px;
@@ -9,6 +9,9 @@
   }
 
   .cover-hd {
-    font-size: 8rem;
+    font-size: 4rem;
+    @include MQ(MD) {
+      font-size: 8rem;
+    }
   }
 }
