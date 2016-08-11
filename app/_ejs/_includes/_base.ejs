@@ -17,15 +17,12 @@
   </head>
   <body>
     <%- include(ejsRoot('_includes/_layout/_loading-screen')); -%>
+    <%- include(ejsRoot('_includes/_components/_sp-nav-icon')); -%>
+    <%- include(ejsRoot('_includes/_layout/_nav')); -%>
 
     <div class="container-fluid">
       <div class="row">
-
-        <div class="col-sm-3">
-          <%- include(ejsRoot('_includes/_layout/_nav')); -%>
-        </div>
-
-        <div class="col-sm-9">
+        <div class="col-md-9 col-md-offset-3">
           <div id="barba-wrapper">
             <div class="barba-container">
               <% contents(); %>

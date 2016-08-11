@@ -1,0 +1,168 @@
+/**
+ *  sp nav icon
+ */
+.sp-nav-icon {
+	position: fixed;
+	z-index: 999;
+	top: 20px;
+	right: 20px;
+	display: inline-block;
+	overflow: visible;
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	padding: 15px;
+	cursor: pointer;
+	transition-timing-function: linear;
+	transition-duration: 0.15s;
+	transition-property: opacity, filter;
+	text-transform: none;
+	color: inherit;
+	border: 0;
+	//border: 1px solid $color-white;
+	background-color: $color-main;
+	//box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
+	font: inherit;
+	@include MQ(MD) {
+		display: none;
+	}
+
+	//&:hover {
+	//	opacity: 0.7;
+	//}
+
+	&.is-active {
+		border-color: $color-white;
+	}
+}
+
+.sp-nav-icon-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	transform: translate(-50%, -50%);
+}
+
+.sp-nav-icon-inner {
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: 24px;
+	height: 2px;
+	margin-top: -1px;
+	transition-timing-function: ease;
+	transition-duration: 0.15s;
+	transition-property: transform;
+	border-radius: 3px;
+	background-color: $color-white;
+
+	&::after,
+	&::before {
+		position: absolute;
+		width: 24px;
+		height: 2px;
+		transition-timing-function: ease;
+		transition-duration: 0.15s;
+		transition-property: transform;
+		border-radius: 3px;
+		background-color: $color-white;
+	}
+
+	&::after,
+	&::before {
+		display: block;
+		content: "";
+	}
+
+	&::before {
+		top: -8px;
+	}
+
+	&::after {
+		bottom: -8px;
+	}
+}
+
+.sp-nav-text {
+	position: absolute;
+	top: 101%;
+	right: 0;
+	left: 0;
+	display: inline-block;
+	margin: auto;
+	padding-top: 0.5rem;
+	color: $color-white;
+	text-shadow: -1px -1px 3px $color-main, 1px -1px 3px $color-main, -1px 1px 3px $color-main, 1px 1px 3px $color-main;
+	font-size: 11px;
+}
+
+.sp-nav-icon {
+	.sp-nav-text {
+		&::after,
+		&::before {
+			position: absolute;
+			right: 0;
+			left: 0;
+			margin: auto;
+			transition: all 0.4s;
+		}
+
+		&::before {
+			content: "MENU";
+			opacity: 1;
+		}
+
+		&::after {
+			content: "CLOSE";
+			opacity: 0;
+		}
+	}
+
+	&.is-active .sp-nav-text {
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+/**
+ * hamburger menu-icon Spin
+ */
+.sp-nav-icon-spin {
+	.sp-nav-icon-inner {
+		transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition-duration: 0.3s;
+
+		&::before {
+			transition: top 0.1s 0.34s ease-in, opacity 0.1s ease-in;
+		}
+
+		&::after {
+			transition: bottom 0.1s 0.34s ease-in, transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		}
+	}
+
+	&.is-active .sp-nav-icon-inner {
+		transition-delay: 0.14s;
+		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		transform: rotate(225deg);
+
+		&::before {
+			top: 0;
+			transition: top 0.1s ease-out, opacity 0.1s 0.14s ease-out;
+			opacity: 0;
+		}
+
+		&::after {
+			bottom: 0;
+			transition: bottom 0.1s ease-out, transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
+			transform: rotate(-90deg);
+		}
+	}
+}
