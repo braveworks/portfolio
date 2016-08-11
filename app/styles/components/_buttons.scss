@@ -1,9 +1,13 @@
 .btn {
   border-radius: 0;
-  border-width:0;
+  border-width: 0;
   box-shadow: 0 6px 12px 0 rgba($color-black, 0.2);
 
   &:hover {
     box-shadow: 0 4px 12px 0 rgba($color-black, 0.1);
   }
+}
+
+.btn-outline{
+  border:1px solid $color-main;
 }

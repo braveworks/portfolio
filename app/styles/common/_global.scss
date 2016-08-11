@@ -22,6 +22,7 @@ section > .container {
   }
 }
 
+body,
 .bg-main-color {
   background: $color-main;
   background: linear-gradient(to left top, $color-main-v , $color-main-b);

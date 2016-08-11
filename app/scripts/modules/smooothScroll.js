@@ -10,14 +10,15 @@ var smooothScroll = function() {
 
     animate: function($target) {
       var targetOffset = $target.offset().top;
-      var option = {
-        offset: targetOffset,
-        duration: 1600,
-        easing: 'easeOutQuart',
-        mobileHA: true
+      var tweenOption = {
+        scrollTo: {
+          y: targetOffset,
+          autoKill: true,
+          force3D: true
+        },
+        ease: Power4.easeOut
       };
-      $scrollBody.velocity('stop').velocity('scroll', option);
-
+      TweenMax.to(window, 2, tweenOption);
       return false;
     },
 
@@ -40,7 +41,7 @@ var smooothScroll = function() {
 
     kill: function(e) {
       if (count <= 20) {
-        $scrollBody.velocity('stop');
+        TweenMax.killTweensOf(window);
         count = 0;
       } else {
         count++;

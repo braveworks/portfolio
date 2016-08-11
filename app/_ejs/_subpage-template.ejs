@@ -1,11 +1,13 @@
-<% title    =  ''; //console.log(page) -%>
-
-<% contents = function () { %>
-  <%= '' %>
-  <img class="img-responsive center-block" src="<%#= pages.image %>" alt=""/>
-  <%#- include(ejsRoot('_includes/_components/_popup-contents.ejs'),{data:products[index]}); -%>
-<% }; -%>
-
+<% title = page.title; -%>
 <% styles = function () { %><% }; -%>
 <% scripts = function () { %><% }; -%>
+<% contents = function () { %>
+  <div class="container-fluid">
+    <h1 class="page-header text-uppercase h3"><%= page.label %></h1>
+    <p>
+      <small><%= page.title %></small>
+    </p>
+    <img class="img-responsive center-block drop-shadow" src="<%= page.image %>" alt=""/>
+  </div>
+<% }; -%>
 <% include _includes/_base -%>

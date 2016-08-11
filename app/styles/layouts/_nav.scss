@@ -1,0 +1,30 @@
+.gnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 22vw;
+  min-width: 220px;
+  height: 100%;
+  padding: 30px 0 60px;
+  background: $color-white;
+
+  h2.gnav-hd {
+    font-weight: 100;
+    padding-left: 10px;
+    font-size: 4rem;
+  }
+
+  .btn {
+    text-align: left;
+    text-decoration: none;
+    box-shadow: none;
+
+    small {
+      word-wrap: break-word;
+    }
+  }
+}

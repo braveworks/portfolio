@@ -5,23 +5,16 @@
 var loading = function($) {
 
   var $overlay    = $('.loading');
+  var $icon       = $('.loading-center-absolute');
   var $hrefTarget = $('a:not([href*="#"],[href*="tel:"],[href*="javascript:"],[target],[data-mfp])');
-
-  var fade        = {
+  var fade = {
 
     // fade aniamtion
     animate: function(flag, callback) {
       var mode = (flag === 'out') ? true : (flag === 'in') ? false : false;
-      $overlay.velocity('stop').velocity({
-        opacity : (mode) ? '1'     : '0',
-        scale   : (mode) ? '1'     : '1.1'
-      }, {
-        delay   : (mode) ? 0       : 20,
-        display : (mode) ? 'block' : 'none',
-        duration: (mode) ? 200     : 500,
-        mobileHA: true,
-        complete: callback
-      });
+      var tl = new TimelineMax();
+      tl.to($icon, (mode) ? 1 : 0.5, { autoAlpha: (mode) ? 1 : 0 }, 0);
+      tl.to($overlay, (mode) ? 1 : 0.5, { autoAlpha: (mode) ? 1 : 0,  onComplete: callback }, 0.5);
     },
 
     // page in

@@ -1,5 +1,19 @@
-<%
-// if(nav){
-//   console.log(nav);
-// }
-%>
+<nav class="gnav drop-shadow">
+  <div class="container-fluid">
+    <h2 class="gnav-hd">Works</h2>
+    <hr/>
+    <ul class="list-unstyled">
+      <% if(products){
+        var navLoop = function (element,index,array){ %>
+        <li>
+          <a class="btn btn-link text-uppercase" href="<%= 'page-' + zeroPadding(index,3) + '.html'; %>">
+            <span class="lead"><%= element.label %></span><br/>
+            <small><%= element.title %></small>
+          </a>
+        </li>
+      <% }; products.forEach(navLoop); } -%>
+    </ul>
+    <hr/>
+    <a class="btn btn-link btn-block" href="<%= 'index.html' %>">Home</a>
+  </div>
+</nav>

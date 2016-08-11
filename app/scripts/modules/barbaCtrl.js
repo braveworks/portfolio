@@ -26,8 +26,15 @@ var barbaCtrl = function($) {
       /**
        * this.oldContainer is the HTMLElement of the old Container
        */
+      var deferred = Barba.Utils.deferred();
+      TweenMax.to(this.oldContainer, 0.3, {
+        opacity: 0,
+        onComplete: function() {
+          deferred.resolve();
+        }
+      });
 
-      return $(this.oldContainer).animate({ opacity: 0 }).promise();
+      return deferred.promise;
     },
 
     fadeIn: function() {
@@ -42,18 +49,17 @@ var barbaCtrl = function($) {
 
       $(this.oldContainer).hide();
 
-      $el.css({
+      TweenMax.fromTo($el, 0.4, {
         visibility: 'visible',
-        opacity: 0
-      });
-
-      $el.animate({ opacity: 1 }, 400, function() {
-        /**
-         * Do not forget to call .done() as soon your transition is finished!
-         * .done() will automatically remove from the DOM the old Container
-         */
-
-        _this.done();
+        opacity: 0,
+        y: 100
+      }, {
+        opacity: 1,
+        y: 0,
+        delay: 0.2,
+        onStart: function() {
+          _this.done();
+        }
       });
     }
   });
