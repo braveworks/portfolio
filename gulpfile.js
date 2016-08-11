@@ -78,7 +78,7 @@ gulp.task('ejs', ['clean:ejs'], function() {
       page: data
     };
     gulp.src([
-        'app/_ejs/_subpage-template.ejs'
+        'app/_ejs/_subpage.ejs'
       ])
       .pipe($.plumber())
       .pipe($.ejs(value, options.ejs))

@@ -29,6 +29,8 @@
     }
 
     span.lead {
+      font-weight:500;
+
       &::before {
         content: "";
         position: absolute;

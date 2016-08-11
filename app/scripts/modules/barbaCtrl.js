@@ -3,79 +3,112 @@
  */
 
 var barbaCtrl = function($) {
+
   var Barba = require('barba.js');
 
-  Barba.Pjax.init();
-  Barba.Prefetch.init();
+  var controller = function() {
 
-  var FadeTransition = Barba.BaseTransition.extend({
-    start: function() {
-      /**
-       * This function is automatically called as soon the Transition starts
-       * this.newContainerLoading is a Promise for the loading of the new container
-       * (Barba.js also comes with an handy Promise polyfill!)
-       */
+    var lastElementClicked;
+    var PrevLink = document.querySelector('a.prev');
+    var NextLink = document.querySelector('a.next');
 
-      // As soon the loading is finished and the old page is faded out, let's fade the new page
-      Promise
-        .all([this.newContainerLoading, this.fadeOut()])
-        .then(this.fadeIn.bind(this));
-    },
+    Barba.Pjax.init();
+    Barba.Prefetch.init();
 
-    fadeOut: function() {
-      /**
-       * this.oldContainer is the HTMLElement of the old Container
-       */
-      var deferred = Barba.Utils.deferred();
-      TweenMax.to(this.oldContainer, 0.3, {
-        opacity: 0,
-        onComplete: function() {
-          deferred.resolve();
+    Barba.Dispatcher.on('linkClicked', function(el) {
+      lastElementClicked = el;
+    });
+
+    var MovePage = Barba.BaseTransition.extend({
+      start: function() {
+        this.originalThumb = lastElementClicked;
+        Promise
+          .all([this.newContainerLoading, this.scrollTop()])
+          .then(this.movePages.bind(this));
+      },
+
+      scrollTop: function() {
+        var deferred = Barba.Utils.deferred();
+        var obj = { y: window.pageYOffset };
+
+        TweenMax.to(obj, 0.4, {
+          y: 0,
+          onUpdate: function() {
+            if (obj.y === 0) {
+              deferred.resolve();
+            }
+
+            window.scroll(0, obj.y);
+          },
+          onComplete: function() {
+            deferred.resolve();
+          }
+        });
+
+        return deferred.promise;
+      },
+
+      movePages: function() {
+        var _this = this;
+        var goingForward = true;
+        this.updateLinks();
+
+        if (this.getNewPageFile() === this.oldContainer.dataset.prev) {
+          goingForward = false;
         }
-      });
 
-      return deferred.promise;
-    },
+        TweenMax.set(this.newContainer, {
+          visibility: 'visible',
+          xPercent: goingForward ? 10 : -10,
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          opacity: 0,
+          width: '100%',
+          paddingLeft: '15px',
+          paddingRight: '15px'
+        });
 
-    fadeIn: function() {
-      /**
-       * this.newContainer is the HTMLElement of the new Container
-       * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-       * Please note, newContainer is available just after newContainerLoading is resolved!
-       */
+        TweenMax.set($(this.newContainer).find('stagger'), {
+          opacity: 0,
+          x: 100
+        });
 
-      var _this = this;
-      var $el = $(this.newContainer);
 
-      $(this.oldContainer).hide();
+        TweenMax.to(this.oldContainer, 0.6, {
+          xPercent: goingForward ? -30 : 30,
+          opacity: 0,
+          force3D: true,
+          onComplete: function() {
+            _this.done();
+          }
+        });
+        TweenMax.staggerTo($(this.newContainer).find('stagger'), 0.6, { opacity: 1, x: 0 },0.2);
+        TweenMax.to(this.newContainer, 1, {
+          xPercent: 0,
+          opacity: 1,
+          force3D: true,
+          onComplete: function() {
+            TweenMax.set(_this.newContainer, { clearProps: 'all' });
+          }
+        });
+      },
 
-      TweenMax.fromTo($el, 0.4, {
-        visibility: 'visible',
-        opacity: 0,
-        y: 100
-      }, {
-        opacity: 1,
-        y: 0,
-        delay: 0.2,
-        onStart: function() {
-          _this.done();
-        }
-      });
-    }
-  });
+      updateLinks: function() {
+        // PrevLink.href = this.newContainer.dataset.prev;
+        // NextLink.href = this.newContainer.dataset.next;
+      },
 
-  /**
-   * Next step, you have to tell Barba to use the new Transition
-   */
+      getNewPageFile: function() {
+        return Barba.HistoryManager.currentStatus().url.split('/').pop();
+      }
+    });
 
-  Barba.Pjax.getTransition = function() {
-    /**
-     * Here you can use your own logic!
-     * For example you can use different Transition based on the current page or link...
-     */
-
-    return FadeTransition;
+    Barba.Pjax.getTransition = function() {
+      return MovePage;
+    };
   };
 
+  document.addEventListener('DOMContentLoaded', controller);
 };
 module.exports = (barbaCtrl)(jQuery);

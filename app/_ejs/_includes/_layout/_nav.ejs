@@ -1,7 +1,7 @@
 <nav class="gnav drop-shadow col-md-3">
   <div class="container-fluid">
     <h2 class="gnav-hd">Works</h2>
-    <hr/>
+    <hr />
     <ul class="list-unstyled">
       <% if(products){
         var navLoop = function (element,index,array){ %>
@@ -13,7 +13,10 @@
         </li>
       <% }; products.forEach(navLoop); } -%>
     </ul>
-    <hr/>
+    <hr />
     <a class="btn btn-link btn-block" href="<%= 'index.html' %>">Home</a>
+    <hr />
+    <%- include(ejsRoot('../_layout/_footer')); -%>
+
   </div>
 </nav>

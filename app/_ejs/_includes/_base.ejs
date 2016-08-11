@@ -1,6 +1,9 @@
 <% include _lib/_function -%>
+<%
+var page = filename.split('/')[filename.split('/').length - 1].replace('.ejs', '');
+// if(index){}
 
-<% var page = filename.split('/')[filename.split('/').length - 1].replace('.ejs', ''); -%>
+-%>
 <!DOCTYPE html>
 <html class="no-js" lang="ja">
   <head>
@@ -20,21 +23,20 @@
     <%- include(ejsRoot('_includes/_components/_sp-nav-icon')); -%>
     <%- include(ejsRoot('_includes/_layout/_nav')); -%>
 
-    <div class="container-fluid">
+    <main class="container-fluid">
       <div class="row">
-        <div class="col-md-9 col-md-offset-3">
-          <div id="barba-wrapper">
-            <div class="barba-container">
-              <% contents(); %>
-            </div>
+
+        <div id="barba-wrapper" class="col-md-9 col-md-offset-3">
+          <div class="barba-container" data-prev="" data-next="">
+            <% contents(); %>
           </div>
         </div>
+
       </div>
-    </div>
+    </main>
     <%# <a class="btn-nav next" href="4.html">NEXT</a>
     <a class="btn-nav prev" href="2.html">PREV</a>%>
 
-    <%- include(ejsRoot('_includes/_layout/_footer')); -%>
     <script src="<%= root('scripts/main.js'); %>"></script>
     <% scripts(); %>
   </body>
