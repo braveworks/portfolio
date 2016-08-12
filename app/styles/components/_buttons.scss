@@ -17,29 +17,27 @@
 }
 
 .btn-nav {
-  position: absolute;
-  z-index:50;
+  position: fixed;
+  z-index: 50;
   top: 50vh;
   color: $color-white !important;
-  //border: 2px solid $color-white !important;
-  background: rgba($color-main,0.8);
-  box-shadow:none;
+  background: rgba($color-main,0.3);
+  box-shadow: none;
+  font-size: 1rem;
 
   &.next {
     right: 0;
-    border-right-color:transparent !important;
+    border-right-color: transparent !important;
   }
 
   &.prev {
     left: 0;
-    border-left-color:transparent !important;
-
+    border-left-color: transparent !important;
   }
 
   &:hover {
     text-decoration: none;
-    opacity:0.8;
-    background: rgba($color-main,0.3);
-
+    opacity: 0.8;
+    background:$color-main;
   }
 }

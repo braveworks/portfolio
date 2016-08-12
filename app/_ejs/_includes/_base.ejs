@@ -22,11 +22,11 @@
     <main class="container-fluid">
       <div class="row">
         <div id="barba-wrapper" class="col-md-9 col-md-offset-3">
+          <a class="btn btn-link btn-nav prev" href="<%= getPrevNext('prev', page); -%>">PREV</a>
+          <a class="btn btn-link btn-nav next" href="<%= getPrevNext('next', page); -%>">NEXT</a>
           <div class="barba-container" data-prev="<%= getPrevNext('prev', page); -%>" data-next="<%= getPrevNext('next', page); -%>">
             <% contents(); %>
           </div>
-          <a class="btn btn-link btn-nav prev" href="<%= getPrevNext('prev', page); -%>">PREV</a>
-          <a class="btn btn-link btn-nav next" href="<%= getPrevNext('next', page); -%>">NEXT</a>
         </div>
       </div>
     </main>

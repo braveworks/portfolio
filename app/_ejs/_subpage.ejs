@@ -36,7 +36,9 @@ productsList = products;
     </div>
   </div>
   <hr/>
-  <img class="img-responsive center-block drop-shadow" src="<%= page.image %>" alt=""/>
+  <figure class="overlay">
+    <img class="img-responsive center-block drop-shadow" src="<%= page.image %>" alt=""/>
+  </figure>
   <hr/>
   <% if(page.publish){ var publishLoop = function (element,index,array){ -%>
     <p><small><%= array[index] %></small></p>

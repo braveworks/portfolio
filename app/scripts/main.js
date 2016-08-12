@@ -7,6 +7,7 @@ require('gsap-scrollto-plugin');
 
 // main
 require('./modules/barbaCtrl');
+require('./modules/btnNavPosition');
 require('./modules/loadingScreen');
 require('./modules/nav');
 require('./modules/onFocusBlur');
