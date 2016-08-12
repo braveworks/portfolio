@@ -8,6 +8,11 @@ var barbaCtrl = function($) {
   var Hammer = require('hammerjs');
   var swipeCtrl = new Hammer(document);
 
+  var ignoreLink = function() {
+    $('a').removeClass('current');
+    $('.gnav a[href^="' + location.pathname.split("/")[1] + '"]').addClass('current');
+  };
+
   var controller = function() {
 
     var lastElementClicked;
@@ -19,6 +24,10 @@ var barbaCtrl = function($) {
 
     Barba.Dispatcher.on('linkClicked', function(el) {
       lastElementClicked = el;
+    });
+
+    Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
+      ignoreLink();
     });
 
     var MovePage = Barba.BaseTransition.extend({
@@ -119,8 +128,14 @@ var barbaCtrl = function($) {
       }
     });
 
+    ignoreLink();
+
   };
 
   document.addEventListener('DOMContentLoaded', controller);
+
+    $(document).on('click', 'a.current', function(e) {
+    e.preventDefault();
+  });
 };
 module.exports = (barbaCtrl)(jQuery);

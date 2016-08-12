@@ -50,7 +50,8 @@
       }
     }
 
-    &:hover span.lead::before {
+    &:hover span.lead::before,
+    &.current span.lead::before {
       width: 120%;
       opacity: 1;
     }
