@@ -1,16 +1,16 @@
 var navCtrl = function($) {
 
   var modules = require('./modules');
-  var Hammer = require('hammerjs');
+  var Hammer  = require('hammerjs');
 
-  var MD = modules.mq.MD;
+  var MD      = modules.mq.MD;
   var checkMQ = modules.checkMQ;
 
-  var $body = $('body');
+  var $body   = $('body');
   var $header = $('.gnav');
-  var $icon = $('.sp-nav-icon');
+  var $icon   = $('.sp-nav-icon');
 
-  var mc = new Hammer(document);
+  var mc      = new Hammer(document);
 
   var menu = {
     sp: {
@@ -37,6 +37,7 @@ var navCtrl = function($) {
           $icon.addClass('is-active');
           $body.addClass('modal-open');
           menu.sp.slide(true);
+          menu.stagger();
         }
       },
     },
@@ -48,6 +49,21 @@ var navCtrl = function($) {
       if (!checkMQ(MD)) {
         $icon.removeClass('is-active');
         menu.sp.slide(false);
+      }
+    },
+
+    stagger: function() {
+      if (checkMQ(MD)) {
+        TweenMax.staggerFromTo($header.find('ul>li'), 1, {
+          y: 50,
+          opacity: 0
+        }, {
+          y: 0,
+          opacity: 1,
+          delay: 0.2,
+          ease: Expo.easeOut,
+          clearProps: 'all'
+        }, 0.1);
       }
     }
 

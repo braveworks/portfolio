@@ -57,6 +57,7 @@ var barbaCtrl = function($) {
           goingForward = false;
         }
 
+        // init new container prop
         TweenMax.set(this.newContainer, {
           visibility: 'visible',
           xPercent: goingForward ? 10 : -10,
@@ -69,12 +70,7 @@ var barbaCtrl = function($) {
           paddingRight: '15px'
         });
 
-        TweenMax.set($(this.newContainer).find('stagger'), {
-          opacity: 0,
-          x: 100
-        });
-
-
+        // move old container
         TweenMax.to(this.oldContainer, 0.6, {
           xPercent: goingForward ? -30 : 30,
           opacity: 0,
@@ -83,7 +79,8 @@ var barbaCtrl = function($) {
             _this.done();
           }
         });
-        TweenMax.staggerTo($(this.newContainer).find('stagger'), 0.6, { opacity: 1, x: 0 },0.2);
+
+        // move new container
         TweenMax.to(this.newContainer, 1, {
           xPercent: 0,
           opacity: 1,

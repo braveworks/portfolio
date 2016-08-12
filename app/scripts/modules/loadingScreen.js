@@ -7,14 +7,14 @@ var loading = function($) {
   var $overlay    = $('.loading');
   var $icon       = $('.loading-center-absolute');
   var $hrefTarget = $('a:not([href*="#"],[href*="tel:"],[href*="javascript:"],[target],[data-mfp])');
-  var fade = {
+  var fade        = {
 
     // fade aniamtion
     animate: function(flag, callback) {
       var mode = (flag === 'out') ? true : (flag === 'in') ? false : false;
       var tl = new TimelineMax();
-      tl.to($icon, (mode) ? 1 : 0.5, { autoAlpha: (mode) ? 1 : 0 }, 0);
-      tl.to($overlay, (mode) ? 1 : 0.5, { autoAlpha: (mode) ? 1 : 0,  onComplete: callback }, 0.5);
+      tl.to($icon, (mode) ? 1 : 0.5, { opacity: (mode) ? 1 : 0 }, 0)
+        .to($overlay, (mode) ? 1 : 0.5, { autoAlpha: (mode) ? 1 : 0, onComplete: callback }, 0.5);
     },
 
     // page in
@@ -46,9 +46,9 @@ var loading = function($) {
             location.reload();
           }
         };
-        // add page in event
+        // page in event
         $(window).on('load', fade.inPage);
-        // add page out event
+        // page out event
         // $(document).on('click', $hrefTarget, fade.outPage);
       }
     }

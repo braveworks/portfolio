@@ -8,6 +8,8 @@ body {
   position: relative;
   font-family: $primary-font;
   height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body.modal-open {
@@ -22,8 +24,8 @@ section > .container {
   }
 }
 
-body,
-.bg-main-color {
+.bg-main-color,
+body {
   background: $color-main;
   background: linear-gradient(to left top, $color-main-v , $color-main-b);
   color: $color-white;
@@ -41,11 +43,12 @@ a {
   transition: all 0.3s;
 }
 
-.hr-short{
-  max-width:220px;
+.hr-short {
+  max-width: 220px;
   margin-left: 0;
   margin-right: auto;
 }
-.pd-top{
-  padding-top:15px;
+
+.pd-top {
+  padding-top: 15px;
 }

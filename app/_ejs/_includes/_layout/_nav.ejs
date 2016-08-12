@@ -2,6 +2,10 @@
   <div class="container-fluid">
     <h2 class="gnav-hd">Works</h2>
     <hr />
+    <a class="btn btn-link btn-block" href="<%= 'index.html' %>">
+      <i class="icon ion-home" aria-hidden="true"></i> Home
+    </a>
+    <hr />
     <ul class="list-unstyled">
       <% if(products){
         var navLoop = function (element,index,array){ %>
@@ -14,8 +18,7 @@
       <% }; products.forEach(navLoop); } -%>
     </ul>
     <hr />
-    <a class="btn btn-link btn-block" href="<%= 'index.html' %>">Home</a>
-    <hr />
+
     <%- include(ejsRoot('../_layout/_footer')); -%>
 
   </div>

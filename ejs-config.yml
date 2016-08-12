@@ -60,6 +60,7 @@ products        :
   -
     title       : 'プレミアムアプリ'
     type        : 'ランディングページ'
+    year        : '2015'
     label       : 'Landing Page'
     url         : 'http://premium-appli.com/'
     image       : 'images/ss-premium-appli-com.jpg'
@@ -80,12 +81,13 @@ products        :
       - 'スマートフォンアプリ制作サービス プロモーション用ランディングページ'
       - 'デザイン・コーディング他・制作全般担当'
     publish     :
-      - '株式会社オーエス (2015)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : 'プレミアムリスティング'
     type        : 'サービスサイト'
+    year        : '2015'
     label       : 'Service Site'
     url         : 'http://premium-listing.jp/'
     image       : 'images/ss-premium-listing-jp.jpg'
@@ -106,12 +108,13 @@ products        :
       - 'デザイン・コーディング他・制作全般担当'
       - '※会社都合により一般には非公開'
     publish     :
-      - '株式会社オーエス (2015)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : '歯科パーク'
     type        : '歯科検索サービス'
+    year        : '2014'
     label       : 'Service Site'
     url         : 'http://www.shika-park.jp/'
     image       : 'images/ss-shika-park-jp.jpg'
@@ -128,12 +131,13 @@ products        :
       - '歯科検索サイト'
       - '担当：ベースデザイン・キャラクターデザイン・フロントエンド部分のコーディング・アニメーション制作'
     publish     :
-      - '株式会社オーエス (2014)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : 'ホームページプレミアム v2'
     type        : 'サービスサイト'
+    year        : '2016'
     label       : 'Service Site'
     url         : 'http://homepage-premium.com/v2/'
     image       : 'images/ss-homepage-premium-com-v2.jpg'
@@ -155,12 +159,13 @@ products        :
       - '※会社都合により一般には非公開'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
-      - '株式会社オーエス (2016)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : 'ホームページプレミアム v1'
     type        : 'サービスサイト'
+    year        : '2014'
     label       : 'Service Site'
     url         : 'http://homepage-premium.com/'
     image       : 'images/ss-homepage-premium-com-v1.jpg'
@@ -177,12 +182,13 @@ products        :
       - '中小企業向けホームページ制作サービスプロモーション用サービスサイト'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
-      - '株式会社オーエス (2014)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : 'ホームページプレミアム LP'
     type        : 'ランディングページ'
+    year        : '2013'
     label       : 'Landing Page'
     url         : 'http://homepage-premium.com/lp/'
     image       : 'images/ss-homepage-premium-com-lp.jpg'
@@ -199,12 +205,13 @@ products        :
       - '中小企業向けホームページ制作代行サービスプロモーションサイト'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
-      - '株式会社オーエス (2013)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : 'コスト削減.bizモバイル'
     type        : 'サービスサイト'
+    year        : '2014'
     label       : 'Service Site'
     url         : 'http://www.costsakugen.biz/mobile/'
     image       : 'images/ss-costsakugen-biz-mobile.jpg'
@@ -221,12 +228,13 @@ products        :
       - '法人向け携帯電話導入サービス用サービスサイト'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
-      - '株式会社C-min (2014)'
+      - '株式会社C-min'
 
   # -----------------------------------
   -
     title       : '株式会社オーエス採用サイト2016〜2017'
     type        : '採用サイト'
+    year        : '2015'
     label       : 'Recruit Site'
     url         : 'http://oscorporation.com/recruit/2017/'
     image       : 'images/ss-oscorporation-com-recruit-2017.jpg'
@@ -246,12 +254,13 @@ products        :
       - '株式会社オーエス求人用サイト(公開終了)'
       - 'デザイン・コーディング・パララックスアニメーションなどのフロントエンド他、制作の全般を担当'
     publish     :
-      - '株式会社オーエス (2015-2016)'
+      - '株式会社オーエス'
 
   # -----------------------------------
   -
     title       : '株式会社オーエス自社サイト'
     type        : 'コーポレートサイト'
+    year        : '2013'
     label       : 'Corporate Site'
     url         : 'http://oscorporation.com/'
     image       : 'images/ss-oscorporation-com.jpg'
@@ -269,13 +278,14 @@ products        :
       - '自社コーポレートサイトのリニューアル'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
-      - '株式会社オーエス (2013)'
+      - '株式会社オーエス'
 
 
   # -----------------------------------
   -
     title       : 'ラムセスグループ'
     type        : 'コーポレートサイト'
+    year        : '2016'
     label       : 'Corporate Site'
     url         : 'http://ramses-grp.com/'
     image       : 'images/ss-ramses-grp-com.jpg'
@@ -296,12 +306,13 @@ products        :
       - 'コーポレートサイトリニューアル'
       - 'デザイン・コーディング他、制作全般担当'
     publish     :
-      - 'サンポウ企業株式会社 (2016)'
+      - 'サンポウ企業株式会社'
 
   # -----------------------------------
   -
     title       : 'KJエンターテイメント'
     type        : 'コーポレートサイト'
+    year        : '2016'
     label       : 'Corporate Site'
     url         : 'http://kjenta.com/'
     image       : 'images/ss-kjenta-com.jpg'
@@ -320,12 +331,13 @@ products        :
       - 'コーポレートサイト'
       - 'ベースデザイン・WordPressテーマ開発・アニメーション制作・他制作全般担当'
     publish     :
-      - 'KJエンターテイメントサイト (2016)'
+      - 'KJエンターテイメントサイト'
 
   # -----------------------------------
   -
     title       : '株式会社チャリングチャリンクス'
     type        : 'コーポレートサイト'
+    year        : '2016'
     label       : 'Corporate Site'
     url         : 'http://charingchalinks.co.jp/'
     image       : 'images/ss-charingchalinks-co-jp.jpg'
@@ -347,12 +359,13 @@ products        :
       - 'ロゴ・ベースデザイン・WordPress構築・テーマ開発・パララックス効果などのアニメーション、その他フロントエンド部分などを担当'
       - '※お都合により一部ページは未制作・非公開'
     publish     :
-      - '株式会社チャリングチャリンクス (2016)'
+      - '株式会社チャリングチャリンクス'
 
   # -----------------------------------
   -
     title       : 'エルミタージュ'
-    type        : ''
+    type        : 'サービスサイト'
+    year        : '2016'
     label       : 'Service Site'
     url         : 'http://aromaesthe.jp/'
     image       : 'images/ss-aromaesthe-jp.jpg'
@@ -369,12 +382,13 @@ products        :
       - 'コーポレートサイト'
       - 'WordPress構築・テーマ開発・プラグインカスタマイズ・一部アニメーションなどのフロントエンド部分を担当（デザイン・ベースのマークアップ部分は別担当）'
     publish     :
-      - 'KJエンターテイメントサイト (2016)'
+      - 'エルミタージュ'
 
   # -----------------------------------
   -
     title       : '手打そば車家'
     type        : ''
+    year        : '2016'
     label       : 'Design'
     url         : ''
     image       : 'images/ss-soba-kurumaya-co-jp.jpg'
@@ -386,12 +400,13 @@ products        :
       - 'プロトタイプデザイン（PSD）の作成を担当'
       - ''
     publish     :
-      - '手打そば車家 (2016)'
+      - '手打そば車家'
 
   # -----------------------------------
   -
     title       : 'POCO-salon'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : 'http://www.poco-salon.jp/'
     image       : 'images/ss-poco-salon-jp.jpg'
@@ -401,14 +416,15 @@ products        :
       - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - 'POCO-salon (2014)'
+      - 'POCO-salon'
 
   # -----------------------------------
   -
     title       : 'Aloha Kitchen'
     type        : ''
+    year        : '2015'
     label       : 'Design'
     url         : ''
     image       : 'images/ss-aloha-kitchen.jpg'
@@ -418,14 +434,15 @@ products        :
       - Illustrator
     description :
       - 'トップページプロトタイプのPSDデザイン担当（未公開）'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - 'Aloha Kitchen (2015)'
+      - 'Aloha Kitchen'
 
   # -----------------------------------
   -
     title       : '天草エアライン'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : ''
     image       : 'images/ss-amx.jpg'
@@ -436,12 +453,13 @@ products        :
     description :
       - 'デザインコンペ用PSDデザイン（未使用）'
     publish     :
-      - '天草エアライン (2014)'
+      - '天草エアライン'
 
   # -----------------------------------
   -
     title       : '2次会エンタ'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : 'http://www.2jikaienta.com/'
     image       : 'images/ss-2jikaienta-com.jpg'
@@ -451,14 +469,15 @@ products        :
       - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - '2次会エンタ (2014)'
+      - '2次会エンタ'
 
   # -----------------------------------
   -
     title       : 'ロックリサイクル'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : 'http://www.srs-777.com/'
     image       : 'images/ss-rock-recycle.jpg'
@@ -468,14 +487,15 @@ products        :
       - Illustrator
     description :
       - 'ロゴ・トップページ・プロトタイプのPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - 'ロックリサイクル (2014)'
+      - 'ロックリサイクル'
 
   # -----------------------------------
   -
     title       : 'ヘアーマーケットサーカス'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : 'http://www.hair-market-circus.com/'
     image       : 'images/ss-hair-market-circus-com.jpg'
@@ -485,14 +505,15 @@ products        :
       - Illustrator
     description :
       - 'ロゴ・トップページ・プロトタイプのPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - 'ヘアーマーケットサーカス (2014)'
+      - 'ヘアーマーケットサーカス'
 
   # -----------------------------------
   -
     title       : 'BUYSTAR'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : ''
     image       : 'images/ss-buystar.jpg'
@@ -502,14 +523,15 @@ products        :
       - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - 'BUYSTAR (2014)'
+      - 'BUYSTAR'
 
 # -----------------------------------
   -
     title       : 'AQUALINK'
     type        : ''
+    year        : '2014'
     label       : 'Design'
     url         : ''
     image       : 'images/ss-aqualink.jpg'
@@ -519,14 +541,15 @@ products        :
       - Illustrator
     description :
       - 'スマートフォンページのプロトタイプPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - 'AQUALINK (2014)'
+      - 'AQUALINK'
 
   # -----------------------------------
   -
     title       : 'リファイン'
     type        : ''
+    year        : '2013'
     label       : 'Design'
     url         : ''
     image       : 'images/ss-refine.jpg'
@@ -536,15 +559,16 @@ products        :
       - Illustrator
     description :
       - 'トップページ・プロトタイプのPSDデザインを担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当担当'
       - 'お都合で非公開'
     publish     :
-      - 'リファイン (2013)'
+      - ''
 
   # -----------------------------------
   -
     title       : '炭火焼肉「竜炎」'
     type        : ''
+    year        : '2013'
     label       : 'Design'
     url         : 'http://www.ryuen2004.com/'
     image       : 'images/ss-.ryuen2004-com.jpg'
@@ -554,6 +578,6 @@ products        :
       - Illustrator
     description :
       - 'トップページ・プロトタイプのデザイン（PSD）を担当'
-      - '※下層ページ等は別'
+      - '※下層ページ等は別担当'
     publish     :
-      - '竜炎 (2013)'
+      - '炭火焼肉「竜炎」'
