@@ -1,16 +1,16 @@
 var navCtrl = function($) {
 
   var modules = require('./modules');
-  var Hammer  = require('hammerjs');
+  var Hammer = require('hammerjs');
 
-  var MD      = modules.mq.MD;
+  var MD = modules.mq.MD;
   var checkMQ = modules.checkMQ;
 
-  var $body   = $('body');
+  var $body = $('body');
   var $header = $('.gnav');
-  var $icon   = $('.sp-nav-icon');
+  var $icon = $('.sp-nav-icon');
 
-  var mc      = new Hammer(document);
+  var mc = new Hammer(document);
 
   var menu = {
     sp: {
@@ -37,7 +37,6 @@ var navCtrl = function($) {
           $icon.addClass('is-active');
           $body.addClass('modal-open');
           menu.sp.slide(true);
-          menu.stagger();
         }
       },
     },
@@ -50,11 +49,12 @@ var navCtrl = function($) {
         $icon.removeClass('is-active');
         menu.sp.slide(false);
       }
+      menu.stagger();
     },
 
     stagger: function() {
       if (checkMQ(MD)) {
-        TweenMax.staggerFromTo($header.find('ul>li'), 1, {
+        TweenMax.staggerFromTo($header.find('ul>li,.stagger'), 1, {
           y: 50,
           opacity: 0
         }, {
