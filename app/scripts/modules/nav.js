@@ -84,10 +84,10 @@ var navCtrl = function($) {
       menu.sp.toggleMenu();
     }
   });
-  mc.on('swiperight', function(event) {
-    if (!checkMQ(MD) && !$body.hasClass('modal-open')) {
-      menu.sp.toggleMenu();
-    }
-  });
+  // mc.on('swiperight', function(event) {
+  //   if (!checkMQ(MD) && !$body.hasClass('modal-open')) {
+  //     menu.sp.toggleMenu();
+  //   }
+  // });
 };
 module.exports = (navCtrl)(jQuery);

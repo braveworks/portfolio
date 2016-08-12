@@ -1,22 +1,22 @@
 /*global $: true*/
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var path = require('path');
-var fs = require('fs');
+var gulp         = require('gulp');
+var $            = require('gulp-load-plugins')();
+var del          = require('del');
+var path         = require('path');
+var fs           = require('fs');
 var autoprefixer = require('autoprefixer');
-var browserSync = require('browser-sync');
-var mqpacker = require('css-mqpacker');
-var merge = require('merge-stream');
-var runSequence = require('run-sequence');
-var babelify = require('babelify');
-var browserify = require('browserify');
-var watchify = require('watchify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var yaml = require('js-yaml');
-var reload = browserSync.reload;
+var browserSync  = require('browser-sync');
+var mqpacker     = require('css-mqpacker');
+var merge        = require('merge-stream');
+var runSequence  = require('run-sequence');
+var babelify     = require('babelify');
+var browserify   = require('browserify');
+var watchify     = require('watchify');
+var source       = require('vinyl-source-stream');
+var buffer       = require('vinyl-buffer');
+var yaml         = require('js-yaml');
+var reload       = browserSync.reload;
 
 var zeroPadding = function(number, digit) {
   var numberLength = String(number).length;
@@ -75,7 +75,8 @@ gulp.task('ejs', ['clean:ejs'], function() {
       config: config.config,
       site: config.site,
       products: config.products,
-      page: data
+      page: data,
+      current: index
     };
     gulp.src([
         'app/_ejs/_subpage.ejs'
@@ -137,7 +138,7 @@ gulp.task('scripts', function() {
         .pipe($.plumber())
         .pipe(source(entryPoint))
         .pipe(buffer())
-        .pipe($.if(build, $.uglify(/*{ preserveComments: 'some' }*/)))
+        .pipe($.if(build, $.uglify( /*{ preserveComments: 'some' }*/ )))
         .pipe($.if(build, gulp.dest('dist/scripts/')))
         .pipe($.if(!build, gulp.dest('.tmp/scripts/')))
         .pipe($.if(!build, browserSync.stream({ once: true })));

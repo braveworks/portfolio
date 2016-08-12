@@ -5,6 +5,8 @@
 var barbaCtrl = function($) {
 
   var Barba = require('barba.js');
+  var Hammer = require('hammerjs');
+  var swipeCtrl = new Hammer(document);
 
   var controller = function() {
 
@@ -92,8 +94,8 @@ var barbaCtrl = function($) {
       },
 
       updateLinks: function() {
-        // PrevLink.href = this.newContainer.dataset.prev;
-        // NextLink.href = this.newContainer.dataset.next;
+        PrevLink.href = this.newContainer.dataset.prev;
+        NextLink.href = this.newContainer.dataset.next;
       },
 
       getNewPageFile: function() {
@@ -104,6 +106,19 @@ var barbaCtrl = function($) {
     Barba.Pjax.getTransition = function() {
       return MovePage;
     };
+
+    // swipe Ctrl
+    swipeCtrl.on('swipeleft', function(event) {
+      if (!$('body').hasClass('modal-open')) {
+        Barba.Pjax.goTo(NextLink.href);
+      }
+    });
+    swipeCtrl.on('swiperight', function(event) {
+      if (!$('body').hasClass('modal-open')) {
+        Barba.Pjax.goTo(PrevLink.href);
+      }
+    });
+
   };
 
   document.addEventListener('DOMContentLoaded', controller);
