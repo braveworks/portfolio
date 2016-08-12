@@ -10,7 +10,7 @@
 
   .cover-hd {
     font-size: 4rem;
-    @include MQ(MD) {
+    @include MQ(SM) {
       font-size: 8rem;
     }
   }

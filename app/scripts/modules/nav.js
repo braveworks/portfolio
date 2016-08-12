@@ -1,6 +1,8 @@
 var navCtrl = function($) {
 
   var modules = require('./modules');
+  var Hammer = require('hammerjs');
+
   var MD = modules.mq.MD;
   var checkMQ = modules.checkMQ;
 
@@ -8,8 +10,11 @@ var navCtrl = function($) {
   var $header = $('.gnav');
   var $icon = $('.sp-nav-icon');
 
+  var mc = new Hammer(document);
+
   var menu = {
     sp: {
+
       // sp menu slide animation
       slide: function(isActive) {
         TweenMax.to($header, 1, {
@@ -18,6 +23,7 @@ var navCtrl = function($) {
           ease: Expo.easeOut
         });
       },
+
       // sp menu toggle & change hamberger icon
       toggleMenu: function() {
         var isActive = (checkMQ(MD)) ? true : $icon.hasClass('is-active');
@@ -34,6 +40,7 @@ var navCtrl = function($) {
         }
       },
     },
+
     init: function() {
       TweenMax.killTweensOf($header);
       $header.removeAttr('style');
@@ -43,9 +50,28 @@ var navCtrl = function($) {
         menu.sp.slide(false);
       }
     }
+
   };
+
+  // click
   $(document).on('click', '.sp-nav-icon', menu.sp.toggleMenu);
+
+  // load
   $(window).on('load', menu.init);
+
+  // Media Query
   window.matchMedia(MD).addListener(menu.init);
+
+  //swipe
+  mc.on('swipeleft', function(event) {
+    if (!checkMQ(MD) && $body.hasClass('modal-open')) {
+      menu.sp.toggleMenu();
+    }
+  });
+  mc.on('swiperight', function(event) {
+    if (!checkMQ(MD) && !$body.hasClass('modal-open')) {
+      menu.sp.toggleMenu();
+    }
+  });
 };
 module.exports = (navCtrl)(jQuery);

@@ -110,6 +110,28 @@ products        :
 
   # -----------------------------------
   -
+    title       : '歯科パーク'
+    type        : '歯科検索サービス'
+    label       : 'Service Site'
+    url         : 'http://www.shika-park.jp/'
+    image       : 'images/ss-shika-park-jp.jpg'
+    thumbnail   : 'images/ss-shika-park-jp.jpg'
+    skill       :
+      - Photoshop
+      - Illustrator
+      - Bootstrap
+      - Responsive
+      - JavaScript
+      - jQuery
+      - PHP
+    description :
+      - '歯科検索サイト'
+      - '担当：ベースデザイン・キャラクターデザイン・フロントエンド部分のコーディング・アニメーション制作'
+    publish     :
+      - '株式会社オーエス (2014)'
+
+  # -----------------------------------
+  -
     title       : 'ホームページプレミアム v2'
     type        : 'サービスサイト'
     label       : 'Service Site'
@@ -249,27 +271,6 @@ products        :
     publish     :
       - '株式会社オーエス (2013)'
 
-  # -----------------------------------
-  -
-    title       : '歯科パーク'
-    type        : '歯科検索サービス'
-    label       : 'Service Site'
-    url         : 'http://www.shika-park.jp/'
-    image       : 'images/ss-shika-park-jp.jpg'
-    thumbnail   : 'images/ss-shika-park-jp.jpg'
-    skill       :
-      - Photoshop
-      - Illustrator
-      - Bootstrap
-      - Responsive
-      - JavaScript
-      - jQuery
-      - PHP
-    description :
-      - '歯科検索サイト'
-      - '担当：ベースデザイン・キャラクターデザイン・フロントエンド部分のコーディング・アニメーション制作'
-    publish     :
-      - '株式会社オーエス (2013)'
 
   # -----------------------------------
   -
