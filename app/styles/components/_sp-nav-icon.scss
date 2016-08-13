@@ -4,8 +4,8 @@
 .sp-nav-icon {
 	position: fixed;
 	z-index: 999;
-	top: 20px;
-	right: 20px;
+	top: 15px;
+	right: 15px;
 	display: inline-block;
 	overflow: visible;
 	width: 50px;
@@ -90,7 +90,7 @@
 	margin: auto;
 	padding-top: 0.5rem;
 	color: $color-white;
-	text-shadow: -1px -1px 3px $color-main, 1px -1px 3px $color-main, -1px 1px 3px $color-main, 1px 1px 3px $color-main;
+	text-shadow: 0 1px 0 $color-main, 1px -1px 3px $color-main, -1px 1px 3px $color-main, 1px 1px 3px $color-main;
 	font-size: 11px;
 }
 
@@ -106,7 +106,7 @@
 		}
 
 		&::before {
-			content: "MENU";
+			content: "LISTS";
 			opacity: 1;
 		}
 

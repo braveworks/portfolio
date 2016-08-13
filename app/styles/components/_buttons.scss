@@ -21,7 +21,8 @@
   z-index: 50;
   top: 50vh;
   color: $color-white !important;
-  background: rgba($color-main,0.3);
+  background:$color-main;
+  background: rgba($color-main,0.8);
   box-shadow: none;
   font-size: 1rem;
 

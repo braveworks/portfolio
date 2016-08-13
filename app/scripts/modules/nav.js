@@ -38,10 +38,11 @@ var navCtrl = function($) {
           $body.addClass('modal-open');
           menu.sp.slide(true);
         }
-      },
+      }
+
     },
 
-    init: function() {
+    reset: function() {
       TweenMax.killTweensOf($header);
       $header.removeAttr('style');
       $body.removeClass('modal-open');
@@ -65,29 +66,34 @@ var navCtrl = function($) {
           clearProps: 'all'
         }, 0.1);
       }
+    },
+
+    swipeClse: function(event) {
+      if (!checkMQ(MD) && $body.hasClass('modal-open')) {
+        menu.sp.toggleMenu();
+      }
+    },
+
+    start: function() {
+      //add backdrop
+      $body.prepend('<div class="backdrop"></div>');
+
+      // click event
+      $(document).on('click', '.sp-nav-icon,.backdrop', menu.sp.toggleMenu);
+
+      // load event
+      $(window).on('load', menu.reset);
+
+      // matchMedia event
+      window.matchMedia(MD).addListener(menu.reset);
+
+      //swipe event
+      mc.on('swipeleft', menu.swipeClse);
     }
 
   };
 
-  // click
-  $(document).on('click', '.sp-nav-icon', menu.sp.toggleMenu);
+  menu.start();
 
-  // load
-  $(window).on('load', menu.init);
-
-  // Media Query
-  window.matchMedia(MD).addListener(menu.init);
-
-  //swipe
-  mc.on('swipeleft', function(event) {
-    if (!checkMQ(MD) && $body.hasClass('modal-open')) {
-      menu.sp.toggleMenu();
-    }
-  });
-  // mc.on('swiperight', function(event) {
-  //   if (!checkMQ(MD) && !$body.hasClass('modal-open')) {
-  //     menu.sp.toggleMenu();
-  //   }
-  // });
 };
 module.exports = (navCtrl)(jQuery);

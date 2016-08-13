@@ -4,10 +4,12 @@
 
 var loading = function($) {
 
-  var $overlay    = $('.loading');
-  var $icon       = $('.loading-center-absolute');
+  var introAnimation = require('./introAnimation');
+
+  var $overlay = $('.loading');
+  var $icon = $('.loading-center-absolute');
   var $hrefTarget = $('a:not([href*="#"],[href*="tel:"],[href*="javascript:"],[target],[data-mfp])');
-  var fade        = {
+  var fade = {
 
     // fade aniamtion
     animate: function(flag, callback) {
@@ -19,7 +21,7 @@ var loading = function($) {
 
     // page in
     inPage: function() {
-      fade.animate('in', null);
+      fade.animate('in', (introAnimation)($));
     },
 
     // page out
@@ -51,7 +53,7 @@ var loading = function($) {
         // page out event
         // $(document).on('click', $hrefTarget, fade.outPage);
       }
-    }
+    },
 
   };
 

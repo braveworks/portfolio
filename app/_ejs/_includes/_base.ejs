@@ -1,5 +1,8 @@
 <% include _lib/_function -%>
-<% var page = filename.split('/')[filename.split('/').length - 1].replace('.ejs', ''); -%>
+<%
+var page = filename.split('/')[filename.split('/').length - 1].replace('.ejs', '');
+var namespace = (page ==='index') ? 'homepage' : null;
+-%>
 <!DOCTYPE html>
 <html class="no-js" lang="ja">
   <head>
@@ -24,7 +27,7 @@
         <div id="barba-wrapper" class="col-md-9 col-md-offset-3">
           <a class="btn btn-link btn-nav prev" href="<%= getPrevNext('prev', page); -%>">PREV</a>
           <a class="btn btn-link btn-nav next" href="<%= getPrevNext('next', page); -%>">NEXT</a>
-          <div class="barba-container" data-prev="<%= getPrevNext('prev', page); -%>" data-next="<%= getPrevNext('next', page); -%>">
+          <div class="barba-container" data-namespace="<%= namespace %>" data-prev="<%= getPrevNext('prev', page); %>" data-next="<%= getPrevNext('next', page); %>">
             <% contents(); %>
           </div>
         </div>

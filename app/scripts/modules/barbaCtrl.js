@@ -4,6 +4,7 @@
 
 var barbaCtrl = function($) {
 
+  var introAnimation = require('./introAnimation');
   var Barba = require('barba.js');
   var Hammer = require('hammerjs');
   var swipeCtrl = new Hammer(document);
@@ -122,11 +123,21 @@ var barbaCtrl = function($) {
         Barba.Pjax.goTo(NextLink.href);
       }
     });
+
     swipeCtrl.on('swiperight', function(event) {
       if (!$('body').hasClass('modal-open')) {
         Barba.Pjax.goTo(PrevLink.href);
       }
     });
+
+    // index.html
+    var Homepage = Barba.BaseView.extend({
+      namespace: 'homepage',
+      onEnter: function() {
+        introAnimation($);
+      }
+    });
+    Homepage.init();
 
     ignoreLink();
 
@@ -134,7 +145,7 @@ var barbaCtrl = function($) {
 
   document.addEventListener('DOMContentLoaded', controller);
 
-    $(document).on('click', 'a.current', function(e) {
+  $(document).on('click', 'a.current', function(e) {
     e.preventDefault();
   });
 };

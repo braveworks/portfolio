@@ -1,4 +1,8 @@
 .cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height:100vh;
   h1 {
     color: $color-white;
     font-weight: 100;
@@ -18,7 +22,7 @@
   .btn.btn-link {
     color: $color-white;
     border: 2px solid $color-white;
-    box-shadow:none;
+    box-shadow: none;
     margin-top: 15px;
   }
 }

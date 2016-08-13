@@ -3,10 +3,9 @@
  * * sp-nav-button -> _sp-nav-button.scss
  *
  */
-
 .gnav {
   position: fixed;
-  z-index: 100;
+  z-index: 150;
   top: 0;
   left: 0;
   overflow: scroll;
@@ -50,10 +49,26 @@
       }
     }
 
-    &:hover span.lead::before,
-    &.current span.lead::before {
+    &.current span.lead::before,
+    &:hover span.lead::before {
       width: 120%;
       opacity: 1;
     }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  background: transparent;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 150;
+  display: none;
+
+  .modal-open & {
+    display: block;
   }
 }

@@ -6,8 +6,8 @@ var btnNavPosition = function($) {
   var margin = 0;
 
   var setPosition = function() {
-    $next.css({ 'top': '50vh', 'right': margin + 'px' });
-    $prev.css({ 'top': '50vh', 'left': $container.offset().left + margin });
+    $next.css({ 'top': '80vh', 'right': margin + 'px' });
+    $prev.css({ 'top': '80vh', 'left': $container.offset().left + margin });
   };
 
   $(window).on('load resize', setPosition);
