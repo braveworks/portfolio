@@ -4,18 +4,16 @@
 
 var barbaCtrl = function($) {
 
-  var introAnimation = require('./introAnimation');
   var Barba = require('barba.js');
   var Hammer = require('hammerjs');
-  var swipeCtrl = new Hammer(document);
+  var introAnimation = require('./introAnimation');
+  var addCurrentClass = require('./addCurrentClass');
 
-  var ignoreLink = function() {
-    $('a').removeClass('current');
-    $('.gnav a[href^="' + location.pathname.split("/")[1] + '"]').addClass('current');
-  };
+  var swipeCtrl = new Hammer(document);
 
   var controller = function() {
 
+    var isAnimation = false;
     var lastElementClicked;
     var PrevLink = document.querySelector('a.prev');
     var NextLink = document.querySelector('a.next');
@@ -28,12 +26,14 @@ var barbaCtrl = function($) {
     });
 
     Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
-      ignoreLink();
+      addCurrentClass();
     });
 
     var MovePage = Barba.BaseTransition.extend({
+
       start: function() {
         this.originalThumb = lastElementClicked;
+        // $('a').addClass('no-barba');
         Promise
           .all([this.newContainerLoading, this.scrollTop()])
           .then(this.movePages.bind(this));
@@ -43,7 +43,7 @@ var barbaCtrl = function($) {
         var deferred = Barba.Utils.deferred();
         var obj = { y: window.pageYOffset };
 
-        TweenMax.to(obj, 0.4, {
+        TweenMax.to(obj, 0.6, {
           y: 0,
           onUpdate: function() {
             if (obj.y === 0) {
@@ -63,6 +63,7 @@ var barbaCtrl = function($) {
       movePages: function() {
         var _this = this;
         var goingForward = true;
+        var once = false;
         this.updateLinks();
 
         if (this.getNewPageFile() === this.oldContainer.dataset.prev) {
@@ -72,35 +73,38 @@ var barbaCtrl = function($) {
         // init new container prop
         TweenMax.set(this.newContainer, {
           visibility: 'visible',
-          xPercent: goingForward ? 10 : -10,
           position: 'absolute',
           left: 0,
           top: 0,
-          opacity: 0,
           width: '100%',
           paddingLeft: '15px',
           paddingRight: '15px'
         });
 
         // move old container
-        TweenMax.to(this.oldContainer, 0.6, {
-          xPercent: goingForward ? -30 : 30,
+        TweenMax.staggerTo($(this.oldContainer).find('.content > *'), 0.3, {
+          xPercent: goingForward ? -10 : 10,
           opacity: 0,
           force3D: true,
-          onComplete: function() {
+        }, 0.1, function() {
+          if (!once) {
             _this.done();
+            console.log('done');
+            $('a').removeClass('no-barba');
+            once = !once;
           }
         });
 
         // move new container
-        TweenMax.to(this.newContainer, 1, {
+        TweenMax.staggerFromTo($(this.newContainer).find('.content > *'), 0.6, {
+          xPercent: goingForward ? 10 : -10,
+          opacity: 0
+        }, {
           xPercent: 0,
           opacity: 1,
           force3D: true,
-          onComplete: function() {
-            TweenMax.set(_this.newContainer, { clearProps: 'all' });
-          }
-        });
+          clearProps: 'all'
+        }, 0.1);
       },
 
       updateLinks: function() {
@@ -135,17 +139,25 @@ var barbaCtrl = function($) {
       namespace: 'homepage',
       onEnter: function() {
         introAnimation($);
+
+      },
+      onEnterCompleted: function() {
+        console.log('cal');
+        // Barba.BaseTransition.done();
+        $('a').removeClass('no-barba');
+
       }
+
     });
     Homepage.init();
 
-    ignoreLink();
+    addCurrentClass();
 
   };
 
   document.addEventListener('DOMContentLoaded', controller);
 
-  $(document).on('click', 'a.current', function(e) {
+  $(document).on('click', 'a.current,a.no-barba', function(e) {
     e.preventDefault();
   });
 };

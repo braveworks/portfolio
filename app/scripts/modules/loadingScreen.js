@@ -16,6 +16,7 @@ var loading = function($) {
       var mode = (flag === 'out') ? true : (flag === 'in') ? false : false;
       var tl = new TimelineMax();
       tl.to($icon, (mode) ? 1 : 0.5, { opacity: (mode) ? 1 : 0 }, 0)
+        .to($overlay, (mode) ? 1 : 0.5, { right: '0', width: $('#barba-wrapper').width() })
         .to($overlay, (mode) ? 1 : 0.5, { autoAlpha: (mode) ? 1 : 0, onComplete: callback }, 0.5);
     },
 

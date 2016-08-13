@@ -62,6 +62,10 @@ module.exports = {
     return d.promise();
   },
 
+  randomNumber : (min, max) => {
+    return Math.floor(Math.random() * (1 + max - min) + min);
+  },
+
   // get wordpress theme path
   getWPPath: {
     current: function() {
