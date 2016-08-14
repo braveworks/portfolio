@@ -13,7 +13,6 @@ var addCurrentClass = function() {
 
   if (cb > wh || 0 > ct) {
     var targetOffset = ct;
-    console.log(targetOffset);
     TweenMax.to($gnav, 3, { scrollTo: { y: targetOffset, autoKill: true, force3D: true }, ease: Power4.easeOut });
   }
 
