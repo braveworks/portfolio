@@ -12,22 +12,14 @@ var barbaCtrl = function($) {
 
   var controller = function() {
 
-    var isAnimation = false;
     var lastElementClicked;
-
     var PrevLink = document.querySelector('a.prev');
     var NextLink = document.querySelector('a.next');
 
     Barba.Pjax.init();
     Barba.Prefetch.init();
-
-    Barba.Dispatcher.on('linkClicked', function(el) {
-      lastElementClicked = el;
-    });
-
-    Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
-      addCurrentClass();
-    });
+    Barba.Dispatcher.on('linkClicked', function(el) { lastElementClicked = el; });
+    Barba.Dispatcher.on('newPageReady', function() { addCurrentClass(); });
 
     var Homepage = Barba.BaseView.extend({
       namespace: 'homepage',
@@ -42,6 +34,7 @@ var barbaCtrl = function($) {
       start: function() {
         this.originalThumb = lastElementClicked;
         $('a').addClass('no-barba');
+        
         Promise
           .all([this.newContainerLoading, this.scrollTop()])
           .then(this.movePages.bind(this));

@@ -287,7 +287,7 @@ products        :
     type        : 'コーポレートサイト'
     year        : '2016'
     label       : 'Corporate Site'
-    url         : 'http://ramses-grp.com/'
+    # url         : 'http://ramses-grp.com/'
     image       : 'images/ss-ramses-grp-com.jpg'
     thumbnail   : 'images/ss-ramses-grp-com.jpg'
     skill       :
