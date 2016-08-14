@@ -8,13 +8,13 @@ var barbaCtrl = function($) {
   var Hammer = require('hammerjs');
   var introAnimation = require('./introAnimation');
   var addCurrentClass = require('./addCurrentClass');
-
   var swipeCtrl = new Hammer(document);
 
   var controller = function() {
 
     var isAnimation = false;
     var lastElementClicked;
+
     var PrevLink = document.querySelector('a.prev');
     var NextLink = document.querySelector('a.next');
 
@@ -29,11 +29,19 @@ var barbaCtrl = function($) {
       addCurrentClass();
     });
 
+    var Homepage = Barba.BaseView.extend({
+      namespace: 'homepage',
+      onEnter: function() {
+        introAnimation($);
+      }
+    });
+    Homepage.init();
+
     var MovePage = Barba.BaseTransition.extend({
 
       start: function() {
         this.originalThumb = lastElementClicked;
-        // $('a').addClass('no-barba');
+        $('a').addClass('no-barba');
         Promise
           .all([this.newContainerLoading, this.scrollTop()])
           .then(this.movePages.bind(this));
@@ -64,6 +72,9 @@ var barbaCtrl = function($) {
         var _this = this;
         var goingForward = true;
         var once = false;
+        var $oldContent = $(this.oldContainer).find('.content > *');
+        var $newContent = $(this.newContainer).find('.content > *');
+
         this.updateLinks();
 
         if (this.getNewPageFile() === this.oldContainer.dataset.prev) {
@@ -71,40 +82,26 @@ var barbaCtrl = function($) {
         }
 
         // init new container prop
-        TweenMax.set(this.newContainer, {
-          visibility: 'visible',
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          width: '100%',
-          paddingLeft: '15px',
-          paddingRight: '15px'
-        });
+        TweenMax.set(this.newContainer, { visibility: 'visible', position: 'absolute', left: 0, top: 0, width: '100%', paddingLeft: '15px', paddingRight: '15px' });
 
         // move old container
-        TweenMax.staggerTo($(this.oldContainer).find('.content > *'), 0.3, {
-          xPercent: goingForward ? -10 : 10,
-          opacity: 0,
-          force3D: true,
-        }, 0.1, function() {
-          if (!once) {
-            _this.done();
-            console.log('done');
-            $('a').removeClass('no-barba');
-            once = !once;
-          }
-        });
+        if ($oldContent.length) {
+
+          TweenMax.staggerTo($oldContent, 0.3, { xPercent: goingForward ? -10 : 10, opacity: 0, force3D: true, }, 0.1, function() {
+            if (!once) {
+              _this.done();
+              $('a').removeClass('no-barba');
+              once = !once;
+            }
+          });
+
+        } else {
+          _this.done();
+          $('a').removeClass('no-barba');
+        }
 
         // move new container
-        TweenMax.staggerFromTo($(this.newContainer).find('.content > *'), 0.6, {
-          xPercent: goingForward ? 10 : -10,
-          opacity: 0
-        }, {
-          xPercent: 0,
-          opacity: 1,
-          force3D: true,
-          clearProps: 'all'
-        }, 0.1);
+        TweenMax.staggerFromTo($newContent, 0.6, { xPercent: goingForward ? 10 : -10, opacity: 0 }, { xPercent: 0, opacity: 1, force3D: true, clearProps: 'all' }, 0.1);
       },
 
       updateLinks: function() {
@@ -135,24 +132,7 @@ var barbaCtrl = function($) {
     });
 
     // index.html
-    var Homepage = Barba.BaseView.extend({
-      namespace: 'homepage',
-      onEnter: function() {
-        introAnimation($);
-
-      },
-      onEnterCompleted: function() {
-        console.log('cal');
-        // Barba.BaseTransition.done();
-        $('a').removeClass('no-barba');
-
-      }
-
-    });
-    Homepage.init();
-
     addCurrentClass();
-
   };
 
   document.addEventListener('DOMContentLoaded', controller);
