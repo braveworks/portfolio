@@ -3,7 +3,6 @@ var addCurrentClass = function() {
   var $gnav = $('.gnav');
   var url = location.pathname.split('/')[location.pathname.split('/').length - 1];
   url = (url) ? url : 'index.html';
-  console.log(url);
 
   $gnav.find('a').removeClass('current');
   $gnav.find('a[href^="' + url + '"]').addClass('current');

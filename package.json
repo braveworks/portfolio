@@ -52,8 +52,6 @@
     "hammerjs": "^2.0.8",
     "imagesloaded": "^4.1.0",
     "jquery": "^3.1.0",
-    "magnific-popup": "^1.1.0",
-    "mixitup": "git+https://github.com/patrickkunka/mixitup.git",
     "scrollmagic": "^2.0.5"
   },
   "browser": {

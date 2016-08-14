@@ -244,8 +244,8 @@ gulp.task('default', function() {
 });
 
 // deploy gh-pages
-gulp.task('deploy', function() {
-  var options = { remoteUrl: 'git@github.com:braveworks/portfolio.git' };
-  return gulp.src('./dist/**/**')
-    .pipe($.ghPages(options));
-});
+// gulp.task('deploy', function() {
+//   var options = { remoteUrl: 'git@github.com:braveworks/portfolio.git' };
+//   return gulp.src('./dist/**/**')
+//     .pipe($.ghPages(options));
+// });
