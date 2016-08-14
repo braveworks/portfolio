@@ -33,8 +33,8 @@ var barbaCtrl = function($) {
 
       start: function() {
         this.originalThumb = lastElementClicked;
-        $('a').addClass('no-barba');
-        
+        $('a').addClass('disable');
+
         Promise
           .all([this.newContainerLoading, this.scrollTop()])
           .then(this.movePages.bind(this));
@@ -83,14 +83,14 @@ var barbaCtrl = function($) {
           TweenMax.staggerTo($oldContent, 0.3, { xPercent: goingForward ? -10 : 10, opacity: 0, force3D: true, }, 0.1, function() {
             if (!once) {
               _this.done();
-              $('a').removeClass('no-barba');
+              $('a').removeClass('disable');
               once = !once;
             }
           });
 
         } else {
           _this.done();
-          $('a').removeClass('no-barba');
+          $('a').removeClass('disable');
         }
 
         // move new container
@@ -130,7 +130,7 @@ var barbaCtrl = function($) {
 
   document.addEventListener('DOMContentLoaded', controller);
 
-  $(document).on('click', 'a.current,a.no-barba', function(e) {
+  $(document).on('click', 'a.current,a.disable', function(e) {
     e.preventDefault();
   });
 };

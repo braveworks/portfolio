@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height:100vh;
+  min-height: 100vh;
+  text-align: center;
+
   h1 {
     color: $color-white;
     font-weight: 100;
@@ -24,5 +26,21 @@
     border: 2px solid $color-white;
     box-shadow: none;
     margin-top: 15px;
+  }
+
+  .label-info {
+    display:inline-block;
+    font-size: 1.2rem !important;
+    font-weight:normal;
+    background: transparent;
+    border-radius: 0;
+    border:2px solid $color-white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+    i.icon{
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
   }
 }
