@@ -47,3 +47,6 @@ ejs で使用する値を定義するymlファイル。
 ## その他
 
 - 頭に`_`がつくejsファイルはビルド時に出力されません(scssのpartial的な扱い)
+
+## deploy
+https://gist.github.com/belohlavek/61dd16c08cd9c57a168408b9ac4121c2
