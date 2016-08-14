@@ -213,6 +213,7 @@ gulp.task('copy', function() {
   return gulp.src([
       'app/robots.txt',
       'app/contents.yml',
+      './.gitignore',
       '!app/**/.gitkeep'
     ], {
       dot: true
