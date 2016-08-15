@@ -70,7 +70,7 @@ gulp.task('ejs', ['clean:ejs'], function() {
 
   // build subpage
   config.products.forEach(function(data, index) {
-    var id = 'page-' + zeroPadding(index, 3);
+    var id = 'page' + zeroPadding(index, 3);
     var value = {
       config: config.config,
       site: config.site,

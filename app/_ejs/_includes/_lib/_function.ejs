@@ -79,16 +79,16 @@ getPrevNext = function(direction,page){
     if(direction ==='prev'){
       if(page === '_subpage'){
         value = index -1;
-        value = (value < 0) ? 'index' : 'page-' + zeroPadding(value,3);
+        value = (value < 0) ? 'index' : 'page' + zeroPadding(value,3);
       }else if(page === 'index'){
-        value = 'page-' + zeroPadding((products.length-1) ,3);
+        value = 'page' + zeroPadding((products.length-1) ,3);
       }
     }else{
       if(page === '_subpage'){
         value = index +1;
-        value = (value >= products.length) ? 'index' : 'page-' + zeroPadding(value,3);
+        value = (value >= products.length) ? 'index' : 'page' + zeroPadding(value,3);
       }else if(page === 'index'){
-        value = 'page-' + zeroPadding(0,3);
+        value = 'page' + zeroPadding(0,3);
       }
     }
 

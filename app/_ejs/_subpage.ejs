@@ -20,7 +20,7 @@ productsList = products;
 
       <% if(page.url){  -%>
         <p class="pd-top">
-          <a href="<%= page.url %>" class="btn btn-default btn-block no-barba" target="_blank">
+          <a href="<%= page.url %>" class="btn btn-default btn-block no-barba op-window">
             <span>Web Site </span>
             <i class="icon ion-android-exit" aria-hidden="true"></i>
           </a>
@@ -36,9 +36,18 @@ productsList = products;
     </div>
   </div>
   <hr/>
-  <figure class="overlay">
-    <img class="img-responsive center-block drop-shadow" src="<%= page.image %>" alt=""/>
-  </figure>
+  <div class="screenshot">
+    <div class="screenshot-loader">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+    <figure class="overlay">
+      <img class="img-responsive center-block drop-shadow" src="<%= page.image %>" alt=""/>
+    </figure>
+  </div>
   <hr/>
   <% if(page.publish){ var publishLoop = function (element,index,array){ -%>
     <p><small><%= array[index] %></small></p>

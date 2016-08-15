@@ -81,3 +81,47 @@
     transform: translate(-20px,-20px);
   }
 }
+
+.screenshot {
+  position: relative;
+
+  &-loader {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: none;
+
+    .spinner {
+      width: 50px;
+      text-align: center;
+    }
+
+    .spinner > div {
+      width: 10px;
+      height: 10px;
+      background-color: $color-white;
+      border-radius: 100%;
+      display: inline-block;
+      animation: sk-bouncedelay 1s infinite ease-in-out both;
+    }
+
+    .spinner .bounce1 {
+      animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+      animation-delay: -0.16s;
+    }
+  }
+}
+@keyframes sk-bouncedelay {
+  0%,
+  100%,
+  80% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1.0);
+  }
+}

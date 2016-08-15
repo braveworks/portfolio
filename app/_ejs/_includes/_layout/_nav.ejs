@@ -12,7 +12,7 @@
       <% if(products){
         var navLoop = function (element,index,array){ %>
         <li>
-          <a class="btn btn-link text-uppercase" href="<%= 'page-' + zeroPadding(index,3) + '.html'; %>">
+          <a class="btn btn-link text-uppercase" href="<%= 'page' + zeroPadding(index,3) + '.html'; %>">
             <span class="lead"><%= element.label %></span><br/>
             <small><%= element.title %></small>
           </a>

@@ -1,16 +1,16 @@
 var navCtrl = function($) {
 
   var modules = require('./modules');
-  var Hammer = require('hammerjs');
+  var Hammer  = require('hammerjs');
 
-  var MD = modules.mq.MD;
+  var MD      = modules.mq.MD;
   var checkMQ = modules.checkMQ;
 
-  var $body = $('body');
+  var $body   = $('body');
   var $header = $('.gnav');
-  var $icon = $('.sp-nav-icon');
+  var $icon   = $('.sp-nav-icon');
 
-  var mc = new Hammer(document);
+  var mc      = new Hammer(document);
 
   var menu = {
     sp: {
@@ -79,7 +79,7 @@ var navCtrl = function($) {
       $body.prepend('<div class="backdrop"></div>');
 
       // click event
-      $(document).on('click', '.sp-nav-icon,.backdrop', menu.sp.toggleMenu);
+      $(document).on('click', '.sp-nav-icon,.backdrop,.modal-open .gnav a', menu.sp.toggleMenu);
 
       // load event
       $(window).on('load', menu.reset);
